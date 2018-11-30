@@ -1,0 +1,27 @@
+import React from "react";
+import PropTypes from "prop-types";
+
+import { rangeSpec } from "react-jsonschema-form/lib/utils";
+
+function RangeWidget(props) {
+  const {
+    schema,
+    value,
+    registry: {
+      widgets: { BaseInput },
+    },
+  } = props;
+  return (
+    <div className="field-range-wrapper">
+      <BaseInput type="range" {...props} {...rangeSpec(schema)} />
+      <span className="range-view">{value}</span>
+    </div>
+  );
+}
+
+
+  RangeWidget.propTypes = {
+    value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  };
+
+export default RangeWidget;

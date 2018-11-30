@@ -1,0 +1,43 @@
+{
+  "name": "react-jsonschema-form-material-theme",
+  "version": "0.0.1",
+  "description": "Material-ui theme for the react-jsonschema-form ",
+  "main": "index.js",
+  "repository": "git@github.com:SelfKeyFoundation/react-jsonschema-form-material-theme.git",
+  "author": "rodrigopavezi <rodrigopavezi@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "build": "webpack --mode production",
+    "start": "webpack-dev-server --mode development",
+    "deploy": "gh-pages-deploy -- 'Deploy playground'"
+  },
+  "dependencies": {
+    "@material-ui/core": "^3.6.0",
+    "ajv": "^6.5.5",
+    "codemirror": "^5.42.0",
+    "lodash.topath": "^4.5.2",
+    "react": "^16.6.3",
+    "react-codemirror2": "^5.1.0",
+    "react-dom": "^16.6.3",
+    "react-jsonschema-form": "file:../react-jsonschema-form"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.1.6",
+    "@babel/plugin-external-helpers": "^7.0.0",
+    "@babel/plugin-proposal-class-properties": "^7.1.0",
+    "@babel/plugin-transform-runtime": "^7.1.0",
+    "@babel/preset-env": "^7.1.6",
+    "@babel/preset-react": "^7.0.0",
+    "babel-loader": "^8.0.4",
+    "copy-webpack-plugin": "^4.6.0",
+    "css-loader": "^1.0.1",
+    "gh-pages-deploy": "^0.5.0",
+    "style-loader": "^0.23.1",
+    "webpack": "^4.26.1",
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-server": "^3.1.10"
+  },
+  "gh-pages-deploy": {
+    "staticpath": "build/playground"
+  }
+}
