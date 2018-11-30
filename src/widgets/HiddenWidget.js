@@ -11,7 +11,7 @@ function HiddenWidget({ id, value }) {
   );
 }
 
-if (process.env.NODE_ENV !== "production") {
+
   HiddenWidget.propTypes = {
     id: PropTypes.string.isRequired,
     value: PropTypes.oneOfType([
@@ -20,6 +20,5 @@ if (process.env.NODE_ENV !== "production") {
       PropTypes.bool,
     ]),
   };
-}
 
 export default HiddenWidget;

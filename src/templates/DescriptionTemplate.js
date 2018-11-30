@@ -22,11 +22,10 @@ function DescriptionTemplate(props) {
   }
 }
 
-if (process.env.NODE_ENV !== "production") {
+
   DescriptionTemplate.propTypes = {
     id: PropTypes.string,
     description: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   };
-}
 
 export default DescriptionTemplate;

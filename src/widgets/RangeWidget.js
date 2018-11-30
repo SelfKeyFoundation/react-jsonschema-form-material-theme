@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import { rangeSpec } from "../utils";
+import { rangeSpec } from "react-jsonschema-form/lib/utils";
 
 function RangeWidget(props) {
   const {
@@ -19,10 +19,9 @@ function RangeWidget(props) {
   );
 }
 
-if (process.env.NODE_ENV !== "production") {
+
   RangeWidget.propTypes = {
     value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   };
-}
 
 export default RangeWidget;

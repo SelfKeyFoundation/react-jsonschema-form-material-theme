@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import InputBase from '@material-ui/core/InputBase';
+import Input from '@material-ui/core/Input';
 
 function BaseInput(props) {
   // Note: since React 15.2.0 we can't forward unknown element attributes, so we
@@ -30,7 +30,7 @@ function BaseInput(props) {
   };
 
   return (
-    <InputBase
+    <Input
       className="form-control"
       readOnly={readonly}
       disabled={disabled}
@@ -52,7 +52,7 @@ BaseInput.defaultProps = {
   autofocus: false,
 };
 
-if (process.env.NODE_ENV !== "production") {
+
   BaseInput.propTypes = {
     id: PropTypes.string.isRequired,
     placeholder: PropTypes.string,
@@ -65,6 +65,5 @@ if (process.env.NODE_ENV !== "production") {
     onBlur: PropTypes.func,
     onFocus: PropTypes.func,
   };
-}
 
 export default BaseInput;

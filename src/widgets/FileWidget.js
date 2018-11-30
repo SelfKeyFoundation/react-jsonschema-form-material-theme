@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 
-import { dataURItoBlob, shouldRender, setState } from "../utils";
+import { dataURItoBlob, shouldRender, setState } from "react-jsonschema-form/lib/utils";
 
 function addNameToDataURL(dataURL, name) {
   return dataURL.replace(";base64", `;name=${name};base64`);
@@ -116,7 +116,7 @@ FileWidget.defaultProps = {
   autofocus: false,
 };
 
-if (process.env.NODE_ENV !== "production") {
+
   FileWidget.propTypes = {
     multiple: PropTypes.bool,
     value: PropTypes.oneOfType([
@@ -125,6 +125,5 @@ if (process.env.NODE_ENV !== "production") {
     ]),
     autofocus: PropTypes.bool,
   };
-}
 
 export default FileWidget;

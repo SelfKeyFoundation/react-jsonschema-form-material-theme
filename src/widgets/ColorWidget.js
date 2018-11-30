@@ -12,7 +12,7 @@ function ColorWidget(props) {
   return <BaseInput type="color" {...props} disabled={disabled || readonly} />;
 }
 
-if (process.env.NODE_ENV !== "production") {
+
   ColorWidget.propTypes = {
     schema: PropTypes.object.isRequired,
     id: PropTypes.string.isRequired,
@@ -23,6 +23,5 @@ if (process.env.NODE_ENV !== "production") {
     autofocus: PropTypes.bool,
     onChange: PropTypes.func,
   };
-}
 
 export default ColorWidget;

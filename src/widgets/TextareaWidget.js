@@ -22,7 +22,6 @@ function TextareaWidget(props) {
   return (
     <TextField
       id={id}
-      className="form-control"
       value={typeof value === "undefined" ? "" : value}
       placeholder={placeholder}
       required={required}
@@ -33,6 +32,7 @@ function TextareaWidget(props) {
       onBlur={onBlur && (event => onBlur(id, event.target.value))}
       onFocus={onFocus && (event => onFocus(id, event.target.value))}
       onChange={_onChange}
+      multiline={true}
     />
   );
 }
@@ -42,7 +42,7 @@ TextareaWidget.defaultProps = {
   options: {},
 };
 
-if (process.env.NODE_ENV !== "production") {
+
   TextareaWidget.propTypes = {
     schema: PropTypes.object.isRequired,
     id: PropTypes.string.isRequired,
@@ -59,6 +59,5 @@ if (process.env.NODE_ENV !== "production") {
     onBlur: PropTypes.func,
     onFocus: PropTypes.func,
   };
-}
 
 export default TextareaWidget;

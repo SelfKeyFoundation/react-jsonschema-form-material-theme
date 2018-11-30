@@ -7,4 +7,5 @@ This module contains Widgets and Templates using material-ui for the react-jsons
 ```bash
 yarn
 yarn build
+yarn start
 ```

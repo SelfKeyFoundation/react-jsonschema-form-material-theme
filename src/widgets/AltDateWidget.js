@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 
-import { shouldRender, parseDateString, toDateString, pad } from "../utils";
+import { shouldRender, parseDateString, toDateString, pad } from "react-jsonschema-form/lib/utils";
 
 function rangeOptions(start, stop) {
   let options = [];
@@ -48,16 +48,6 @@ function DateElement(props) {
 }
 
 class AltDateWidget extends Component {
-  static defaultProps = {
-    time: false,
-    disabled: false,
-    readonly: false,
-    autofocus: false,
-    options: {
-      yearsRange: [1900, new Date().getFullYear() + 2],
-    },
-  };
-
   constructor(props) {
     super(props);
     this.state = parseDateString(props.value, props.time);
@@ -160,7 +150,16 @@ class AltDateWidget extends Component {
   }
 }
 
-if (process.env.NODE_ENV !== "production") {
+  AltDateWidget.defaultProps = {
+    time: false,
+    disabled: false,
+    readonly: false,
+    autofocus: false,
+    options: {
+      yearsRange: [1900, new Date().getFullYear() + 2],
+    },
+  };
+
   AltDateWidget.propTypes = {
     schema: PropTypes.object.isRequired,
     id: PropTypes.string.isRequired,
@@ -174,6 +173,5 @@ if (process.env.NODE_ENV !== "production") {
     time: PropTypes.bool,
     options: PropTypes.object,
   };
-}
 
 export default AltDateWidget;

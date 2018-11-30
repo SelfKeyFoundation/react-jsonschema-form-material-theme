@@ -1,5 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
+import InputLabel from '@material-ui/core/InputLabel';
+import FormGroup from '@material-ui/core/FormGroup';
 
 const REQUIRED_FIELD_SYMBOL = "*";
 
@@ -26,7 +28,7 @@ export default function FieldTemplate(props) {
   }
 
   return (
-    <div className={classNames}>
+    <FormGroup>
       {displayLabel && <Label label={label} required={required} id={id} />}
       {displayLabel && description ? (
         <DescriptionTemplate
@@ -38,7 +40,7 @@ export default function FieldTemplate(props) {
       {children}
       <ErrorList errors={errors} />
       <Help help={help} />
-    </div>
+    </FormGroup>
   );
 }
 
@@ -49,7 +51,7 @@ FieldTemplate.defaultProps = {
   displayLabel: true,
 };
 
-if (process.env.NODE_ENV !== "production") {
+
   FieldTemplate.propTypes = {
     id: PropTypes.string,
     classNames: PropTypes.string,
@@ -65,7 +67,6 @@ if (process.env.NODE_ENV !== "production") {
     fields: PropTypes.object,
     formContext: PropTypes.object,
   };
-}
 
 function Label(props) {
   const { label, required, id } = props;
@@ -74,10 +75,10 @@ function Label(props) {
     return <div />;
   }
   return (
-    <label className="control-label" htmlFor={id}>
+    <InputLabel htmlFor={id}>
       {label}
       {required && <span className="required">{REQUIRED_FIELD_SYMBOL}</span>}
-    </label>
+    </InputLabel>
   );
 }
 

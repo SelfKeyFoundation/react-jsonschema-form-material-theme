@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { pad } from "../utils";
+import { pad } from "react-jsonschema-form/lib/utils";
 
 export function utcToLocal(jsonDate) {
   if (!jsonDate) {
@@ -50,10 +50,9 @@ function DateTimeWidget(props) {
   );
 }
 
-if (process.env.NODE_ENV !== "production") {
+
   DateTimeWidget.propTypes = {
     value: PropTypes.string,
   };
-}
 
 export default DateTimeWidget;

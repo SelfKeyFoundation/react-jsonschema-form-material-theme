@@ -9,12 +9,11 @@ function TitleTemplate(props) {
   return <legend id={id}>{legend}</legend>;
 }
 
-if (process.env.NODE_ENV !== "production") {
+
   TitleTemplate.propTypes = {
     id: PropTypes.string,
     title: PropTypes.string,
     required: PropTypes.bool,
   };
-}
 
 export default TitleTemplate;

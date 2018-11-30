@@ -63,7 +63,7 @@ CheckboxesWidget.defaultProps = {
   },
 };
 
-if (process.env.NODE_ENV !== "production") {
+
   CheckboxesWidget.propTypes = {
     schema: PropTypes.object.isRequired,
     id: PropTypes.string.isRequired,
@@ -79,6 +79,5 @@ if (process.env.NODE_ENV !== "production") {
     autofocus: PropTypes.bool,
     onChange: PropTypes.func,
   };
-}
 
 export default CheckboxesWidget;

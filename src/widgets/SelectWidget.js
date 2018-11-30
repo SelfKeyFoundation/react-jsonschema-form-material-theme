@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import Select from '@material-ui/core/Select';
 
-import { asNumber } from "../utils";
+import { asNumber } from "react-jsonschema-form/lib/utils";
 
 const nums = new Set(["number", "integer"]);
 
@@ -96,7 +96,7 @@ SelectWidget.defaultProps = {
   autofocus: false,
 };
 
-if (process.env.NODE_ENV !== "production") {
+
   SelectWidget.propTypes = {
     schema: PropTypes.object.isRequired,
     id: PropTypes.string.isRequired,
@@ -113,6 +113,5 @@ if (process.env.NODE_ENV !== "production") {
     onBlur: PropTypes.func,
     onFocus: PropTypes.func,
   };
-}
 
 export default SelectWidget;

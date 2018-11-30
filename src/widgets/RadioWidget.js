@@ -56,7 +56,7 @@ RadioWidget.defaultProps = {
   autofocus: false,
 };
 
-if (process.env.NODE_ENV !== "production") {
+
   RadioWidget.propTypes = {
     schema: PropTypes.object.isRequired,
     id: PropTypes.string.isRequired,
@@ -71,5 +71,5 @@ if (process.env.NODE_ENV !== "production") {
     autofocus: PropTypes.bool,
     onChange: PropTypes.func,
   };
-}
+  
 export default RadioWidget;
