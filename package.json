@@ -19,7 +19,7 @@
     "react": "^16.6.3",
     "react-codemirror2": "^5.1.0",
     "react-dom": "^16.6.3",
-    "react-jsonschema-form": "file:../react-jsonschema-form"
+    "react-jsonschema-form": "https://github.com/SelfKeyFoundation/react-jsonschema-form.git#templates"
   },
   "devDependencies": {
     "@babel/core": "^7.1.6",
