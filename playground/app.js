@@ -26,6 +26,7 @@ import "codemirror/theme/solarized.css";
 import "codemirror/theme/monokai.css";
 import "codemirror/theme/eclipse.css";
 import { Grid, List, ListItem } from "@material-ui/core";
+import { SelfkeyDarkTheme } from "selfkey-ui";
 
 
 const log = type => console.log.bind(console, type);
@@ -376,40 +377,42 @@ class App extends Component {
               </Grid>
               <Grid item xs={4}>
                 {this.state.form && (
-                  <Form
-                    templates={templates}
-                    liveValidate={liveValidate}
-                    schema={schema}
-                    uiSchema={uiSchema}
-                    formData={formData}
-                    onChange={this.onFormDataChange}
-                    onSubmit={({ formData }) =>
-                      console.log("submitted formData", formData)
-                    }
-                    fields={{ geo: GeoPosition }}
-                    validate={validate}
-                    onBlur={(id, value) =>
-                      console.log(`Touched ${id} with value ${value}`)
-                    }
-                    onFocus={(id, value) =>
-                      console.log(`Focused ${id} with value ${value}`)
-                    }
-                    transformErrors={transformErrors}
-                    onError={log("errors")}>
-                    <div className="row">
-                      <div className="col-sm-3">
-                        <button className="btn btn-primary" type="submit">
-                          Submit
-                        </button>
+                  <SelfkeyDarkTheme>
+                    <Form
+                      templates={templates}
+                      liveValidate={liveValidate}
+                      schema={schema}
+                      uiSchema={uiSchema}
+                      formData={formData}
+                      onChange={this.onFormDataChange}
+                      onSubmit={({ formData }) =>
+                        console.log("submitted formData", formData)
+                      }
+                      fields={{ geo: GeoPosition }}
+                      validate={validate}
+                      onBlur={(id, value) =>
+                        console.log(`Touched ${id} with value ${value}`)
+                      }
+                      onFocus={(id, value) =>
+                        console.log(`Focused ${id} with value ${value}`)
+                      }
+                      transformErrors={transformErrors}
+                      onError={log("errors")}>
+                      <div className="row">
+                        <div className="col-sm-3">
+                          <button className="btn btn-primary" type="submit">
+                            Submit
+                          </button>
+                        </div>
+                        <div className="col-sm-9 text-right">
+                          <CopyLink
+                            shareURL={this.state.shareURL}
+                            onShare={this.onShare}
+                          />
+                        </div>
                       </div>
-                      <div className="col-sm-9 text-right">
-                        <CopyLink
-                          shareURL={this.state.shareURL}
-                          onShare={this.onShare}
-                        />
-                      </div>
-                    </div>
-                  </Form>
+                    </Form>
+                  </SelfkeyDarkTheme>
                 )}
               </Grid>
             </Grid>

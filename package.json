@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "Material-ui theme for the react-jsonschema-form ",
   "main": "src/index.js",
-  "types":"src/index.d.ts",
+  "types": "src/index.d.ts",
   "repository": "git@github.com:SelfKeyFoundation/react-jsonschema-form-material-theme.git",
   "author": "rodrigopavezi <rodrigopavezi@gmail.com>",
   "license": "MIT",
@@ -20,7 +20,8 @@
     "react": "^16.6.3",
     "react-codemirror2": "^5.1.0",
     "react-dom": "^16.6.3",
-    "react-jsonschema-form": "https://github.com/SelfKeyFoundation/react-jsonschema-form.git#templates"
+    "react-jsonschema-form": "https://github.com/SelfKeyFoundation/react-jsonschema-form.git#templates",
+    "selfkey-ui": "https://github.com/SelfKeyFoundation/selfkey-ui.git#material-ui"
   },
   "devDependencies": {
     "@babel/core": "^7.1.6",
