@@ -1,7 +1,7 @@
 import widgets from './widgets/index';
 import templates from './templates/index';
-
-export default {
+const theme = {
     widgets,
     templates
 }
+export default theme

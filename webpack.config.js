@@ -1,10 +1,12 @@
 const path = require('path')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
+const webpack = require('webpack');
 
 module.exports = {
     entry: {
-        'lib/react-jsonschema-form-material-theme.min': './src/index.js',
-        'playground/app': './playground/app.js'
+        'playground/app': './playground/app.js',
+        'lib/react-jsonschema-form-material-theme.min': './src/index.js'
+        
     },
     output: {
         path: path.resolve(__dirname, 'build'),
@@ -29,11 +31,15 @@ module.exports = {
     plugins: [
         new CopyWebpackPlugin([
             { from: 'playground/index.html', to: 'playground/index.html' }
-        ])
+        ]),
+        new webpack.HotModuleReplacementPlugin({
+        })
     ],
     devServer: {
         contentBase: path.join(__dirname, 'build/playground'),
+        watchContentBase: true,
         compress: true,
-        port: 9000
+        port: 9000,
+        hot: true
       }
 }

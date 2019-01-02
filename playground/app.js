@@ -8,12 +8,9 @@ import { samples } from "./samples/index";
 
 import withTheme from "react-jsonschema-form/lib/components/withTheme";
 
-import test from '../src/index';
+import theme from '../src/index';
 
-const widgets = test.widgets;
-const templates = test.templates;
-
-const Form = withTheme('MyTheme', { widgets, templates })
+const Form = withTheme('MyTheme', { widgets: theme.widgets, templates: theme.templates })
 
 // Import a few CodeMirror themes; these are used to match alternative
 // bootstrap ones.
