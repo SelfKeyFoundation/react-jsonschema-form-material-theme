@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "Material-ui theme for the react-jsonschema-form ",
   "main": "src/index.js",
-  "types":"src/index.d.ts",
+  "types": "src/index.d.ts",
   "repository": "git@github.com:SelfKeyFoundation/react-jsonschema-form-material-theme.git",
   "author": "rodrigopavezi <rodrigopavezi@gmail.com>",
   "license": "MIT",
