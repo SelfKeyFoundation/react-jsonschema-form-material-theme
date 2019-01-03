@@ -6,17 +6,19 @@ module.exports = {
     entry: {
         'playground/app': './playground/app.js',
         'lib/react-jsonschema-form-material-theme.min': './src/index.js'
-        
     },
     output: {
         path: path.resolve(__dirname, 'build'),
         publicPath: '/build/',
         filename: '[name].js'
     },
+    resolve: {
+        extensions: ['.js', '.jsx']
+    },    
     module: {
         rules: [
             {
-                test: /\.js$/,
+                test: /\.jsx?$/,
                 exclude: /node_modules/,
                 use: {
                     loader: "babel-loader"
