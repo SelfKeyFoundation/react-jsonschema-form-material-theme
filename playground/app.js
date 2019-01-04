@@ -22,7 +22,7 @@ import "codemirror/theme/ttcn.css";
 import "codemirror/theme/solarized.css";
 import "codemirror/theme/monokai.css";
 import "codemirror/theme/eclipse.css";
-import { Grid, List, ListItem } from "@material-ui/core";
+import { Grid, List, ListItem, Button } from "@material-ui/core";
 import { SelfkeyDarkTheme } from "selfkey-ui";
 
 
@@ -197,9 +197,9 @@ class CopyLink extends Component {
     const { shareURL, onShare } = this.props;
     if (!shareURL) {
       return (
-        <button className="btn btn-default" type="button" onClick={onShare}>
+        <Button color="primary" className="btn btn-default" type="button" onClick={onShare}>
           Share
-        </button>
+        </Button>
       );
     }
     return (
@@ -211,12 +211,13 @@ class CopyLink extends Component {
           defaultValue={shareURL}
         />
         <span className="input-group-btn">
-          <button
+          <Button
+            color="primary"
             className="btn btn-default"
             type="button"
             onClick={this.onCopyClick}>
             <i className="glyphicon glyphicon-copy" />
-          </button>
+          </Button>
         </span>
       </div>
     );
@@ -397,9 +398,9 @@ class App extends Component {
                       onError={log("errors")}>
                       <div className="row">
                         <div className="col-sm-3">
-                          <button className="btn btn-primary" type="submit">
+                          <Button variant="contained" className="btn btn-primary" type="submit">
                             Submit
-                          </button>
+                          </Button>
                         </div>
                         <div className="col-sm-9 text-right">
                           <CopyLink

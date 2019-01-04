@@ -1,4 +1,5 @@
 import React from "react";
+import { Button } from "@material-ui/core";
 
 function ArrayFieldTemplate(props) {
   return (
@@ -8,26 +9,30 @@ function ArrayFieldTemplate(props) {
           <div key={element.index}>
             <div>{element.children}</div>
             {element.hasMoveDown && (
-              <button
+              <Button
+                variant="outlined"
+                color="primary"
                 onClick={element.onReorderClick(
                   element.index,
                   element.index + 1
                 )}>
                 Down
-              </button>
+              </Button>
             )}
             {element.hasMoveUp && (
-              <button
+              <Button
+                variant="outlined"
+                color="primary"
                 onClick={element.onReorderClick(
                   element.index,
                   element.index - 1
                 )}>
                 Up
-              </button>
+              </Button>
             )}
-            <button onClick={element.onDropIndexClick(element.index)}>
+            <Button variant="outlined" color="primary" onClick={element.onDropIndexClick(element.index)}>
               Delete
-            </button>
+            </Button>
             <hr />
           </div>
         ))}
@@ -35,9 +40,9 @@ function ArrayFieldTemplate(props) {
       {props.canAdd && (
         <div className="row">
           <p className="col-xs-3 col-xs-offset-9 array-item-add text-right">
-            <button onClick={props.onAddClick} type="button">
+            <Button variant="outlined" color="primary" onClick={props.onAddClick} type="button">
               Custom +
-            </button>
+            </Button>
           </p>
         </div>
       )}
