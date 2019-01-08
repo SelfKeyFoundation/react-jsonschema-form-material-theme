@@ -396,19 +396,20 @@ class App extends Component {
                       }
                       transformErrors={transformErrors}
                       onError={log("errors")}>
-                      <div className="row">
-                        <div className="col-sm-3">
+                      <Grid container direction='row'>
+                        <Grid item xs={4}>
                           <Button variant="contained" className="btn btn-primary" type="submit">
                             Submit
                           </Button>
-                        </div>
-                        <div className="col-sm-9 text-right">
+                        </Grid>
+
+                        <Grid item xs={4}>
                           <CopyLink
                             shareURL={this.state.shareURL}
                             onShare={this.onShare}
                           />
-                        </div>
-                      </div>
+                        </Grid>
+                      </Grid>
                     </Form>
                   </SelfkeyDarkTheme>
                 )}
