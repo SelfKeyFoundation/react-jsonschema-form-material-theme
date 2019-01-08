@@ -22,8 +22,8 @@ import "codemirror/theme/ttcn.css";
 import "codemirror/theme/solarized.css";
 import "codemirror/theme/monokai.css";
 import "codemirror/theme/eclipse.css";
-import { Grid, List, ListItem, Button } from "@material-ui/core";
-import { SelfkeyDarkTheme } from "selfkey-ui";
+import { Grid, List, ListItem, Button, Input } from "@material-ui/core";
+import { SelfkeyDarkTheme, base } from "selfkey-ui";
 
 
 const log = type => console.log.bind(console, type);
@@ -72,7 +72,7 @@ class GeoPosition extends Component {
         <div className="row">
           <div className="col-sm-6">
             <label>Latitude</label>
-            <input
+            <Input
               className="form-control"
               type="number"
               value={lat}
@@ -82,7 +82,7 @@ class GeoPosition extends Component {
           </div>
           <div className="col-sm-6">
             <label>Longitude</label>
-            <input
+            <Input
               className="form-control"
               type="number"
               value={lon}
@@ -373,7 +373,7 @@ class App extends Component {
                   </Grid>
                 </Grid>
               </Grid>
-              <Grid item xs={4}>
+              <Grid item xs={4} style={{backgroundColor:base}}>
                 {this.state.form && (
                   <SelfkeyDarkTheme>
                     <Form
