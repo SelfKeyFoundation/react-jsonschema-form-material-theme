@@ -1,6 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
-import Checkbox from '@material-ui/core/Checkbox';
+import { 
+  FormControlLabel, 
+  Checkbox,
+} from "@material-ui/core";
 
 function CheckboxWidget(props) {
   const {
@@ -22,18 +25,18 @@ function CheckboxWidget(props) {
       {schema.description && (
         <DescriptionTemplate description={schema.description} />
       )}
-      <label>
-        <Checkbox
-          type="checkbox"
-          id={id}
-          checked={typeof value === "undefined" ? false : value}
-          required={required}
-          disabled={disabled || readonly}
-          autoFocus={autofocus}
-          onChange={event => onChange(event.target.checked)}
-        />
-        <span>{label}</span>
-      </label>
+      <FormControlLabel
+        id={id}
+        checked={typeof value === "undefined" ? false : value}
+        required={required}
+        disabled={disabled || readonly}
+        autoFocus={autofocus}
+        onChange={event => onChange(event.target.checked)}
+        control={
+          <Checkbox />
+        }
+        label={label}
+      />
     </div>
   );
 }
