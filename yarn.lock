@@ -773,6 +773,14 @@
     "@babel/runtime" "7.0.0"
     recompose "^0.29.0"
 
+"@material-ui/icons@^3.0.2":
+  version "3.0.2"
+  resolved "https://registry.yarnpkg.com/@material-ui/icons/-/icons-3.0.2.tgz#d67a6dd1ec8312d3a88ec97944a63daeef24fe10"
+  integrity sha512-QY/3gJnObZQ3O/e6WjH+0ah2M3MOgLOzCy8HTUoUx9B6dDrS18vP7Ycw3qrDEKlB6q1KNxy6CZHm5FCauWGy2g==
+  dependencies:
+    "@babel/runtime" "^7.2.0"
+    recompose "0.28.0 - 0.30.0"
+
 "@material-ui/lab@3.0.0-alpha.26":
   version "3.0.0-alpha.26"
   resolved "https://registry.yarnpkg.com/@material-ui/lab/-/lab-3.0.0-alpha.26.tgz#81cb8984442e934c2a1363b5bcf165e215c18d51"
@@ -782,6 +790,17 @@
     "@material-ui/utils" "^3.0.0-alpha.1"
     classnames "^2.2.5"
     keycode "^2.1.9"
+
+"@material-ui/lab@^3.0.0-alpha.28":
+  version "3.0.0-alpha.28"
+  resolved "https://registry.yarnpkg.com/@material-ui/lab/-/lab-3.0.0-alpha.28.tgz#27fa74d0dffe8805b89e29b0843eae30d179c613"
+  integrity sha512-uERqo8W2RhWDDaO1FMmvWS9GHBX3Sdhu1F7o+Z2M8wQ6viKcvONVlN4oC80VP6fgze8p5cnjmNhFLuCypLRHTg==
+  dependencies:
+    "@babel/runtime" "^7.2.0"
+    "@material-ui/utils" "^3.0.0-alpha.2"
+    classnames "^2.2.5"
+    keycode "^2.1.9"
+    prop-types "^15.6.0"
 
 "@material-ui/system@^3.0.0-alpha.0":
   version "3.0.0-alpha.1"
@@ -2700,9 +2719,9 @@ get-value@^2.0.3, get-value@^2.0.6:
   integrity sha1-3BXKHGcjh8p2vTesCjlbogQqLCg=
 
 gh-pages-deploy@^0.5.0:
-  version "0.5.0"
-  resolved "https://registry.yarnpkg.com/gh-pages-deploy/-/gh-pages-deploy-0.5.0.tgz#9213766812139bb565ad5c7c10739a64c97723cb"
-  integrity sha512-KAuUl6YUqBPlUz5Sgps9Eu5Bt22QOVpUT23dxihDfhHi+kSH97bqlTQNU+I0Hg5pzXNGHMccDfDcM8Os2nLZpg==
+  version "0.5.1"
+  resolved "https://registry.yarnpkg.com/gh-pages-deploy/-/gh-pages-deploy-0.5.1.tgz#56100fdd4a642f4b1f7cba5233ad7e48c3facb2b"
+  integrity sha512-ut80nyds3eRMzWwcbyHfnTTwGq2OIvX2i56CBPxFvnKEubapF+tNWMvYs03phksnyQZYE21L3kVtfy3eCb78wg==
   dependencies:
     chalk "^1.1.1"
     gasket "^2.0.0"
@@ -2755,9 +2774,9 @@ global-prefix@^1.0.1:
     which "^1.2.14"
 
 globals@^11.1.0:
-  version "11.9.0"
-  resolved "https://registry.yarnpkg.com/globals/-/globals-11.9.0.tgz#bde236808e987f290768a93d065060d78e6ab249"
-  integrity sha512-5cJVtyXWH8PiJPVLZzzoIizXx944O4OmRro5MWKx5fT4MgcN7OfaMutPeaTdJCCURwbWdhhcCWcKIffPnmTzBg==
+  version "11.10.0"
+  resolved "https://registry.yarnpkg.com/globals/-/globals-11.10.0.tgz#1e09776dffda5e01816b3bb4077c8b59c24eaa50"
+  integrity sha512-0GZF1RiPKU97IHUO5TORo9w1PwrH/NBPl+fS7oMLdaTRiYmYbwK4NWoZWrAdd0/abG9R2BU+OiwyQpTpE6pdfQ==
 
 globby@^6.1.0:
   version "6.1.0"
@@ -5072,7 +5091,7 @@ select-hose@^2.0.0:
 
 "selfkey-ui@https://github.com/SelfKeyFoundation/selfkey-ui.git#material-ui":
   version "1.0.0"
-  resolved "https://github.com/SelfKeyFoundation/selfkey-ui.git#5aca4c51fb1aabec5597cac1a07ac9bf1aba37d2"
+  resolved "https://github.com/SelfKeyFoundation/selfkey-ui.git#fef4ffe2007f1ad24312730e2d2c0729c25dcf70"
   dependencies:
     "@material-ui/core" "3.7.0"
     "@material-ui/icons" "3.0.1"

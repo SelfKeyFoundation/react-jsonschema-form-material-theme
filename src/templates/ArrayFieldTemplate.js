@@ -1,4 +1,9 @@
 import React from "react";
+import ToggleButtonGroup from '@material-ui/lab/ToggleButtonGroup';
+import ToggleButton from '@material-ui/lab/ToggleButton';
+import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
+import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
+import CloseIcon from '@material-ui/icons/Close';
 
 export default function ArrayFieldTemplate(props) {
   const { TitleTemplate, DescriptionTemplate } = props.registry.templates;
@@ -97,48 +102,46 @@ function ArrayItem(props) {
 
       {props.hasToolbar && (
         <div className="col-xs-3 array-item-toolbox">
-          <div
-            className="btn-group"
-            style={{
-              display: "flex",
-              justifyContent: "space-around",
-            }}>
+          <ToggleButtonGroup 
+            exclusive
+          >
             {(props.hasMoveUp || props.hasMoveDown) && (
-              <IconBtn
-                icon="arrow-up"
-                className="array-item-move-up"
-                tabIndex="-1"
-                style={btnStyle}
+              <ToggleButton 
                 disabled={props.disabled || props.readonly || !props.hasMoveUp}
-                onClick={props.onReorderClick(props.index, props.index - 1)}
-              />
+              >
+                  <KeyboardArrowUpIcon
+                    color="primary"
+                    tabIndex="-1"
+                    onClick={props.onReorderClick(props.index, props.index - 1)}
+                  />
+              </ToggleButton>
             )}
 
             {(props.hasMoveUp || props.hasMoveDown) && (
-              <IconBtn
-                icon="arrow-down"
-                className="array-item-move-down"
-                tabIndex="-1"
-                style={btnStyle}
-                disabled={
-                  props.disabled || props.readonly || !props.hasMoveDown
-                }
-                onClick={props.onReorderClick(props.index, props.index + 1)}
-              />
+              <ToggleButton 
+                disabled={props.disabled || props.readonly || !props.hasMoveDown}
+              >
+                  <KeyboardArrowDownIcon
+                    color="primary"
+                    tabIndex="-1"
+                    onClick={props.onReorderClick(props.index, props.index + 1)}
+                  />
+              </ToggleButton>
             )}
 
             {props.hasRemove && (
-              <IconBtn
-                type="danger"
-                icon="remove"
-                className="array-item-remove"
-                tabIndex="-1"
-                style={btnStyle}
+              <ToggleButton 
                 disabled={props.disabled || props.readonly}
-                onClick={props.onDropIndexClick(props.index)}
-              />
+              >
+                  <CloseIcon 
+                    color="error" 
+                    tabIndex="-1"
+                    onClick={props.onDropIndexClick(props.index)}
+                  />
+              </ToggleButton>
             )}
-          </div>
+          </ToggleButtonGroup>
+          <br/><br/>
         </div>
       )}
     </div>
