@@ -4,6 +4,8 @@ import ToggleButton from '@material-ui/lab/ToggleButton';
 import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
 import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
 import CloseIcon from '@material-ui/icons/Close';
+import { Button } from "@material-ui/core";
+import AddIcon from '@material-ui/icons/Add';
 
 export default function ArrayFieldTemplate(props) {
   const { TitleTemplate, DescriptionTemplate } = props.registry.templates;
@@ -108,11 +110,11 @@ function ArrayItem(props) {
             {(props.hasMoveUp || props.hasMoveDown) && (
               <ToggleButton 
                 disabled={props.disabled || props.readonly || !props.hasMoveUp}
+                onClick={props.onReorderClick(props.index, props.index - 1)}
               >
                   <KeyboardArrowUpIcon
                     color="primary"
                     tabIndex="-1"
-                    onClick={props.onReorderClick(props.index, props.index - 1)}
                   />
               </ToggleButton>
             )}
@@ -120,11 +122,11 @@ function ArrayItem(props) {
             {(props.hasMoveUp || props.hasMoveDown) && (
               <ToggleButton 
                 disabled={props.disabled || props.readonly || !props.hasMoveDown}
+                onClick={props.onReorderClick(props.index, props.index + 1)}
               >
                   <KeyboardArrowDownIcon
                     color="primary"
                     tabIndex="-1"
-                    onClick={props.onReorderClick(props.index, props.index + 1)}
                   />
               </ToggleButton>
             )}
@@ -132,16 +134,16 @@ function ArrayItem(props) {
             {props.hasRemove && (
               <ToggleButton 
                 disabled={props.disabled || props.readonly}
+                onClick={props.onDropIndexClick(props.index)}
               >
                   <CloseIcon 
                     color="error" 
                     tabIndex="-1"
-                    onClick={props.onDropIndexClick(props.index)}
                   />
               </ToggleButton>
             )}
           </ToggleButtonGroup>
-          <br/><br/>
+          <br/>
         </div>
       )}
     </div>
@@ -150,17 +152,8 @@ function ArrayItem(props) {
 
 function AddButton({ onClick, disabled }) {
   return (
-    <div className="row">
-      <p className="col-xs-3 col-xs-offset-9 array-item-add text-right">
-        <IconBtn
-          type="info"
-          icon="plus"
-          className="btn-add col-xs-12"
-          tabIndex="0"
-          onClick={onClick}
-          disabled={disabled}
-        />
-      </p>
-    </div>
+      <Button variant="contained" disabled={disabled} onClick={onClick}>
+        <AddIcon />
+      </Button>
   );
 }
