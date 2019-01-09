@@ -164,7 +164,12 @@ class Selector extends Component {
     const flexContainer = {
       display: 'flex',
       flexDirection: 'row',
+      flexWrap: 'wrap',
       padding: 0,
+    };
+
+    const flexItem = {
+      width: 'initial',
     };
     
     return (
@@ -175,9 +180,12 @@ class Selector extends Component {
             <ListItem
               key={i}
               role="presentation"
+              style={flexItem}
               className={this.state.current === label ? "active" : ""}>
-              <a href="#" onClick={this.onLabelClick(label)}>
-                {label}
+              <a href="#" onClick={this.onLabelClick(label)} style={{ textDecoration:'none' }}>
+                <Button color="primary" variant={this.state.current === label ? 'contained' : 'outlined'} >
+                  {label}
+                </Button>
               </a>
             </ListItem>
           );
@@ -324,10 +332,12 @@ class App extends Component {
         <Grid container direction='column' spacing={32}>
           <Grid item xs={12}>
             <h1>react-jsonschema-form</h1>
+
             <div className="row">
               <div className="col-sm-8">
                 <Selector onSelected={this.load} />
               </div>
+              
               <div className="col-sm-2">
                 <Form
                   idPrefix="live-validate"
@@ -338,6 +348,7 @@ class App extends Component {
                 </Form>
               </div>
             </div>
+
           </Grid>
           <Grid item xs={12}>
             <Grid container direction='row' spacing={32}>
