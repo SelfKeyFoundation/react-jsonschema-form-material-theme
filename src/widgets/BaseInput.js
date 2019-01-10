@@ -29,12 +29,19 @@ function BaseInput(props) {
     return props.onChange(value === "" ? options.emptyValue : value);
   };
 
+  function isError(Obj) {
+    for (var key in Obj) {
+      if (Obj.hasOwnProperty(key)) return true;
+    }
+    return false;
+  }
+
   return (
     <Input
       className="form-control"
       readOnly={readonly}
       disabled={disabled}
-      error={errors !== undefined ? true : false}
+      error={isError(errors)}
       autoFocus={autofocus}
       value={value == null ? "" : value}
       {...inputProps}
