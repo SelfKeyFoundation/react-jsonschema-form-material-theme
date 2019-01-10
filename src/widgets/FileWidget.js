@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 
 import { dataURItoBlob, shouldRender, setState } from "react-jsonschema-form/lib/utils";
+import { Button, Input, Typography, List, Grid } from "@material-ui/core";
+import AttachFileIcon from '@material-ui/icons/AttachFile';
 
 function addNameToDataURL(dataURL, name) {
   return dataURL.replace(";base64", `;name=${name};base64`);
@@ -34,16 +36,19 @@ function FilesInfo(props) {
     return null;
   }
   return (
-    <ul className="file-info">
+    <List className="file-info">
       {filesInfo.map((fileInfo, key) => {
         const { name, size, type } = fileInfo;
         return (
-          <li key={key}>
-            <strong>{name}</strong> ({type}, {size} bytes)
-          </li>
+            <Grid key={key} container alignItems="center">
+              <AttachFileIcon fontSize="small" color="secondary" />
+              <Typography  variant="subtitle1" color="secondary">
+                {name} &nbsp; ({type}, {size} bytes)
+              </Typography>
+            </Grid>
         );
       })}
-    </ul>
+    </List>
   );
 }
 
@@ -94,8 +99,7 @@ class FileWidget extends Component {
     const { filesInfo } = this.state;
     return (
       <div>
-        <p>
-          <input
+          <Input
             ref={ref => (this.inputRef = ref)}
             id={id}
             type="file"
@@ -104,9 +108,15 @@ class FileWidget extends Component {
             defaultValue=""
             autoFocus={autofocus}
             multiple={multiple}
+            style={{display:'none'}}
           />
-        </p>
-        <FilesInfo filesInfo={filesInfo} />
+          <label htmlFor={id}>
+            <Button variant="outlined" color="primary" component="span">
+              Upload
+            </Button>
+          </label>
+          <br/>
+          <FilesInfo filesInfo={filesInfo} />
       </div>
     );
   }
