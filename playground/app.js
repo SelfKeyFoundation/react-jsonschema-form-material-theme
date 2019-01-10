@@ -22,7 +22,7 @@ import "codemirror/theme/ttcn.css";
 import "codemirror/theme/solarized.css";
 import "codemirror/theme/monokai.css";
 import "codemirror/theme/eclipse.css";
-import { Grid, List, ListItem, Button, Input } from "@material-ui/core";
+import { Grid, List, ListItem, Button, Input, Typography, FormGroup } from "@material-ui/core";
 import { SelfkeyDarkTheme, base } from "selfkey-ui";
 
 
@@ -63,34 +63,37 @@ class GeoPosition extends Component {
     const { lat, lon } = this.state;
     return (
       <div className="geo">
-        <h3>Hey, I'm a custom component</h3>
-        <p>
+        <Typography variant="h4" gutterBottom>
+          Hey, I'm a custom component
+        </Typography>
+
+        <Typography variant="body2" color="secondary" gutterBottom>
           I'm registered as <code>geo</code> and referenced in
           <code>uiSchema</code> as the <code>ui:field</code> to use for this
           schema.
-        </p>
-        <div className="row">
-          <div className="col-sm-6">
-            <label>Latitude</label>
-            <Input
-              className="form-control"
-              type="number"
-              value={lat}
-              step="0.00001"
-              onChange={this.onChange("lat")}
-            />
-          </div>
-          <div className="col-sm-6">
-            <label>Longitude</label>
-            <Input
-              className="form-control"
-              type="number"
-              value={lon}
-              step="0.00001"
-              onChange={this.onChange("lon")}
-            />
-          </div>
-        </div>
+        </Typography>
+
+        <FormGroup>
+          <Typography variant="overline" gutterBottom>Latitude</Typography>
+          <Input
+            className="form-control"
+            type="number"
+            value={lat}
+            step="0.00001"
+            onChange={this.onChange("lat")}
+          />
+        </FormGroup>
+
+        <FormGroup>
+          <Typography variant="overline" gutterBottom>Longitude</Typography>
+          <Input
+            className="form-control"
+            type="number"
+            value={lon}
+            step="0.00001"
+            onChange={this.onChange("lon")}
+          />
+        </FormGroup>
       </div>
     );
   }
