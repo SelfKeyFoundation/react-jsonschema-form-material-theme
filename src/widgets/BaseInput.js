@@ -34,6 +34,7 @@ function BaseInput(props) {
       className="form-control"
       readOnly={readonly}
       disabled={disabled}
+      error={errors !== undefined ? true : false}
       autoFocus={autofocus}
       value={value == null ? "" : value}
       {...inputProps}

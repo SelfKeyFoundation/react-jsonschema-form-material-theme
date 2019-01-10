@@ -102,16 +102,13 @@ function ErrorList(props) {
   }
   return (
     <div>
-      <p />
-      <ul className="error-detail bs-callout bs-callout-info">
-        {errors.map((error, index) => {
-          return (
-            <li className="text-danger" key={index}>
+      {errors.map((error, index) => {
+        return (
+            <Typography variant="subtitle2" color="error" key={index} gutterBottom>
               {error}
-            </li>
-          );
-        })}
-      </ul>
+            </Typography>
+        );
+      })}
     </div>
   );
 }

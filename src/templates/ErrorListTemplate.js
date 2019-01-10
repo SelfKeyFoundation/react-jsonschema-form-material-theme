@@ -1,21 +1,20 @@
 import React from "react";
+import { Typography } from "@material-ui/core";
 
 export default function ErrorListTemplate(props) {
   const { errors } = props;
   return (
     <div className="panel panel-danger errors">
-      <div className="panel-heading">
-        <h3 className="panel-title">Errors</h3>
-      </div>
-      <ul className="list-group">
+        <Typography variant="h4" color="error" gutterBottom>Errors</Typography>
+
         {errors.map((error, i) => {
           return (
-            <li key={i} className="list-group-item text-danger">
+            <Typography key={i} variant="subtitle2" color="error" gutterBottom>
               {error.stack}
-            </li>
+            </Typography>
           );
         })}
-      </ul>
+        <br/>
     </div>
   );
 }
