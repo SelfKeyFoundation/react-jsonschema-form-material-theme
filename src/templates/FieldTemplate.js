@@ -1,6 +1,5 @@
 import React from "react";
 import PropTypes from "prop-types";
-import InputLabel from '@material-ui/core/InputLabel';
 import FormGroup from '@material-ui/core/FormGroup';
 import { Typography } from "@material-ui/core";
 
