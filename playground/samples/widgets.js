@@ -1,4 +1,5 @@
 import React from "react";
+import { Input, Select } from "@material-ui/core";
 
 export default {
   schema: {
@@ -98,9 +99,6 @@ export default {
     string: {
       textarea: {
         "ui:widget": "textarea",
-        "ui:options": {
-          rows: 5,
-        },
       },
       color: {
         "ui:widget": "color",
@@ -119,7 +117,7 @@ export default {
       "ui:widget": ({ value, onChange, options }) => {
         const { backgroundColor } = options;
         return (
-          <input
+          <Input
             className="form-control"
             onChange={event => onChange(event.target.value)}
             style={{ backgroundColor }}
@@ -135,7 +133,7 @@ export default {
       "ui:widget": ({ value, onChange, options }) => {
         const { enumOptions, backgroundColor } = options;
         return (
-          <select
+          <Select
             className="form-control"
             style={{ backgroundColor }}
             value={value}
@@ -147,7 +145,7 @@ export default {
                 </option>
               );
             })}
-          </select>
+          </Select>
         );
       },
       "ui:options": {
