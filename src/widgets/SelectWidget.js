@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import Select from '@material-ui/core/Select';
 
 import { asNumber } from "react-jsonschema-form/lib/utils";
+import { MenuItem, FormControl } from "@material-ui/core";
 
 const nums = new Set(["number", "integer"]);
 
@@ -53,42 +54,44 @@ function SelectWidget(props) {
   const { enumOptions, enumDisabled } = options;
   const emptyValue = multiple ? [] : "";
   return (
-    <Select
-      id={id}
-      multiple={multiple}
-      className="form-control"
-      value={typeof value === "undefined" ? emptyValue : value}
-      required={required}
-      disabled={disabled || readonly}
-      autoFocus={autofocus}
-      onBlur={
-        onBlur &&
-        (event => {
+    <FormControl>
+      <Select
+        id={id}
+        multiple={multiple}
+        className="form-control"
+        value={typeof value === "undefined" ? emptyValue : value}
+        required={required}
+        disabled={disabled || readonly}
+        autoFocus={autofocus}
+        onBlur={
+          onBlur &&
+          (event => {
+            const newValue = getValue(event, multiple);
+            onBlur(id, processValue(schema, newValue));
+          })
+        }
+        onFocus={
+          onFocus &&
+          (event => {
+            const newValue = getValue(event, multiple);
+            onFocus(id, processValue(schema, newValue));
+          })
+        }
+        onChange={event => {
           const newValue = getValue(event, multiple);
-          onBlur(id, processValue(schema, newValue));
-        })
-      }
-      onFocus={
-        onFocus &&
-        (event => {
-          const newValue = getValue(event, multiple);
-          onFocus(id, processValue(schema, newValue));
-        })
-      }
-      onChange={event => {
-        const newValue = getValue(event, multiple);
-        onChange(processValue(schema, newValue));
-      }}>
-      {!multiple && !schema.default && <option value="">{placeholder}</option>}
-      {enumOptions.map(({ value, label }, i) => {
-        const disabled = enumDisabled && enumDisabled.indexOf(value) != -1;
-        return (
-          <option key={i} value={value} disabled={disabled}>
-            {label}
-          </option>
-        );
-      })}
-    </Select>
+          onChange(processValue(schema, newValue));
+        }}>
+        {!multiple && !schema.default && <option value="">{placeholder}</option>}
+        {enumOptions.map(({ value, label }, i) => {
+          const disabled = enumDisabled && enumDisabled.indexOf(value) != -1;
+          return (
+            <MenuItem key={i} value={value} disabled={disabled}>
+              { label }
+            </MenuItem>
+          );
+        })}
+      </Select>
+    </FormControl>
   );
 }
 
