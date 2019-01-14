@@ -13,15 +13,18 @@ function RangeWidget(props) {
     },
   } = props;
 
-  console.log(props);
-  console.log(rangeSpec(schema));
+  const _onChange = (event, value) => {
+    event.preventDefault();
+    props.onChange(value);
+  }
 
   return (
     <div className="field-range-wrapper">
-      <BaseInput type="range" {...props} {...rangeSpec(schema)} />
       <Slider 
         {...props}
+        step = { props.step ? props.step : 1 }
         {...rangeSpec(schema)} 
+        onChange={_onChange}
       />
       <Typography variant="body2" color="textSecondary" gutterBottom>{value}</Typography>
     </div>
