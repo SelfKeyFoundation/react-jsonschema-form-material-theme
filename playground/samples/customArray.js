@@ -1,40 +1,60 @@
 import React from "react";
-import { Button } from "@material-ui/core";
+import { Button, FormGroup } from "@material-ui/core";
+import ToggleButtonGroup from "@material-ui/lab/ToggleButtonGroup";
+import ToggleButton from "@material-ui/lab/ToggleButton";
+import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
+import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
+import CloseIcon from '@material-ui/icons/Close';
 
 function ArrayFieldTemplate(props) {
   return (
     <div className={props.className}>
       {props.items &&
         props.items.map(element => (
-          <div key={element.index}>
-            <div>{element.children}</div>
-            {element.hasMoveDown && (
-              <Button
-                variant="outlined"
-                color="primary"
-                onClick={element.onReorderClick(
-                  element.index,
-                  element.index + 1
-                )}>
-                Down
-              </Button>
-            )}
-            {element.hasMoveUp && (
-              <Button
-                variant="outlined"
-                color="primary"
-                onClick={element.onReorderClick(
-                  element.index,
-                  element.index - 1
-                )}>
-                Up
-              </Button>
-            )}
-            <Button variant="outlined" color="primary" onClick={element.onDropIndexClick(element.index)}>
-              Delete
-            </Button>
-            <hr />
-          </div>
+          <FormGroup key={element.index}>
+              <div>{element.children}</div>
+
+              <div className="col-xs-3 array-item-toolbox" >
+                <ToggleButtonGroup 
+                  exclusive
+                >
+                  {element.hasMoveUp && (
+                      <ToggleButton 
+                        onClick={element.onReorderClick(element.index, element.index - 1)}
+                      >
+                          <KeyboardArrowUpIcon
+                            color="primary"
+                            tabIndex="-1"
+                          />
+
+                      </ToggleButton>
+                  )}
+
+                  {element.hasMoveDown && (
+                    <ToggleButton 
+                      onClick={element.onReorderClick(element.index, element.index + 1)}
+                    >
+                        <KeyboardArrowDownIcon
+                          color="primary"
+                          tabIndex="-1"
+                        />
+                    </ToggleButton>
+                  )}
+
+
+                  {element.hasRemove && (
+                    <ToggleButton 
+                      onClick={element.onDropIndexClick(element.index)}
+                    >
+                        <CloseIcon 
+                          color="error" 
+                          tabIndex="-1"
+                        />
+                    </ToggleButton>
+                  )}
+                </ToggleButtonGroup>
+              </div>
+          </FormGroup>
         ))}
 
       {props.canAdd && (
