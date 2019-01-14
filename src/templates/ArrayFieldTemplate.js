@@ -152,7 +152,7 @@ function ArrayItem(props) {
 
 function AddButton({ onClick, disabled }) {
   return (
-      <Button variant="contained" disabled={disabled} onClick={onClick}>
+      <Button variant="outlined" disabled={disabled} onClick={onClick}>
         <AddIcon />
       </Button>
   );
