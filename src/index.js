@@ -1,5 +1,5 @@
-import widgets from './widgets/index';
-import templates from './templates/index';
+import widgets from './widgets';
+import templates from './templates';
 const theme = {
     widgets,
     templates

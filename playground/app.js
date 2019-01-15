@@ -8,7 +8,7 @@ import { samples } from "./samples/index";
 
 import withTheme from "react-jsonschema-form/lib/components/withTheme";
 
-import theme from '../src/index';
+import theme from '../src';
 
 const Form = withTheme('MyTheme', { widgets: theme.widgets, templates: theme.templates })
 
