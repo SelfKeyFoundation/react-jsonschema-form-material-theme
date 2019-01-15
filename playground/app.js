@@ -30,6 +30,7 @@ const log = type => console.log.bind(console, type);
 const fromJson = json => JSON.parse(json);
 const toJson = val => JSON.stringify(val, null, 2);
 const liveValidateSchema = { type: "boolean", title: "Live validation" };
+const selfkeyDarkThemeSchema = { type: "boolean", title: "Selfkey Dark Theme" };
 const cmOptions = {
   theme: "default",
   height: "auto",
@@ -249,6 +250,7 @@ class App extends Component {
       editor: "default",
       theme: "default",
       liveValidate: true,
+      selfkeyDarkTheme: true,
       shareURL: null,
     };
   }
@@ -297,6 +299,8 @@ class App extends Component {
 
   setLiveValidate = ({ formData }) => this.setState({ liveValidate: formData });
 
+  setSelfkeyDarkTheme = ({ formData }) => this.setState({ selfkeyDarkTheme: formData });
+
   onFormDataChange = ({ formData }) =>
     this.setState({ formData, shareURL: null });
 
@@ -313,12 +317,15 @@ class App extends Component {
     }
   };
 
+  
+
   render() {
     const {
       schema,
       uiSchema,
       formData,
       liveValidate,
+      selfkeyDarkTheme,
       validate,
       theme,
       editor,
@@ -330,6 +337,57 @@ class App extends Component {
       flexGrow: 1
     };
 
+    const renderForm = () => {
+      return (
+        <Form
+        templates={templates}
+        liveValidate={liveValidate}
+        schema={schema}
+        uiSchema={uiSchema}
+        formData={formData}
+        onChange={this.onFormDataChange}
+        onSubmit={({ formData }) =>
+          console.log("submitted formData", formData)
+        }
+        fields={{ geo: GeoPosition }}
+        validate={validate}
+        onBlur={(id, value) =>
+          console.log(`Touched ${id} with value ${value}`)
+        }
+        onFocus={(id, value) =>
+          console.log(`Focused ${id} with value ${value}`)
+        }
+        transformErrors={transformErrors}
+        onError={log("errors")}>
+        <Grid container direction='row'>
+          <Grid item xs={4}>
+            <Button variant="contained" className="btn btn-primary" type="submit">
+              Submit
+            </Button>
+          </Grid>
+
+          <Grid item xs={4}>
+            <CopyLink
+              shareURL={this.state.shareURL}
+              onShare={this.onShare}
+            />
+          </Grid>
+        </Grid>
+      </Form>);
+    }
+
+    const themeWrapper = () => {
+      if (this.state.form) {
+        if (selfkeyDarkTheme) {
+          return (<SelfkeyDarkTheme>
+                {renderForm()}
+            </SelfkeyDarkTheme>);
+        } else {
+          return renderForm();
+        }
+      }
+    }
+ 
     return (
       <div style={flexGrow}>
         <Grid container direction='column' spacing={32}>
@@ -347,6 +405,13 @@ class App extends Component {
                   schema={liveValidateSchema}
                   formData={liveValidate}
                   onChange={this.setLiveValidate}>
+                  <div />
+                </Form>
+                <Form
+                  idPrefix="seflkey-dark-theme"
+                  schema={selfkeyDarkThemeSchema}
+                  formData={selfkeyDarkTheme}
+                  onChange={this.setSelfkeyDarkTheme}>
                   <div />
                 </Form>
               </div>
@@ -387,46 +452,8 @@ class App extends Component {
                   </Grid>
                 </Grid>
               </Grid>
-              <Grid item xs={4} style={{backgroundColor:base}}>
-                {this.state.form && (
-                  <SelfkeyDarkTheme>
-                    <Form
-                      templates={templates}
-                      liveValidate={liveValidate}
-                      schema={schema}
-                      uiSchema={uiSchema}
-                      formData={formData}
-                      onChange={this.onFormDataChange}
-                      onSubmit={({ formData }) =>
-                        console.log("submitted formData", formData)
-                      }
-                      fields={{ geo: GeoPosition }}
-                      validate={validate}
-                      onBlur={(id, value) =>
-                        console.log(`Touched ${id} with value ${value}`)
-                      }
-                      onFocus={(id, value) =>
-                        console.log(`Focused ${id} with value ${value}`)
-                      }
-                      transformErrors={transformErrors}
-                      onError={log("errors")}>
-                      <Grid container direction='row'>
-                        <Grid item xs={4}>
-                          <Button variant="contained" className="btn btn-primary" type="submit">
-                            Submit
-                          </Button>
-                        </Grid>
-
-                        <Grid item xs={4}>
-                          <CopyLink
-                            shareURL={this.state.shareURL}
-                            onShare={this.onShare}
-                          />
-                        </Grid>
-                      </Grid>
-                    </Form>
-                  </SelfkeyDarkTheme>
-                )}
+              <Grid item xs={4} style={selfkeyDarkTheme? {backgroundColor:base} : {}}>
+                {themeWrapper()}
               </Grid>
             </Grid>
           </Grid>
