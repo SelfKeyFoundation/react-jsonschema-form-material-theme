@@ -22,13 +22,15 @@ import "codemirror/theme/ttcn.css";
 import "codemirror/theme/solarized.css";
 import "codemirror/theme/monokai.css";
 import "codemirror/theme/eclipse.css";
-import { Grid, List, ListItem } from "@material-ui/core";
+import { Grid, List, ListItem, Button, Input, Typography, FormGroup } from "@material-ui/core";
+import { SelfkeyDarkTheme, base } from "selfkey-ui";
 
 
 const log = type => console.log.bind(console, type);
 const fromJson = json => JSON.parse(json);
 const toJson = val => JSON.stringify(val, null, 2);
 const liveValidateSchema = { type: "boolean", title: "Live validation" };
+const selfkeyDarkThemeSchema = { type: "boolean", title: "Selfkey Dark Theme" };
 const cmOptions = {
   theme: "default",
   height: "auto",
@@ -62,34 +64,37 @@ class GeoPosition extends Component {
     const { lat, lon } = this.state;
     return (
       <div className="geo">
-        <h3>Hey, I'm a custom component</h3>
-        <p>
+        <Typography variant="h4" gutterBottom>
+          Hey, I'm a custom component
+        </Typography>
+
+        <Typography variant="body2" color="secondary" gutterBottom>
           I'm registered as <code>geo</code> and referenced in
           <code>uiSchema</code> as the <code>ui:field</code> to use for this
           schema.
-        </p>
-        <div className="row">
-          <div className="col-sm-6">
-            <label>Latitude</label>
-            <input
-              className="form-control"
-              type="number"
-              value={lat}
-              step="0.00001"
-              onChange={this.onChange("lat")}
-            />
-          </div>
-          <div className="col-sm-6">
-            <label>Longitude</label>
-            <input
-              className="form-control"
-              type="number"
-              value={lon}
-              step="0.00001"
-              onChange={this.onChange("lon")}
-            />
-          </div>
-        </div>
+        </Typography>
+
+        <FormGroup>
+          <Typography variant="overline" gutterBottom>Latitude</Typography>
+          <Input
+            className="form-control"
+            type="number"
+            value={lat}
+            step="0.00001"
+            onChange={this.onChange("lat")}
+          />
+        </FormGroup>
+
+        <FormGroup>
+          <Typography variant="overline" gutterBottom>Longitude</Typography>
+          <Input
+            className="form-control"
+            type="number"
+            value={lon}
+            step="0.00001"
+            onChange={this.onChange("lon")}
+          />
+        </FormGroup>
       </div>
     );
   }
@@ -163,7 +168,12 @@ class Selector extends Component {
     const flexContainer = {
       display: 'flex',
       flexDirection: 'row',
+      flexWrap: 'wrap',
       padding: 0,
+    };
+
+    const flexItem = {
+      width: 'initial',
     };
     
     return (
@@ -174,9 +184,12 @@ class Selector extends Component {
             <ListItem
               key={i}
               role="presentation"
+              style={flexItem}
               className={this.state.current === label ? "active" : ""}>
-              <a href="#" onClick={this.onLabelClick(label)}>
-                {label}
+              <a href="#" onClick={this.onLabelClick(label)} style={{ textDecoration:'none' }}>
+                <Button color="primary" variant={this.state.current === label ? 'contained' : 'outlined'} >
+                  {label}
+                </Button>
               </a>
             </ListItem>
           );
@@ -196,9 +209,9 @@ class CopyLink extends Component {
     const { shareURL, onShare } = this.props;
     if (!shareURL) {
       return (
-        <button className="btn btn-default" type="button" onClick={onShare}>
+        <Button color="primary" className="btn btn-default" type="button" onClick={onShare}>
           Share
-        </button>
+        </Button>
       );
     }
     return (
@@ -210,12 +223,13 @@ class CopyLink extends Component {
           defaultValue={shareURL}
         />
         <span className="input-group-btn">
-          <button
+          <Button
+            color="primary"
             className="btn btn-default"
             type="button"
             onClick={this.onCopyClick}>
             <i className="glyphicon glyphicon-copy" />
-          </button>
+          </Button>
         </span>
       </div>
     );
@@ -236,6 +250,7 @@ class App extends Component {
       editor: "default",
       theme: "default",
       liveValidate: true,
+      selfkeyDarkTheme: true,
       shareURL: null,
     };
   }
@@ -284,6 +299,8 @@ class App extends Component {
 
   setLiveValidate = ({ formData }) => this.setState({ liveValidate: formData });
 
+  setSelfkeyDarkTheme = ({ formData }) => this.setState({ selfkeyDarkTheme: formData });
+
   onFormDataChange = ({ formData }) =>
     this.setState({ formData, shareURL: null });
 
@@ -300,12 +317,15 @@ class App extends Component {
     }
   };
 
+  
+
   render() {
     const {
       schema,
       uiSchema,
       formData,
       liveValidate,
+      selfkeyDarkTheme,
       validate,
       theme,
       editor,
@@ -317,15 +337,68 @@ class App extends Component {
       flexGrow: 1
     };
 
+    const renderForm = () => {
+      return (
+        <Form
+        templates={templates}
+        liveValidate={liveValidate}
+        schema={schema}
+        uiSchema={uiSchema}
+        formData={formData}
+        onChange={this.onFormDataChange}
+        onSubmit={({ formData }) =>
+          console.log("submitted formData", formData)
+        }
+        fields={{ geo: GeoPosition }}
+        validate={validate}
+        onBlur={(id, value) =>
+          console.log(`Touched ${id} with value ${value}`)
+        }
+        onFocus={(id, value) =>
+          console.log(`Focused ${id} with value ${value}`)
+        }
+        transformErrors={transformErrors}
+        onError={log("errors")}>
+        <Grid container direction='row'>
+          <Grid item xs={4}>
+            <Button variant="contained" className="btn btn-primary" type="submit">
+              Submit
+            </Button>
+          </Grid>
+
+          <Grid item xs={4}>
+            <CopyLink
+              shareURL={this.state.shareURL}
+              onShare={this.onShare}
+            />
+          </Grid>
+        </Grid>
+      </Form>);
+    }
+
+    const themeWrapper = () => {
+      if (this.state.form) {
+        if (selfkeyDarkTheme) {
+          return (<SelfkeyDarkTheme>
+                {renderForm()}
+            </SelfkeyDarkTheme>);
+        } else {
+          return renderForm();
+        }
+      }
+    }
+ 
     return (
       <div style={flexGrow}>
         <Grid container direction='column' spacing={32}>
           <Grid item xs={12}>
             <h1>react-jsonschema-form</h1>
+
             <div className="row">
               <div className="col-sm-8">
                 <Selector onSelected={this.load} />
               </div>
+              
               <div className="col-sm-2">
                 <Form
                   idPrefix="live-validate"
@@ -334,8 +407,16 @@ class App extends Component {
                   onChange={this.setLiveValidate}>
                   <div />
                 </Form>
+                <Form
+                  idPrefix="seflkey-dark-theme"
+                  schema={selfkeyDarkThemeSchema}
+                  formData={selfkeyDarkTheme}
+                  onChange={this.setSelfkeyDarkTheme}>
+                  <div />
+                </Form>
               </div>
             </div>
+
           </Grid>
           <Grid item xs={12}>
             <Grid container direction='row' spacing={32}>
@@ -371,43 +452,8 @@ class App extends Component {
                   </Grid>
                 </Grid>
               </Grid>
-              <Grid item xs={4}>
-                {this.state.form && (
-                  <Form
-                    templates={templates}
-                    liveValidate={liveValidate}
-                    schema={schema}
-                    uiSchema={uiSchema}
-                    formData={formData}
-                    onChange={this.onFormDataChange}
-                    onSubmit={({ formData }) =>
-                      console.log("submitted formData", formData)
-                    }
-                    fields={{ geo: GeoPosition }}
-                    validate={validate}
-                    onBlur={(id, value) =>
-                      console.log(`Touched ${id} with value ${value}`)
-                    }
-                    onFocus={(id, value) =>
-                      console.log(`Focused ${id} with value ${value}`)
-                    }
-                    transformErrors={transformErrors}
-                    onError={log("errors")}>
-                    <div className="row">
-                      <div className="col-sm-3">
-                        <button className="btn btn-primary" type="submit">
-                          Submit
-                        </button>
-                      </div>
-                      <div className="col-sm-9 text-right">
-                        <CopyLink
-                          shareURL={this.state.shareURL}
-                          onShare={this.onShare}
-                        />
-                      </div>
-                    </div>
-                  </Form>
-                )}
+              <Grid item xs={4} style={selfkeyDarkTheme? {backgroundColor:base} : {}}>
+                {themeWrapper()}
               </Grid>
             </Grid>
           </Grid>

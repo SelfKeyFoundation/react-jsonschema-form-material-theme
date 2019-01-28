@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import Radio from '@material-ui/core/Radio';
+import { FormControlLabel, Radio } from "@material-ui/core";
 
 function RadioWidget(props) {
   const {
@@ -23,19 +23,20 @@ function RadioWidget(props) {
         const checked = option.value === value;
         const disabledCls = disabled || readonly ? "disabled" : "";
         const radio = (
-          <span>
-            <Radio
-              type="radio"
-              checked={checked}
-              name={name}
-              required={required}
-              value={option.value}
-              disabled={disabled || readonly}
-              autoFocus={autofocus && i === 0}
-              onChange={_ => onChange(option.value)}
-            />
-            <span>{option.label}</span>
-          </span>
+          <FormControlLabel
+            checked={checked}
+            name={name}
+            required={required}
+            disabled={disabled || readonly}
+            autoFocus={autofocus && i === 0}
+            onChange={_ => onChange(option.value)}
+            label={option.label}
+            value={option.label}
+            labelPlacement="end"
+            control={
+              <Radio />
+            }
+          />
         );
 
         return inline ? (

@@ -14,13 +14,16 @@
   },
   "dependencies": {
     "@material-ui/core": "^3.6.0",
+    "@material-ui/icons": "^3.0.2",
+    "@material-ui/lab": "^3.0.0-alpha.28",
     "ajv": "^6.5.5",
     "codemirror": "^5.42.0",
     "lodash.topath": "^4.5.2",
     "react": "^16.6.3",
     "react-codemirror2": "^5.1.0",
     "react-dom": "^16.6.3",
-    "react-jsonschema-form": "https://github.com/SelfKeyFoundation/react-jsonschema-form.git#templates"
+    "react-jsonschema-form": "https://github.com/SelfKeyFoundation/react-jsonschema-form.git#templates",
+    "selfkey-ui": "https://github.com/SelfKeyFoundation/selfkey-ui.git#material-ui"
   },
   "devDependencies": {
     "@babel/core": "^7.1.6",

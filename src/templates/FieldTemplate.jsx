@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
-import InputLabel from '@material-ui/core/InputLabel';
 import FormGroup from '@material-ui/core/FormGroup';
+import { Typography } from "@material-ui/core";
 
 const REQUIRED_FIELD_SYMBOL = "*";
 
@@ -75,10 +75,10 @@ function Label(props) {
     return <div />;
   }
   return (
-    <InputLabel htmlFor={id}>
-      {label}
-      {required && <span className="required">{REQUIRED_FIELD_SYMBOL}</span>}
-    </InputLabel>
+    <Typography htmlFor={id} variant="overline" gutterBottom>
+        {label}
+        {required && <span className="required">{REQUIRED_FIELD_SYMBOL}</span>}
+    </Typography>
   );
 }
 
@@ -89,9 +89,9 @@ function Help(props) {
     return <div />;
   }
   if (typeof help === "string") {
-    return <p className="help-block">{help}</p>;
+    return <Typography variant="subtitle1" color="secondary" className="help-block" gutterBottom>{help}</Typography>;
   }
-  return <div className="help-block">{help}</div>;
+  return <Typography variant="subtitle1" color="secondary" className="help-block" gutterBottom>{help}</Typography>;
 }
 
 function ErrorList(props) {
@@ -101,16 +101,13 @@ function ErrorList(props) {
   }
   return (
     <div>
-      <p />
-      <ul className="error-detail bs-callout bs-callout-info">
-        {errors.map((error, index) => {
-          return (
-            <li className="text-danger" key={index}>
+      {errors.map((error, index) => {
+        return (
+            <Typography variant="subtitle2" color="error" key={index} gutterBottom>
               {error}
-            </li>
-          );
-        })}
-      </ul>
+            </Typography>
+        );
+      })}
     </div>
   );
 }

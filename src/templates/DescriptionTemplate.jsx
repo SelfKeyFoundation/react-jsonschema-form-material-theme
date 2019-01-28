@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { Typography } from "@material-ui/core";
 
 function DescriptionTemplate(props) {
   const { id, description } = props;
@@ -9,15 +10,15 @@ function DescriptionTemplate(props) {
   }
   if (typeof description === "string") {
     return (
-      <p id={id} className="field-description">
+      <Typography variant="subtitle2" color="secondary" id={id} className="field-description" gutterBottom>
         {description}
-      </p>
+      </Typography>
     );
   } else {
     return (
-      <div id={id} className="field-description">
+      <Typography variant="subtitle2" color="secondary" id={id} className="field-description" gutterBottom>
         {description}
-      </div>
+      </Typography>
     );
   }
 }
