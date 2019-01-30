@@ -2,30 +2,44 @@
   "name": "react-jsonschema-form-material-theme",
   "version": "0.0.1",
   "description": "Material-ui theme for the react-jsonschema-form ",
-  "main": "src/index.js",
+  "main": "build/lib/react-jsonschema-form-material-theme.js",
+  "upkg": "build/lib/react-jsonschema-form-material-theme.min.js",
   "types": "src/index.d.ts",
   "repository": "git@github.com:SelfKeyFoundation/react-jsonschema-form-material-theme.git",
   "author": "rodrigopavezi <rodrigopavezi@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "build": "webpack --mode production",
-    "start": "webpack-dev-server --mode development",
+    "build": "yarn build:lib && yarn build:playground",
+    "build:lib": "webpack --mode production --config webpack.prod.js",
+    "build:playground": "webpack --mode production --config webpack.prod.playground.js",
+    "start": "webpack-dev-server --mode development --config webpack.dev.js",
     "deploy": "gh-pages-deploy -- 'Deploy playground'"
   },
-  "dependencies": {
+  "peerDependencies": {
+    "react": "^16.6.3",
+    "react-dom": "^16.6.3",
     "@material-ui/core": "^3.6.0",
     "@material-ui/icons": "^3.0.2",
     "@material-ui/lab": "^3.0.0-alpha.28",
+    "selfkey-ui": "*",
+    "react-jsonschema-form": "*",
+    "ajv": "^6.5.5"
+  },
+  "dependencies": {
     "ajv": "^6.5.5",
-    "codemirror": "^5.42.0",
-    "lodash.topath": "^4.5.2",
-    "react": "^16.6.3",
-    "react-codemirror2": "^5.1.0",
-    "react-dom": "^16.6.3",
-    "react-jsonschema-form": "https://github.com/SelfKeyFoundation/react-jsonschema-form.git#templates",
-    "selfkey-ui": "https://github.com/SelfKeyFoundation/selfkey-ui.git#material-ui"
+    "lodash.topath": "^4.5.2"
   },
   "devDependencies": {
+    "ajv": "^6.5.5",
+    "selfkey-ui": "https://github.com/SelfKeyFoundation/selfkey-ui.git#material-ui",
+    "react-jsonschema-form": "https://github.com/SelfKeyFoundation/react-jsonschema-form.git#templates",
+    "react-codemirror2": "^5.1.0",
+    "codemirror": "^5.42.0",
+    "react": "^16.6.3",
+    "react-dom": "^16.6.3",
+    "@material-ui/core": "^3.6.0",
+    "@material-ui/icons": "^3.0.2",
+    "@material-ui/lab": "^3.0.0-alpha.28",
     "@babel/core": "^7.1.6",
     "@babel/plugin-external-helpers": "^7.0.0",
     "@babel/plugin-proposal-class-properties": "^7.1.0",
@@ -33,13 +47,16 @@
     "@babel/preset-env": "^7.1.6",
     "@babel/preset-react": "^7.0.0",
     "babel-loader": "^8.0.4",
+    "clean-webpack-plugin": "^1.0.1",
     "copy-webpack-plugin": "^4.6.0",
     "css-loader": "^1.0.1",
     "gh-pages-deploy": "^0.5.0",
     "style-loader": "^0.23.1",
+    "uglifyjs-webpack-plugin": "^2.1.1",
     "webpack": "^4.26.1",
     "webpack-cli": "^3.1.2",
-    "webpack-dev-server": "^3.1.14"
+    "webpack-dev-server": "^3.1.14",
+    "webpack-merge": "^4.2.1"
   },
   "gh-pages-deploy": {
     "staticpath": "build/playground"
