@@ -17,6 +17,7 @@ import TextareaWidget from "./TextareaWidget";
 import TextWidget from "./TextWidget";
 import URLWidget from "./URLWidget";
 import UpDownWidget from "./UpDownWidget";
+import ObjectFileWidget from "./ObjectFileWidget";
 
 const widgetMap = {
   boolean: {
@@ -67,6 +68,9 @@ const widgetMap = {
     checkboxes: "CheckboxesWidget",
     files: "FileWidget",
   },
+  object: {
+    file: "ObjectFileWidget"
+  }
 };
 
 export default {
@@ -89,5 +93,6 @@ export default {
   FileWidget,
   CheckboxWidget,
   CheckboxesWidget,
+  ObjectFileWidget,
   __widgetMap: widgetMap,
 };
