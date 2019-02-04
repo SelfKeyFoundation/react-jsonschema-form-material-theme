@@ -1681,6 +1681,17 @@ function (_Component) {
       return function (event) {
         var files = event.target.files;
         var f = files[0];
+
+        if (!f) {
+          return _this3.setState({
+            file: null,
+            url: null,
+            formData: {}
+          }, function () {
+            return _this3.props.onChange({});
+          });
+        }
+
         var data = {
           mimeType: f.type,
           name: f.name,
@@ -1758,12 +1769,14 @@ function (_Component) {
           return onFocus(_this4.state);
         },
         accept: accept
-      }), this.state.formData && this.state.formData.name ? external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement(external_commonjs_react_commonjs2_react_amd_React_root_React_["ReactFragment"], null, external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement("a", {
+      })), this.state.formData && this.state.formData.name && external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement(core_["Typography"], {
+        variant: "body"
+      }, external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement("a", {
         href: this.state.url,
         target: "_blank"
       }, this.state.formData.name), external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement(core_["Button"], {
         onClick: this.clearState()
-      }, "X")) : null));
+      }, "X")));
     }
   }]);
 

@@ -49,7 +49,7 @@
     "react": "^16.6.3",
     "react-codemirror2": "^5.1.0",
     "react-dom": "^16.6.3",
-    "react-jsonschema-form": "https://github.com/SelfKeyFoundation/react-jsonschema-form.git#fdd611781c0a47fd599e5e1753f87f9cbb51a4de",
+    "react-jsonschema-form": "https://github.com/SelfKeyFoundation/react-jsonschema-form.git#01f4a2c24c2c4110dfddea6d0cf581dea8875498",
     "selfkey-ui": "https://github.com/SelfKeyFoundation/selfkey-ui.git#material-ui",
     "style-loader": "^0.23.1",
     "uglifyjs-webpack-plugin": "^2.1.1",

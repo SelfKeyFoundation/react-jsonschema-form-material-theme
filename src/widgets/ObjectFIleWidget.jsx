@@ -1,5 +1,5 @@
-import React, { Component, ReactFragment } from 'react';
-import { InputLabel, Input, Button } from '@material-ui/core';
+import React, { Component, Fragment } from 'react';
+import { InputLabel, Button,Typography } from '@material-ui/core';
 import { retrieveSchema, dataURItoBlob } from 'react-jsonschema-form/lib/utils';
 
 export class ObjectFileWidget extends Component {
@@ -32,6 +32,9 @@ export class ObjectFileWidget extends Component {
 		return event => {
 			const files = event.target.files;
 			const f = files[0];
+			if (!f) {
+				return this.setState({ file: null, url: null, formData: {} }, () => this.props.onChange({}));
+			}
 			const data = {
 				mimeType: f.type,
 				name: f.name,
@@ -98,15 +101,16 @@ export class ObjectFileWidget extends Component {
 						onFocus={onFocus && (event => onFocus(this.state))}
 						accept={accept}
 					/>
-					{this.state.formData && this.state.formData.name ? (
-						<ReactFragment>
-							<a href={this.state.url} target="_blank">
-								{this.state.formData.name}
-							</a>
-							<Button onClick={this.clearState()}>X</Button>
-						</ReactFragment>
-					) : null}
 				</InputLabel>
+				{this.state.formData && this.state.formData.name && (
+
+					<Typography variant="body">
+						<a href={this.state.url} target="_blank">
+							{this.state.formData.name}
+						</a>
+						<Button onClick={this.clearState()}>X</Button>
+					</Typography>
+				)}
 			</FieldTemplate>
 		);
 	}
