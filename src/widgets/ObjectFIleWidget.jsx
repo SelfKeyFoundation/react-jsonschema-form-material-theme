@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react';
-import { InputLabel, Button,Typography } from '@material-ui/core';
+import { InputLabel, Button, Typography } from '@material-ui/core';
 import { retrieveSchema, dataURItoBlob } from 'react-jsonschema-form/lib/utils';
 
 export class ObjectFileWidget extends Component {
@@ -9,7 +9,7 @@ export class ObjectFileWidget extends Component {
 		const state = { formData };
 		if (!formData.file && formData.content) {
 			const { blob, name = formData.name } = dataURItoBlob(formData.content);
-			state.file = new File(blob, name);
+			state.file = new File([blob], name, { type: formData.mimeType });
 		}
 
 		if (state.file) {
@@ -103,7 +103,6 @@ export class ObjectFileWidget extends Component {
 					/>
 				</InputLabel>
 				{this.state.formData && this.state.formData.name && (
-
 					<Typography variant="body">
 						<a href={this.state.url} target="_blank">
 							{this.state.formData.name}

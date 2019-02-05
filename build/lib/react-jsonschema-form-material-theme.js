@@ -1641,7 +1641,9 @@ function (_Component) {
           _dataURItoBlob$name = _dataURItoBlob.name,
           name = _dataURItoBlob$name === void 0 ? formData.name : _dataURItoBlob$name;
 
-      state.file = new File(blob, name);
+      state.file = new File([blob], name, {
+        type: formData.mimeType
+      });
     }
 
     if (state.file) {
