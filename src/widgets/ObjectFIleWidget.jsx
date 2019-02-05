@@ -16,7 +16,7 @@ export class ObjectFileWidget extends Component {
 			state.url = URL.createObjectURL(state.file);
 		}
 
-		this.state = { ...this.state, formData };
+		this.state = { ...state, formData };
 	}
 
 	clearState() {

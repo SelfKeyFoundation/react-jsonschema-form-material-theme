@@ -1650,7 +1650,7 @@ function (_Component) {
       state.url = URL.createObjectURL(state.file);
     }
 
-    _this.state = objectSpread_default()({}, _this.state, {
+    _this.state = objectSpread_default()({}, state, {
       formData: formData
     });
     return _this;
