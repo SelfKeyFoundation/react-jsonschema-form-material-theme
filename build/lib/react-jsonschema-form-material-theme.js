@@ -1,13 +1,13 @@
 (function webpackUniversalModuleDefinition(root, factory) {
 	if(typeof exports === 'object' && typeof module === 'object')
-		module.exports = factory(require("prop-types"), require("react"), require("@material-ui/core"), require("react-jsonschema-form/lib/utils"), require("@material-ui/icons"), require("@material-ui/lab"));
+		module.exports = factory(require("prop-types"), require("react"), require("@material-ui/core"), require("react-jsonschema-form/lib/utils"), require("@material-ui/icons"), require("@material-ui/lab"), require("selfkey-ui"));
 	else if(typeof define === 'function' && define.amd)
-		define(["PropTypes", "React", "@material-ui/core", "react-jsonschema-form/lib/util", "@material-ui/icons", "@material-ui/lab"], factory);
+		define(["PropTypes", "React", "@material-ui/core", "react-jsonschema-form/lib/util", "@material-ui/icons", "@material-ui/lab", "selfkey-ui"], factory);
 	else if(typeof exports === 'object')
-		exports["reactJsonSchemaMaterialTheme"] = factory(require("prop-types"), require("react"), require("@material-ui/core"), require("react-jsonschema-form/lib/utils"), require("@material-ui/icons"), require("@material-ui/lab"));
+		exports["reactJsonSchemaMaterialTheme"] = factory(require("prop-types"), require("react"), require("@material-ui/core"), require("react-jsonschema-form/lib/utils"), require("@material-ui/icons"), require("@material-ui/lab"), require("selfkey-ui"));
 	else
-		root["reactJsonSchemaMaterialTheme"] = factory(root["PropTypes"], root["React"], root["@material-ui/core"], root["react-jsonschema-form/lib/util"], root["@material-ui/icons"], root["@material-ui/lab"]);
-})(window, function(__WEBPACK_EXTERNAL_MODULE__0__, __WEBPACK_EXTERNAL_MODULE__1__, __WEBPACK_EXTERNAL_MODULE__2__, __WEBPACK_EXTERNAL_MODULE__3__, __WEBPACK_EXTERNAL_MODULE__7__, __WEBPACK_EXTERNAL_MODULE__8__) {
+		root["reactJsonSchemaMaterialTheme"] = factory(root["PropTypes"], root["React"], root["@material-ui/core"], root["react-jsonschema-form/lib/util"], root["@material-ui/icons"], root["@material-ui/lab"], root["selfkey-ui"]);
+})(window, function(__WEBPACK_EXTERNAL_MODULE__0__, __WEBPACK_EXTERNAL_MODULE__1__, __WEBPACK_EXTERNAL_MODULE__2__, __WEBPACK_EXTERNAL_MODULE__3__, __WEBPACK_EXTERNAL_MODULE__8__, __WEBPACK_EXTERNAL_MODULE__9__, __WEBPACK_EXTERNAL_MODULE__15__) {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -91,7 +91,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 19);
+/******/ 	return __webpack_require__(__webpack_require__.s = 20);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -158,130 +158,9 @@ module.exports = _assertThisInitialized;
 
 /***/ }),
 /* 6 */
-/***/ (function(module, exports) {
-
-function _defineProperty(obj, key, value) {
-  if (key in obj) {
-    Object.defineProperty(obj, key, {
-      value: value,
-      enumerable: true,
-      configurable: true,
-      writable: true
-    });
-  } else {
-    obj[key] = value;
-  }
-
-  return obj;
-}
-
-module.exports = _defineProperty;
-
-/***/ }),
-/* 7 */
-/***/ (function(module, exports) {
-
-module.exports = __WEBPACK_EXTERNAL_MODULE__7__;
-
-/***/ }),
-/* 8 */
-/***/ (function(module, exports) {
-
-module.exports = __WEBPACK_EXTERNAL_MODULE__8__;
-
-/***/ }),
-/* 9 */
-/***/ (function(module, exports) {
-
-function _classCallCheck(instance, Constructor) {
-  if (!(instance instanceof Constructor)) {
-    throw new TypeError("Cannot call a class as a function");
-  }
-}
-
-module.exports = _classCallCheck;
-
-/***/ }),
-/* 10 */
-/***/ (function(module, exports) {
-
-function _defineProperties(target, props) {
-  for (var i = 0; i < props.length; i++) {
-    var descriptor = props[i];
-    descriptor.enumerable = descriptor.enumerable || false;
-    descriptor.configurable = true;
-    if ("value" in descriptor) descriptor.writable = true;
-    Object.defineProperty(target, descriptor.key, descriptor);
-  }
-}
-
-function _createClass(Constructor, protoProps, staticProps) {
-  if (protoProps) _defineProperties(Constructor.prototype, protoProps);
-  if (staticProps) _defineProperties(Constructor, staticProps);
-  return Constructor;
-}
-
-module.exports = _createClass;
-
-/***/ }),
-/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var _typeof = __webpack_require__(16);
-
-var assertThisInitialized = __webpack_require__(5);
-
-function _possibleConstructorReturn(self, call) {
-  if (call && (_typeof(call) === "object" || typeof call === "function")) {
-    return call;
-  }
-
-  return assertThisInitialized(self);
-}
-
-module.exports = _possibleConstructorReturn;
-
-/***/ }),
-/* 12 */
-/***/ (function(module, exports) {
-
-function _getPrototypeOf(o) {
-  module.exports = _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) {
-    return o.__proto__ || Object.getPrototypeOf(o);
-  };
-  return _getPrototypeOf(o);
-}
-
-module.exports = _getPrototypeOf;
-
-/***/ }),
-/* 13 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var setPrototypeOf = __webpack_require__(17);
-
-function _inherits(subClass, superClass) {
-  if (typeof superClass !== "function" && superClass !== null) {
-    throw new TypeError("Super expression must either be null or a function");
-  }
-
-  subClass.prototype = Object.create(superClass && superClass.prototype, {
-    constructor: {
-      value: subClass,
-      writable: true,
-      configurable: true
-    }
-  });
-  if (superClass) setPrototypeOf(subClass, superClass);
-}
-
-module.exports = _inherits;
-
-/***/ }),
-/* 14 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var objectWithoutPropertiesLoose = __webpack_require__(18);
+var objectWithoutPropertiesLoose = __webpack_require__(19);
 
 function _objectWithoutProperties(source, excluded) {
   if (source == null) return {};
@@ -305,10 +184,137 @@ function _objectWithoutProperties(source, excluded) {
 module.exports = _objectWithoutProperties;
 
 /***/ }),
-/* 15 */
+/* 7 */
+/***/ (function(module, exports) {
+
+function _defineProperty(obj, key, value) {
+  if (key in obj) {
+    Object.defineProperty(obj, key, {
+      value: value,
+      enumerable: true,
+      configurable: true,
+      writable: true
+    });
+  } else {
+    obj[key] = value;
+  }
+
+  return obj;
+}
+
+module.exports = _defineProperty;
+
+/***/ }),
+/* 8 */
+/***/ (function(module, exports) {
+
+module.exports = __WEBPACK_EXTERNAL_MODULE__8__;
+
+/***/ }),
+/* 9 */
+/***/ (function(module, exports) {
+
+module.exports = __WEBPACK_EXTERNAL_MODULE__9__;
+
+/***/ }),
+/* 10 */
+/***/ (function(module, exports) {
+
+function _classCallCheck(instance, Constructor) {
+  if (!(instance instanceof Constructor)) {
+    throw new TypeError("Cannot call a class as a function");
+  }
+}
+
+module.exports = _classCallCheck;
+
+/***/ }),
+/* 11 */
+/***/ (function(module, exports) {
+
+function _defineProperties(target, props) {
+  for (var i = 0; i < props.length; i++) {
+    var descriptor = props[i];
+    descriptor.enumerable = descriptor.enumerable || false;
+    descriptor.configurable = true;
+    if ("value" in descriptor) descriptor.writable = true;
+    Object.defineProperty(target, descriptor.key, descriptor);
+  }
+}
+
+function _createClass(Constructor, protoProps, staticProps) {
+  if (protoProps) _defineProperties(Constructor.prototype, protoProps);
+  if (staticProps) _defineProperties(Constructor, staticProps);
+  return Constructor;
+}
+
+module.exports = _createClass;
+
+/***/ }),
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var defineProperty = __webpack_require__(6);
+var _typeof = __webpack_require__(17);
+
+var assertThisInitialized = __webpack_require__(5);
+
+function _possibleConstructorReturn(self, call) {
+  if (call && (_typeof(call) === "object" || typeof call === "function")) {
+    return call;
+  }
+
+  return assertThisInitialized(self);
+}
+
+module.exports = _possibleConstructorReturn;
+
+/***/ }),
+/* 13 */
+/***/ (function(module, exports) {
+
+function _getPrototypeOf(o) {
+  module.exports = _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) {
+    return o.__proto__ || Object.getPrototypeOf(o);
+  };
+  return _getPrototypeOf(o);
+}
+
+module.exports = _getPrototypeOf;
+
+/***/ }),
+/* 14 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var setPrototypeOf = __webpack_require__(18);
+
+function _inherits(subClass, superClass) {
+  if (typeof superClass !== "function" && superClass !== null) {
+    throw new TypeError("Super expression must either be null or a function");
+  }
+
+  subClass.prototype = Object.create(superClass && superClass.prototype, {
+    constructor: {
+      value: subClass,
+      writable: true,
+      configurable: true
+    }
+  });
+  if (superClass) setPrototypeOf(subClass, superClass);
+}
+
+module.exports = _inherits;
+
+/***/ }),
+/* 15 */
+/***/ (function(module, exports) {
+
+module.exports = __WEBPACK_EXTERNAL_MODULE__15__;
+
+/***/ }),
+/* 16 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var defineProperty = __webpack_require__(7);
 
 function _objectSpread(target) {
   for (var i = 1; i < arguments.length; i++) {
@@ -332,7 +338,7 @@ function _objectSpread(target) {
 module.exports = _objectSpread;
 
 /***/ }),
-/* 16 */
+/* 17 */
 /***/ (function(module, exports) {
 
 function _typeof2(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof2 = function _typeof2(obj) { return typeof obj; }; } else { _typeof2 = function _typeof2(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof2(obj); }
@@ -354,7 +360,7 @@ function _typeof(obj) {
 module.exports = _typeof;
 
 /***/ }),
-/* 17 */
+/* 18 */
 /***/ (function(module, exports) {
 
 function _setPrototypeOf(o, p) {
@@ -369,7 +375,7 @@ function _setPrototypeOf(o, p) {
 module.exports = _setPrototypeOf;
 
 /***/ }),
-/* 18 */
+/* 19 */
 /***/ (function(module, exports) {
 
 function _objectWithoutPropertiesLoose(source, excluded) {
@@ -390,7 +396,7 @@ function _objectWithoutPropertiesLoose(source, excluded) {
 module.exports = _objectWithoutPropertiesLoose;
 
 /***/ }),
-/* 19 */
+/* 20 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -401,23 +407,23 @@ var helpers_extends = __webpack_require__(4);
 var extends_default = /*#__PURE__*/__webpack_require__.n(helpers_extends);
 
 // EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/classCallCheck.js
-var classCallCheck = __webpack_require__(9);
+var classCallCheck = __webpack_require__(10);
 var classCallCheck_default = /*#__PURE__*/__webpack_require__.n(classCallCheck);
 
 // EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/createClass.js
-var createClass = __webpack_require__(10);
+var createClass = __webpack_require__(11);
 var createClass_default = /*#__PURE__*/__webpack_require__.n(createClass);
 
 // EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/possibleConstructorReturn.js
-var possibleConstructorReturn = __webpack_require__(11);
+var possibleConstructorReturn = __webpack_require__(12);
 var possibleConstructorReturn_default = /*#__PURE__*/__webpack_require__.n(possibleConstructorReturn);
 
 // EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/getPrototypeOf.js
-var getPrototypeOf = __webpack_require__(12);
+var getPrototypeOf = __webpack_require__(13);
 var getPrototypeOf_default = /*#__PURE__*/__webpack_require__.n(getPrototypeOf);
 
 // EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/inherits.js
-var inherits = __webpack_require__(13);
+var inherits = __webpack_require__(14);
 var inherits_default = /*#__PURE__*/__webpack_require__.n(inherits);
 
 // EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/assertThisInitialized.js
@@ -425,7 +431,7 @@ var assertThisInitialized = __webpack_require__(5);
 var assertThisInitialized_default = /*#__PURE__*/__webpack_require__.n(assertThisInitialized);
 
 // EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/defineProperty.js
-var defineProperty = __webpack_require__(6);
+var defineProperty = __webpack_require__(7);
 var defineProperty_default = /*#__PURE__*/__webpack_require__.n(defineProperty);
 
 // EXTERNAL MODULE: external {"commonjs":"react","commonjs2":"react","amd":"React","root":"React"}
@@ -717,7 +723,7 @@ AltDateTimeWidget.defaultProps = {
 };
 /* harmony default export */ var widgets_AltDateTimeWidget = (AltDateTimeWidget);
 // EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/objectWithoutProperties.js
-var objectWithoutProperties = __webpack_require__(14);
+var objectWithoutProperties = __webpack_require__(6);
 var objectWithoutProperties_default = /*#__PURE__*/__webpack_require__.n(objectWithoutProperties);
 
 // EXTERNAL MODULE: external {"commonjs":"@material-ui/core","commonjs2":"@material-ui/core","amd":"@material-ui/core","root":"@material-ui/core"}
@@ -969,35 +975,74 @@ ColorWidget.propTypes = {
   onChange: external_commonjs_prop_types_commonjs2_prop_types_amd_PropTypes_root_PropTypes_default.a.func
 };
 /* harmony default export */ var widgets_ColorWidget = (ColorWidget);
+// EXTERNAL MODULE: external {"commonjs":"selfkey-ui","commonjs2":"selfkey-ui","amd":"selfkey-ui","root":"selfkey-ui"}
+var external_commonjs_selfkey_ui_commonjs2_selfkey_ui_amd_selfkey_ui_root_selfkey_ui_ = __webpack_require__(15);
+
 // CONCATENATED MODULE: ./src/widgets/DateWidget.jsx
 
 
 
 
+
 function DateWidget(props) {
-  var _onChange = props.onChange,
-      BaseInput = props.registry.widgets.BaseInput;
-  return external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement(BaseInput, extends_default()({
-    type: "date"
-  }, props, {
-    onChange: function onChange(value) {
-      return _onChange(value || undefined);
+  // Note: since React 15.2.0 we can't forward unknown element attributes, so we
+  // exclude the "options" and "schema" ones here.
+  if (!props.id) {
+    console.log('No id for', props);
+    throw new Error("no id for props ".concat(JSON.stringify(props)));
+  }
+
+  var value = props.value,
+      readonly = props.readonly,
+      disabled = props.disabled,
+      autofocus = props.autofocus,
+      onBlur = props.onBlur,
+      onFocus = props.onFocus,
+      options = props.options,
+      schema = props.schema,
+      formContext = props.formContext,
+      registry = props.registry,
+      errors = props.errors,
+      inputProps = objectWithoutProperties_default()(props, ["value", "readonly", "disabled", "autofocus", "onBlur", "onFocus", "options", "schema", "formContext", "registry", "errors"]);
+
+  var _onChange = function _onChange(_ref) {
+    var data = _ref.target;
+    return props.onChange(data.value === '' ? options.emptyValue : data.value);
+  };
+
+  function isError(Obj) {
+    for (var key in Obj) {
+      if (Obj.hasOwnProperty(key)) return true;
     }
+
+    return false;
+  }
+
+  return external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement(external_commonjs_selfkey_ui_commonjs2_selfkey_ui_amd_selfkey_ui_root_selfkey_ui_["KeyPicker"], extends_default()({
+    readOnly: readonly,
+    disabled: disabled,
+    error: isError(errors),
+    autoFocus: autofocus,
+    value: value == null ? '' : value
+  }, inputProps, {
+    onChange: _onChange,
+    onFocus: onFocus && function (event) {
+      return onFocus(inputProps.id, event.target.value);
+    },
+    disableUnderline: true
   }));
 }
 
-DateWidget.propTypes = {
-  value: external_commonjs_prop_types_commonjs2_prop_types_amd_PropTypes_root_PropTypes_default.a.string
-};
 /* harmony default export */ var widgets_DateWidget = (DateWidget);
 // CONCATENATED MODULE: ./src/widgets/DateTimeWidget.jsx
 
 
 
 
+
 function utcToLocal(jsonDate) {
   if (!jsonDate) {
-    return "";
+    return '';
   } // required format of `"yyyy-MM-ddThh:mm" followed by optional ":ss" or ":ss.SSS"
   // https://html.spec.whatwg.org/multipage/input.html#local-date-and-time-state-(type%3Ddatetime-local)
   // > should be a _valid local date and time string_ (not GMT)
@@ -1022,22 +1067,57 @@ function localToUTC(dateString) {
 }
 
 function DateTimeWidget(props) {
+  // Note: since React 15.2.0 we can't forward unknown element attributes, so we
+  // exclude the "options" and "schema" ones here.
+  if (!props.id) {
+    console.log('No id for', props);
+    throw new Error("no id for props ".concat(JSON.stringify(props)));
+  }
+
   var value = props.value,
-      _onChange = props.onChange,
-      BaseInput = props.registry.widgets.BaseInput;
-  return external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement(BaseInput, extends_default()({
-    type: "datetime-local"
-  }, props, {
-    value: utcToLocal(value),
-    onChange: function onChange(value) {
-      return _onChange(localToUTC(value));
+      readonly = props.readonly,
+      disabled = props.disabled,
+      autofocus = props.autofocus,
+      onBlur = props.onBlur,
+      onFocus = props.onFocus,
+      options = props.options,
+      schema = props.schema,
+      formContext = props.formContext,
+      registry = props.registry,
+      errors = props.errors,
+      inputProps = objectWithoutProperties_default()(props, ["value", "readonly", "disabled", "autofocus", "onBlur", "onFocus", "options", "schema", "formContext", "registry", "errors"]);
+
+  inputProps.type = options.inputType || inputProps.type || 'text';
+
+  var _onChange = function _onChange(_ref) {
+    var value = _ref.target.value;
+    return props.onChange(value === '' ? localToUtc(options.emptyValue) : localToUTC(value));
+  };
+
+  function isError(Obj) {
+    for (var key in Obj) {
+      if (Obj.hasOwnProperty(key)) return true;
     }
+
+    return false;
+  }
+
+  return external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement(external_commonjs_selfkey_ui_commonjs2_selfkey_ui_amd_selfkey_ui_root_selfkey_ui_["KeyPicker"], extends_default()({
+    includeTime: true,
+    readOnly: readonly,
+    disabled: disabled,
+    error: isError(errors),
+    autoFocus: autofocus,
+    value: utcToLocal(value)
+  }, inputProps, {
+    onChange: _onChange,
+    onFocus: onFocus && function (event) {
+      return onFocus(inputProps.id, event.target.value);
+    },
+    disableUnderline: true
   }));
 }
 
-DateTimeWidget.propTypes = {
-  value: external_commonjs_prop_types_commonjs2_prop_types_amd_PropTypes_root_PropTypes_default.a.string
-};
 /* harmony default export */ var widgets_DateTimeWidget = (DateTimeWidget);
 // CONCATENATED MODULE: ./src/widgets/EmailWidget.jsx
 
@@ -1056,7 +1136,7 @@ EmailWidget.propTypes = {
 };
 /* harmony default export */ var widgets_EmailWidget = (EmailWidget);
 // EXTERNAL MODULE: external {"commonjs":"@material-ui/icons","commonjs2":"@material-ui/icons","amd":"@material-ui/icons","root":"@material-ui/icons"}
-var icons_ = __webpack_require__(7);
+var icons_ = __webpack_require__(8);
 
 // CONCATENATED MODULE: ./src/widgets/FileWidget.jsx
 
@@ -1343,7 +1423,7 @@ RadioWidget.propTypes = {
 };
 /* harmony default export */ var widgets_RadioWidget = (RadioWidget);
 // EXTERNAL MODULE: external {"commonjs":"@material-ui/lab","commonjs2":"@material-ui/lab","amd":"@material-ui/lab","root":"@material-ui/lab"}
-var lab_ = __webpack_require__(8);
+var lab_ = __webpack_require__(9);
 
 // CONCATENATED MODULE: ./src/widgets/RangeWidget.jsx
 
@@ -1605,7 +1685,7 @@ UpDownWidget.propTypes = {
 };
 /* harmony default export */ var widgets_UpDownWidget = (UpDownWidget);
 // EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/objectSpread.js
-var objectSpread = __webpack_require__(15);
+var objectSpread = __webpack_require__(16);
 var objectSpread_default = /*#__PURE__*/__webpack_require__.n(objectSpread);
 
 // CONCATENATED MODULE: ./src/widgets/ObjectFileWidget.jsx
