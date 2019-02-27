@@ -95,7 +95,6 @@ export class ObjectFileWidget extends Component {
 					name: this.state.formData.name,
 			  }
 			: null;
-		console.log('XXX', file)
 		return (
 			<FieldTemplate {...templateProps}>
 				<FileUploadWidget
