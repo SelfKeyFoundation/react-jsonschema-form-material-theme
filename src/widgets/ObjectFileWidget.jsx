@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from 'react';
+import { FileUploadWidget } from 'selfkey-ui';
 import { InputLabel, Button, Typography } from '@material-ui/core';
 import { retrieveSchema, dataURItoBlob } from 'react-jsonschema-form/lib/utils';
 
@@ -44,6 +45,7 @@ export class ObjectFileWidget extends Component {
 			const url = URL.createObjectURL(f);
 			// eslint-disable-next-line
 			const reader = new FileReader();
+			console.log('XXX data', data);
 			reader.readAsDataURL(f);
 			reader.onload = () => {
 				data.content = reader.result;
@@ -87,29 +89,26 @@ export class ObjectFileWidget extends Component {
 			idPrefix,
 		};
 		const accept = (((schema.properties || {}).mimeType || {}).enum || []).join(',');
+		const file = this.state.formData && this.state.formData.name
+			? {
+					url: this.state.url,
+					name: this.state.formData.name,
+			  }
+			: null;
 		return (
 			<FieldTemplate {...templateProps}>
-				<InputLabel>
-					<input
-						id={id}
-						type="file"
-						name={name}
-						required={required}
-						disabled={readonly || disabled}
-						onChange={this.onChange()}
-						onBlur={onBlur && (event => onBlur(this.state))}
-						onFocus={onFocus && (event => onFocus(this.state))}
-						accept={accept}
-					/>
-				</InputLabel>
-				{this.state.formData && this.state.formData.name && (
-					<Typography variant="body">
-						<a href={this.state.url} target="_blank">
-							{this.state.formData.name}
-						</a>
-						<Button onClick={this.clearState()}>X</Button>
-					</Typography>
-				)}
+				<FileUploadWidget
+					id={id}
+					name={name}
+					required={required}
+					disabled={readonly || disabled}
+					file={file}
+					onClearForm={this.clearState()}
+					onChange={this.onChange()}
+					onBlur={onBlur && (event => onBlur(this.state))}
+					onFocus={onFocus && (event => onFocus(this.state))}
+					accept={accept}
+				/>
 			</FieldTemplate>
 		);
 	}

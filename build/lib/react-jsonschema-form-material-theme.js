@@ -1698,6 +1698,7 @@ var objectSpread_default = /*#__PURE__*/__webpack_require__.n(objectSpread);
 
 
 
+
 var ObjectFileWidget_ObjectFileWidget =
 /*#__PURE__*/
 function (_Component) {
@@ -1783,6 +1784,7 @@ function (_Component) {
         var url = URL.createObjectURL(f); // eslint-disable-next-line
 
         var reader = new FileReader();
+        console.log('XXX data', data);
         reader.readAsDataURL(f);
 
         reader.onload = function () {
@@ -1837,12 +1839,17 @@ function (_Component) {
         idPrefix: idPrefix
       };
       var accept = (((schema.properties || {}).mimeType || {}).enum || []).join(',');
-      return external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement(FieldTemplate, templateProps, external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement(core_["InputLabel"], null, external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement("input", {
+      var file = this.state.formData && this.state.formData.name ? {
+        url: this.state.url,
+        name: this.state.formData.name
+      } : null;
+      return external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement(FieldTemplate, templateProps, external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement(external_commonjs_selfkey_ui_commonjs2_selfkey_ui_amd_selfkey_ui_root_selfkey_ui_["FileUploadWidget"], {
         id: id,
-        type: "file",
         name: name,
         required: required,
         disabled: readonly || disabled,
+        file: file,
+        onClearForm: this.clearState(),
         onChange: this.onChange(),
         onBlur: onBlur && function (event) {
           return onBlur(_this4.state);
@@ -1851,14 +1858,7 @@ function (_Component) {
           return onFocus(_this4.state);
         },
         accept: accept
-      })), this.state.formData && this.state.formData.name && external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement(core_["Typography"], {
-        variant: "body"
-      }, external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement("a", {
-        href: this.state.url,
-        target: "_blank"
-      }, this.state.formData.name), external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement(core_["Button"], {
-        onClick: this.clearState()
-      }, "X")));
+      }));
     }
   }]);
 
