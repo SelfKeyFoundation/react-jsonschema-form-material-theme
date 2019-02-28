@@ -1483,8 +1483,6 @@ function (_Component) {
         });
       }
 
-      console.log('XXX', Object(utils["m" /* isObjectFilesArray */])(schema, uiSchema, definitions), schema);
-
       if (Object(utils["m" /* isObjectFilesArray */])(schema, uiSchema, definitions)) {
         return this.renderObjectFilesArray(schema, uiSchema, definitions);
       }
@@ -6668,6 +6666,49 @@ function ArrayFileObjectTemplate_ArrayFieldDescription(_ref2) {
   });
 }
 
+function Help(props) {
+  var help = props.help;
+
+  if (!help) {
+    // See #312: Ensure compatibility with old versions of React.
+    return external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement("div", null);
+  }
+
+  if (typeof help === 'string') {
+    return external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement(Typography, {
+      variant: "subtitle1",
+      color: "secondary",
+      className: "help-block",
+      gutterBottom: true
+    }, help);
+  }
+
+  return external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement(Typography, {
+    variant: "subtitle1",
+    color: "secondary",
+    className: "help-block",
+    gutterBottom: true
+  }, help);
+}
+
+function ErrorList(props) {
+  var _props$errors = props.errors,
+      errors = _props$errors === void 0 ? [] : _props$errors;
+
+  if (errors.length === 0) {
+    return external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement("div", null);
+  }
+
+  return external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement("div", null, errors.map(function (error, index) {
+    return external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement(Typography, {
+      variant: "subtitle2",
+      color: "error",
+      key: index,
+      gutterBottom: true
+    }, error);
+  }));
+}
+
 var ArrayFileObjectTemplate_ArrayFileObjectTemplate =
 /*#__PURE__*/
 function (_Component) {
@@ -6721,7 +6762,7 @@ function (_Component) {
         var formData = filesData.map(function (data) {
           return {
             name: data.name,
-            // content: data.content,
+            content: data.content,
             mimeType: data.mimeType,
             size: data.size
           };
@@ -6745,7 +6786,6 @@ function (_Component) {
           files = _this$state.files,
           formData = _this$state.formData;
       var index = files.indexOf(file);
-      console.log('XXX', files, formData, index);
       if (index == -1) return;
       files = files.filter(function (f, ind) {
         return ind !== index;
@@ -6753,7 +6793,6 @@ function (_Component) {
       formData = formData.filter(function (f, ind) {
         return ind !== index;
       });
-      console.log('XXX', files, formData, index);
 
       _this.setState({
         files: files,
@@ -6817,7 +6856,12 @@ function (_Component) {
         files: this.state.files,
         onClearForm: this.handleFileDelete,
         accept: accept,
+        isError: props.errors && props.errors.length,
         onChange: this.handleFileChange
+      }), external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement(ErrorList, {
+        errors: this.props.errors
+      }), external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement(Help, {
+        help: this.props.help
       }));
     }
   }]);
@@ -6915,9 +6959,9 @@ function FieldTemplate(props) {
     id: "".concat(id, "__description"),
     description: description,
     formContext: formContext
-  }) : null, children, external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement(ErrorList, {
+  }) : null, children, external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement(FieldTemplate_ErrorList, {
     errors: errors
-  }), external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement(Help, {
+  }), external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement(FieldTemplate_Help, {
     help: help
   }));
 }
@@ -6962,7 +7006,7 @@ function Label(props) {
   }, REQUIRED_FIELD_SYMBOL));
 }
 
-function Help(props) {
+function FieldTemplate_Help(props) {
   var help = props.help;
 
   if (!help) {
@@ -6987,7 +7031,7 @@ function Help(props) {
   }, help);
 }
 
-function ErrorList(props) {
+function FieldTemplate_ErrorList(props) {
   var _props$errors = props.errors,
       errors = _props$errors === void 0 ? [] : _props$errors;
 

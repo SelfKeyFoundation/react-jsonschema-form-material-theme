@@ -18,7 +18,43 @@ function ArrayFieldDescription({ DescriptionTemplate, idSchema, description, for
 	const id = `${idSchema.$id}__description`;
 	return <DescriptionTemplate id={id} description={description} formContext={formContext} />;
 }
+function Help(props) {
+	const { help } = props;
+	if (!help) {
+		// See #312: Ensure compatibility with old versions of React.
+		return <div />;
+	}
+	if (typeof help === 'string') {
+		return (
+			<Typography variant="subtitle1" color="secondary" className="help-block" gutterBottom>
+				{help}
+			</Typography>
+		);
+	}
+	return (
+		<Typography variant="subtitle1" color="secondary" className="help-block" gutterBottom>
+			{help}
+		</Typography>
+	);
+}
 
+function ErrorList(props) {
+	const { errors = [] } = props;
+	if (errors.length === 0) {
+		return <div />;
+	}
+	return (
+		<div>
+			{errors.map((error, index) => {
+				return (
+					<Typography variant="subtitle2" color="error" key={index} gutterBottom>
+						{error}
+					</Typography>
+				);
+			})}
+		</div>
+	);
+}
 export default class ArrayFileObjectTemplate extends Component {
 	constructor(props) {
 		super(props);
@@ -128,6 +164,8 @@ export default class ArrayFileObjectTemplate extends Component {
 					isError={props.errors && props.errors.length}
 					onChange={this.handleFileChange}
 				/>
+				<ErrorList errors={this.props.errors} />
+				<Help help={this.props.help} />
 			</div>
 		);
 	}
