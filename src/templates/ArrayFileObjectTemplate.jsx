@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { ArrayFileUploadWidget } from 'selfkey-ui';
+import { dataURItoBlob } from '../utils';
 
 function ArrayFieldTitle({ TitleTemplate, idSchema, title, required }) {
 	if (!title) {

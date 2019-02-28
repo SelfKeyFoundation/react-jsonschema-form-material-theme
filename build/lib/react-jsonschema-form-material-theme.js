@@ -111,33 +111,33 @@ module.exports = __WEBPACK_EXTERNAL_MODULE__1__;
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(setImmediate) {/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return getDefaultRegistry; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "f", function() { return getSchemaType; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "h", function() { return getWidget; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return getDefaultFormState; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "g", function() { return getUiOptions; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "l", function() { return isObject; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "o", function() { return mergeObjects; });
+/* WEBPACK VAR INJECTION */(function(setImmediate) {/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "f", function() { return getDefaultRegistry; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "g", function() { return getSchemaType; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "i", function() { return getWidget; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return getDefaultFormState; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "h", function() { return getUiOptions; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "m", function() { return isObject; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "p", function() { return mergeObjects; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return asNumber; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "q", function() { return orderProperties; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "r", function() { return orderProperties; });
 /* unused harmony export isConstant */
 /* unused harmony export toConstant */
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "n", function() { return isSelect; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "k", function() { return isMultiSelect; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "i", function() { return isFilesArray; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "m", function() { return isObjectFilesArray; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "j", function() { return isFixedItems; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "o", function() { return isSelect; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "l", function() { return isMultiSelect; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "j", function() { return isFilesArray; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "n", function() { return isObjectFilesArray; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "k", function() { return isFixedItems; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return allowAdditionalItems; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "p", function() { return optionsList; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "r", function() { return retrieveSchema; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return deepEquals; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "t", function() { return shouldRender; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "u", function() { return toIdSchema; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "q", function() { return optionsList; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "s", function() { return retrieveSchema; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return deepEquals; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "u", function() { return shouldRender; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "v", function() { return toIdSchema; });
 /* unused harmony export parseDateString */
 /* unused harmony export toDateString */
 /* unused harmony export pad */
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "s", function() { return setState; });
-/* unused harmony export dataURItoBlob */
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "t", function() { return setState; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return dataURItoBlob; });
 /* unused harmony export rangeSpec */
 /* harmony import */ var _babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(15);
 /* harmony import */ var _babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_0__);
@@ -1328,11 +1328,11 @@ function (_Component) {
       var definitions = registry.definitions;
       var itemSchema = schema.items;
 
-      if (Object(utils["j" /* isFixedItems */])(schema) && Object(utils["a" /* allowAdditionalItems */])(schema)) {
+      if (Object(utils["k" /* isFixedItems */])(schema) && Object(utils["a" /* allowAdditionalItems */])(schema)) {
         itemSchema = schema.additionalItems;
       }
 
-      _this.props.onChange([].concat(toConsumableArray_default()(formData), [Object(utils["d" /* getDefaultFormState */])(itemSchema, undefined, definitions)]));
+      _this.props.onChange([].concat(toConsumableArray_default()(formData), [Object(utils["e" /* getDefaultFormState */])(itemSchema, undefined, definitions)]));
     });
 
     defineProperty_default()(assertThisInitialized_default()(assertThisInitialized_default()(_this)), "onDropIndexClick", function (index) {
@@ -1450,7 +1450,7 @@ function (_Component) {
           schema = _this$props5.schema,
           uiSchema = _this$props5.uiSchema;
 
-      var _getUiOptions = Object(utils["g" /* getUiOptions */])(uiSchema),
+      var _getUiOptions = Object(utils["h" /* getUiOptions */])(uiSchema),
           addable = _getUiOptions.addable;
 
       if (addable !== false) {
@@ -1483,19 +1483,19 @@ function (_Component) {
         });
       }
 
-      if (Object(utils["m" /* isObjectFilesArray */])(schema, uiSchema, definitions)) {
+      if (Object(utils["n" /* isObjectFilesArray */])(schema, uiSchema, definitions)) {
         return this.renderObjectFilesArray(schema, uiSchema, definitions);
       }
 
-      if (Object(utils["j" /* isFixedItems */])(schema)) {
+      if (Object(utils["k" /* isFixedItems */])(schema)) {
         return this.renderFixedArray();
       }
 
-      if (Object(utils["i" /* isFilesArray */])(schema, uiSchema, definitions)) {
+      if (Object(utils["j" /* isFilesArray */])(schema, uiSchema, definitions)) {
         return this.renderFiles();
       }
 
-      if (Object(utils["k" /* isMultiSelect */])(schema, definitions)) {
+      if (Object(utils["l" /* isMultiSelect */])(schema, definitions)) {
         return this.renderMultiSelect();
       }
 
@@ -1535,14 +1535,14 @@ function (_Component) {
       var ArrayFieldTemplate = registry.templates.ArrayFieldTemplate,
           definitions = registry.definitions,
           formContext = registry.formContext;
-      var itemsSchema = Object(utils["r" /* retrieveSchema */])(schema.items, definitions);
+      var itemsSchema = Object(utils["s" /* retrieveSchema */])(schema.items, definitions);
       var arrayProps = {
         canAdd: this.canAddItem(formData),
         items: formData.map(function (item, index) {
-          var itemSchema = Object(utils["r" /* retrieveSchema */])(schema.items, definitions, item);
+          var itemSchema = Object(utils["s" /* retrieveSchema */])(schema.items, definitions, item);
           var itemErrorSchema = errorSchema ? errorSchema[index] : undefined;
           var itemIdPrefix = idSchema.$id + '_' + index;
-          var itemIdSchema = Object(utils["u" /* toIdSchema */])(itemSchema, itemIdPrefix, definitions, item, idPrefix);
+          var itemIdSchema = Object(utils["v" /* toIdSchema */])(itemSchema, itemIdPrefix, definitions, item, idPrefix);
           return _this2.renderArrayFieldItem({
             index: index,
             canMoveUp: index > 0,
@@ -1593,17 +1593,17 @@ function (_Component) {
       var widgets = registry.widgets,
           definitions = registry.definitions,
           formContext = registry.formContext;
-      var itemsSchema = Object(utils["r" /* retrieveSchema */])(schema.items, definitions, formData);
-      var enumOptions = Object(utils["p" /* optionsList */])(itemsSchema);
+      var itemsSchema = Object(utils["s" /* retrieveSchema */])(schema.items, definitions, formData);
+      var enumOptions = Object(utils["q" /* optionsList */])(itemsSchema);
 
-      var _getUiOptions$enumOpt = objectSpread_default()({}, Object(utils["g" /* getUiOptions */])(uiSchema), {
+      var _getUiOptions$enumOpt = objectSpread_default()({}, Object(utils["h" /* getUiOptions */])(uiSchema), {
         enumOptions: enumOptions
       }),
           _getUiOptions$enumOpt2 = _getUiOptions$enumOpt.widget,
           widget = _getUiOptions$enumOpt2 === void 0 ? 'select' : _getUiOptions$enumOpt2,
           options = objectWithoutProperties_default()(_getUiOptions$enumOpt, ["widget"]);
 
-      var Widget = Object(utils["h" /* getWidget */])(schema, widget, widgets);
+      var Widget = Object(utils["i" /* getWidget */])(schema, widget, widgets);
       return external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement(Widget, {
         id: idSchema && idSchema.$id,
         multiple: true,
@@ -1640,12 +1640,12 @@ function (_Component) {
       var widgets = registry.widgets,
           formContext = registry.formContext;
 
-      var _getUiOptions2 = Object(utils["g" /* getUiOptions */])(uiSchema),
+      var _getUiOptions2 = Object(utils["h" /* getUiOptions */])(uiSchema),
           _getUiOptions2$widget = _getUiOptions2.widget,
           widget = _getUiOptions2$widget === void 0 ? 'files' : _getUiOptions2$widget,
           options = objectWithoutProperties_default()(_getUiOptions2, ["widget"]);
 
-      var Widget = Object(utils["h" /* getWidget */])(schema, widget, widgets);
+      var Widget = Object(utils["i" /* getWidget */])(schema, widget, widgets);
       return external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement(Widget, {
         options: options,
         id: idSchema && idSchema.$id,
@@ -1690,9 +1690,9 @@ function (_Component) {
           definitions = registry.definitions,
           formContext = registry.formContext;
       var itemSchemas = schema.items.map(function (item, index) {
-        return Object(utils["r" /* retrieveSchema */])(item, definitions, formData[index]);
+        return Object(utils["s" /* retrieveSchema */])(item, definitions, formData[index]);
       });
-      var additionalSchema = Object(utils["a" /* allowAdditionalItems */])(schema) ? Object(utils["r" /* retrieveSchema */])(schema.additionalItems, definitions, formData) : null;
+      var additionalSchema = Object(utils["a" /* allowAdditionalItems */])(schema) ? Object(utils["s" /* retrieveSchema */])(schema.additionalItems, definitions, formData) : null;
 
       if (!items || items.length < itemSchemas.length) {
         // to make sure at least all fixed items are generated
@@ -1709,9 +1709,9 @@ function (_Component) {
         formData: formData,
         items: items.map(function (item, index) {
           var additional = index >= itemSchemas.length;
-          var itemSchema = additional ? Object(utils["r" /* retrieveSchema */])(schema.additionalItems, definitions, item) : itemSchemas[index];
+          var itemSchema = additional ? Object(utils["s" /* retrieveSchema */])(schema.additionalItems, definitions, item) : itemSchemas[index];
           var itemIdPrefix = idSchema.$id + '_' + index;
-          var itemIdSchema = Object(utils["u" /* toIdSchema */])(itemSchema, itemIdPrefix, definitions, item, idPrefix);
+          var itemIdSchema = Object(utils["v" /* toIdSchema */])(itemSchema, itemIdPrefix, definitions, item, idPrefix);
           var itemUiSchema = additional ? uiSchema.additionalItems || {} : Array.isArray(uiSchema.items) ? uiSchema.items[index] : uiSchema.items || {};
           var itemErrorSchema = errorSchema ? errorSchema[index] : undefined;
           return _this3.renderArrayFieldItem({
@@ -1850,7 +1850,7 @@ function BooleanField(props) {
       idSchema = props.idSchema,
       formData = props.formData,
       _props$registry = props.registry,
-      registry = _props$registry === void 0 ? Object(utils["e" /* getDefaultRegistry */])() : _props$registry,
+      registry = _props$registry === void 0 ? Object(utils["f" /* getDefaultRegistry */])() : _props$registry,
       required = props.required,
       disabled = props.disabled,
       readonly = props.readonly,
@@ -1861,13 +1861,13 @@ function BooleanField(props) {
   var widgets = registry.widgets,
       formContext = registry.formContext;
 
-  var _getUiOptions = Object(utils["g" /* getUiOptions */])(uiSchema),
+  var _getUiOptions = Object(utils["h" /* getUiOptions */])(uiSchema),
       _getUiOptions$widget = _getUiOptions.widget,
       widget = _getUiOptions$widget === void 0 ? "checkbox" : _getUiOptions$widget,
       options = objectWithoutProperties_default()(_getUiOptions, ["widget"]);
 
-  var Widget = Object(utils["h" /* getWidget */])(schema, widget, widgets);
-  var enumOptions = Object(utils["p" /* optionsList */])({
+  var Widget = Object(utils["i" /* getWidget */])(schema, widget, widgets);
+  var enumOptions = Object(utils["q" /* optionsList */])({
     enum: [true, false],
     enumNames: schema.enumNames || ["yes", "no"]
   });
@@ -1995,17 +1995,17 @@ function (_Component) {
           templates = registry.templates,
           formContext = registry.formContext,
           widgets = registry.widgets;
-      var schema = Object(utils["r" /* retrieveSchema */])(this.props.schema, definitions, formData);
+      var schema = Object(utils["s" /* retrieveSchema */])(this.props.schema, definitions, formData);
       var title = schema.title === undefined ? name : schema.title;
       var defaultWidget = schema.format || null;
 
-      var _getUiOptions = Object(utils["g" /* getUiOptions */])(uiSchema),
+      var _getUiOptions = Object(utils["h" /* getUiOptions */])(uiSchema),
           _getUiOptions$widget = _getUiOptions.widget,
           widget = _getUiOptions$widget === void 0 ? defaultWidget : _getUiOptions$widget,
           options = objectWithoutProperties_default()(_getUiOptions, ["widget"]);
 
       try {
-        var Widget = widget ? Object(utils["h" /* getWidget */])(schema, widget, widgets) : null;
+        var Widget = widget ? Object(utils["i" /* getWidget */])(schema, widget, widgets) : null;
 
         if (Widget) {
           return external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement(Widget, {
@@ -2039,7 +2039,7 @@ function (_Component) {
 
       try {
         var properties = Object.keys(schema.properties);
-        orderedProperties = Object(utils["q" /* orderProperties */])(properties, uiSchema["ui:order"]);
+        orderedProperties = Object(utils["r" /* orderProperties */])(properties, uiSchema["ui:order"]);
       } catch (err) {
         return external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement("div", null, external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement("p", {
           className: "config-error",
@@ -2137,7 +2137,7 @@ function getFieldComponent(schema, uiSchema, idSchema, fields) {
     return fields[field];
   }
 
-  var componentName = COMPONENT_TYPES[Object(utils["f" /* getSchemaType */])(schema)];
+  var componentName = COMPONENT_TYPES[Object(utils["g" /* getSchemaType */])(schema)];
   return componentName in fields ? fields[componentName] : function () {
     return external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement(fields_UnsupportedField, {
       schema: schema,
@@ -2160,8 +2160,8 @@ function SchemaFieldRender(props) {
       formContext = registry.formContext,
       FieldTemplate = registry.templates.FieldTemplate;
   var idSchema = props.idSchema;
-  var schema = Object(utils["r" /* retrieveSchema */])(props.schema, definitions, formData);
-  idSchema = Object(utils["o" /* mergeObjects */])(Object(utils["u" /* toIdSchema */])(schema, null, definitions, formData, idPrefix), idSchema);
+  var schema = Object(utils["s" /* retrieveSchema */])(props.schema, definitions, formData);
+  idSchema = Object(utils["p" /* mergeObjects */])(Object(utils["v" /* toIdSchema */])(schema, null, definitions, formData, idPrefix), idSchema);
   var Field = getFieldComponent(schema, uiSchema, idSchema, fields);
   var disabled = Boolean(props.disabled || uiSchema["ui:disabled"]);
   var readonly = Boolean(props.readonly || uiSchema["ui:readonly"]);
@@ -2172,12 +2172,12 @@ function SchemaFieldRender(props) {
     return external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement("div", null);
   }
 
-  var uiOptions = Object(utils["g" /* getUiOptions */])(uiSchema);
+  var uiOptions = Object(utils["h" /* getUiOptions */])(uiSchema);
   var _uiOptions$label = uiOptions.label,
       displayLabel = _uiOptions$label === void 0 ? true : _uiOptions$label;
 
   if (schema.type === "array") {
-    displayLabel = Object(utils["k" /* isMultiSelect */])(schema, definitions) || Object(utils["i" /* isFilesArray */])(schema, uiSchema, definitions);
+    displayLabel = Object(utils["l" /* isMultiSelect */])(schema, definitions) || Object(utils["j" /* isFilesArray */])(schema, uiSchema, definitions);
   }
 
   if (schema.type === "object") {
@@ -2254,7 +2254,7 @@ function (_React$Component) {
     value: function shouldComponentUpdate(nextProps, nextState) {
       // if schemas are equal idSchemas will be equal as well,
       // so it is not necessary to compare
-      return !Object(utils["c" /* deepEquals */])(objectSpread_default()({}, this.props, {
+      return !Object(utils["d" /* deepEquals */])(objectSpread_default()({}, this.props, {
         idSchema: undefined
       }), objectSpread_default()({}, nextProps, {
         idSchema: undefined
@@ -2303,23 +2303,23 @@ function StringField_StringField(props) {
       onBlur = props.onBlur,
       onFocus = props.onFocus,
       _props$registry = props.registry,
-      registry = _props$registry === void 0 ? Object(utils["e" /* getDefaultRegistry */])() : _props$registry,
+      registry = _props$registry === void 0 ? Object(utils["f" /* getDefaultRegistry */])() : _props$registry,
       errors = props.errors;
   var title = schema.title,
       format = schema.format;
   var widgets = registry.widgets,
       formContext = registry.formContext;
-  var enumOptions = Object(utils["n" /* isSelect */])(schema) && Object(utils["p" /* optionsList */])(schema);
+  var enumOptions = Object(utils["o" /* isSelect */])(schema) && Object(utils["q" /* optionsList */])(schema);
   var defaultWidget = format || (enumOptions ? "select" : "text");
 
-  var _getUiOptions = Object(utils["g" /* getUiOptions */])(uiSchema),
+  var _getUiOptions = Object(utils["h" /* getUiOptions */])(uiSchema),
       _getUiOptions$widget = _getUiOptions.widget,
       widget = _getUiOptions$widget === void 0 ? defaultWidget : _getUiOptions$widget,
       _getUiOptions$placeho = _getUiOptions.placeholder,
       placeholder = _getUiOptions$placeho === void 0 ? "" : _getUiOptions$placeho,
       options = objectWithoutProperties_default()(_getUiOptions, ["widget", "placeholder"]);
 
-  var Widget = Object(utils["h" /* getWidget */])(schema, widget, widgets);
+  var Widget = Object(utils["i" /* getWidget */])(schema, widget, widgets);
   return external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement(Widget, {
     options: objectSpread_default()({}, options, {
       enumOptions: enumOptions
@@ -2508,7 +2508,7 @@ function createErrorHandler(formData) {
     }
   };
 
-  if (Object(_utils__WEBPACK_IMPORTED_MODULE_4__[/* isObject */ "l"])(formData)) {
+  if (Object(_utils__WEBPACK_IMPORTED_MODULE_4__[/* isObject */ "m"])(formData)) {
     return Object.keys(formData).reduce(function (acc, key) {
       return _babel_runtime_helpers_objectSpread__WEBPACK_IMPORTED_MODULE_1___default()({}, acc, _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()({}, key, createErrorHandler(formData[key])));
     }, handler);
@@ -2595,7 +2595,7 @@ function validateFormData(formData, schema, customValidate, transformErrors) {
 
   var errorHandler = customValidate(formData, createErrorHandler(formData));
   var userErrorSchema = unwrapErrorHandler(errorHandler);
-  var newErrorSchema = Object(_utils__WEBPACK_IMPORTED_MODULE_4__[/* mergeObjects */ "o"])(errorSchema, userErrorSchema, true); // XXX: The errors list produced is not fully compliant with the format
+  var newErrorSchema = Object(_utils__WEBPACK_IMPORTED_MODULE_4__[/* mergeObjects */ "p"])(errorSchema, userErrorSchema, true); // XXX: The errors list produced is not fully compliant with the format
   // exposed by the jsonschema lib, which contains full field paths and other
   // properties.
 
@@ -6223,7 +6223,7 @@ function (_Component) {
         });
       }
 
-      Object(utils["s" /* setState */])(assertThisInitialized_default()(assertThisInitialized_default()(_this)), state, function () {
+      Object(utils["t" /* setState */])(assertThisInitialized_default()(assertThisInitialized_default()(_this)), state, function () {
         if (_this.props.onChange) {
           _this.props.onChange(_this.state);
         }
@@ -6255,7 +6255,7 @@ function (_Component) {
             errorSchema = _this$validate2.errorSchema;
 
         if (Object.keys(errors).length > 0) {
-          Object(utils["s" /* setState */])(assertThisInitialized_default()(assertThisInitialized_default()(_this)), {
+          Object(utils["t" /* setState */])(assertThisInitialized_default()(assertThisInitialized_default()(_this)), {
             errors: errors,
             errorSchema: errorSchema
           }, function () {
@@ -6269,7 +6269,7 @@ function (_Component) {
         }
       }
 
-      Object(utils["s" /* setState */])(assertThisInitialized_default()(assertThisInitialized_default()(_this)), {
+      Object(utils["t" /* setState */])(assertThisInitialized_default()(assertThisInitialized_default()(_this)), {
         errors: [],
         errorSchema: {}
       }, function () {
@@ -6300,8 +6300,8 @@ function (_Component) {
       var liveValidate = props.liveValidate || this.props.liveValidate;
       var mustValidate = edit && !props.noValidate && liveValidate;
       var definitions = schema.definitions;
-      var formData = Object(utils["d" /* getDefaultFormState */])(schema, props.formData, definitions);
-      var retrievedSchema = Object(utils["r" /* retrieveSchema */])(schema, definitions, formData);
+      var formData = Object(utils["e" /* getDefaultFormState */])(schema, props.formData, definitions);
+      var retrievedSchema = Object(utils["s" /* retrieveSchema */])(schema, definitions, formData);
 
       var _ref = mustValidate ? this.validate(formData, schema) : {
         errors: state.errors || [],
@@ -6310,7 +6310,7 @@ function (_Component) {
           errors = _ref.errors,
           errorSchema = _ref.errorSchema;
 
-      var idSchema = Object(utils["u" /* toIdSchema */])(retrievedSchema, uiSchema["ui:rootFieldId"], definitions, formData, props.idPrefix);
+      var idSchema = Object(utils["v" /* toIdSchema */])(retrievedSchema, uiSchema["ui:rootFieldId"], definitions, formData, props.idPrefix);
       return {
         schema: schema,
         uiSchema: uiSchema,
@@ -6324,7 +6324,7 @@ function (_Component) {
   }, {
     key: "shouldComponentUpdate",
     value: function shouldComponentUpdate(nextProps, nextState) {
-      return Object(utils["t" /* shouldRender */])(this, nextProps, nextState);
+      return Object(utils["u" /* shouldRender */])(this, nextProps, nextState);
     }
   }, {
     key: "validate",
@@ -6337,7 +6337,7 @@ function (_Component) {
       var _this$getRegistry = this.getRegistry(),
           definitions = _this$getRegistry.definitions;
 
-      var resolvedSchema = Object(utils["r" /* retrieveSchema */])(schema, definitions, formData);
+      var resolvedSchema = Object(utils["s" /* retrieveSchema */])(schema, definitions, formData);
       return Object(src_validate["a" /* default */])(formData, resolvedSchema, validate, transformErrors);
     }
   }, {
@@ -6628,6 +6628,7 @@ var external_commonjs_selfkey_ui_commonjs2_selfkey_ui_amd_selfkey_ui_root_selfke
 
 
 
+
 function ArrayFileObjectTemplate_ArrayFieldTitle(_ref) {
   var TitleTemplate = _ref.TitleTemplate,
       idSchema = _ref.idSchema,
@@ -6808,7 +6809,7 @@ function (_Component) {
       var f = {};
 
       if (data.content) {
-        var _dataURItoBlob = dataURItoBlob(data.content),
+        var _dataURItoBlob = Object(utils["c" /* dataURItoBlob */])(data.content),
             blob = _dataURItoBlob.blob,
             _dataURItoBlob$name = _dataURItoBlob.name,
             name = _dataURItoBlob$name === void 0 ? data.name : _dataURItoBlob$name;
