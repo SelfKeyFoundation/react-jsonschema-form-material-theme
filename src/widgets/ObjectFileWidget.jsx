@@ -30,8 +30,7 @@ export class ObjectFileWidget extends Component {
 	}
 
 	onChange() {
-		return event => {
-			const files = event.target.files;
+		return files => {
 			const f = files[0];
 			if (!f) {
 				return this.setState({ file: null, url: null, formData: {} }, () => this.props.onChange({}));
@@ -45,7 +44,6 @@ export class ObjectFileWidget extends Component {
 			const url = URL.createObjectURL(f);
 			// eslint-disable-next-line
 			const reader = new FileReader();
-			console.log('XXX data', data);
 			reader.readAsDataURL(f);
 			reader.onload = () => {
 				data.content = reader.result;

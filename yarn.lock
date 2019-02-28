@@ -722,6 +722,10 @@
     prop-types "^15.6.0"
     react-is "^16.6.3"
 
+"@types/classnames@^2.2.7":
+  version "2.2.7"
+  resolved "https://registry.yarnpkg.com/@types/classnames/-/classnames-2.2.7.tgz#fb68cc9be8487e6ea5b13700e759bfbab7e0fefd"
+
 "@types/google.visualization@0.0.46":
   version "0.0.46"
   resolved "https://registry.yarnpkg.com/@types/google.visualization/-/google.visualization-0.0.46.tgz#b19625723a5e46aeafd445d585266a816c24e3c9"
@@ -1415,7 +1419,7 @@ class-utils@^0.3.5:
     isobject "^3.0.0"
     static-extend "^0.1.1"
 
-classnames@^2.2.5:
+classnames@^2.2.5, classnames@^2.2.6:
   version "2.2.6"
   resolved "https://registry.yarnpkg.com/classnames/-/classnames-2.2.6.tgz#43935bffdd291f326dad0a205309b38d00f650ce"
 
@@ -4392,16 +4396,18 @@ select-hose@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/select-hose/-/select-hose-2.0.0.tgz#625d8658f865af43ec962bfc376a37359a4994ca"
 
-"selfkey-ui@https://github.com/SelfKeyFoundation/selfkey-ui.git#02727d26329f4fc7f90a5a757ce2a3fdb4ef3dfd":
+"selfkey-ui@https://github.com/SelfKeyFoundation/selfkey-ui.git#79e63367fd85d3bdb6751db19529005cf95bbd5a":
   version "1.0.0"
-  resolved "https://github.com/SelfKeyFoundation/selfkey-ui.git#02727d26329f4fc7f90a5a757ce2a3fdb4ef3dfd"
+  resolved "https://github.com/SelfKeyFoundation/selfkey-ui.git#79e63367fd85d3bdb6751db19529005cf95bbd5a"
   dependencies:
     "@material-ui/core" "3.9.2"
     "@material-ui/icons" "3.0.2"
     "@material-ui/lab" "3.0.0-alpha.29"
+    "@types/classnames" "^2.2.7"
     "@types/google.visualization" "0.0.46"
     "@types/react-dom" "16.0.11"
     bignumber.js "8.0.1"
+    classnames "^2.2.6"
     jss "9.8.7"
     jss-compose "5.0.0"
     jss-expand "5.3.0"

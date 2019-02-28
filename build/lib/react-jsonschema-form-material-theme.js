@@ -1761,8 +1761,7 @@ function (_Component) {
     value: function onChange() {
       var _this3 = this;
 
-      return function (event) {
-        var files = event.target.files;
+      return function (files) {
         var f = files[0];
 
         if (!f) {
@@ -1784,7 +1783,6 @@ function (_Component) {
         var url = URL.createObjectURL(f); // eslint-disable-next-line
 
         var reader = new FileReader();
-        console.log('XXX data', data);
         reader.readAsDataURL(f);
 
         reader.onload = function () {
