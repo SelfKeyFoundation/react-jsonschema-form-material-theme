@@ -6,11 +6,7 @@ import 'codemirror/mode/javascript/javascript';
 import { shouldRender } from 'react-jsonschema-form/lib/utils';
 import { samples } from './samples/index';
 
-import withTheme from 'react-jsonschema-form/lib/components/withTheme';
-
-import theme from '../src';
-
-const Form = withTheme('MyTheme', { widgets: theme.widgets, templates: theme.templates });
+import Form from '../src';
 
 // Import a few CodeMirror themes; these are used to match alternative
 // bootstrap ones.
