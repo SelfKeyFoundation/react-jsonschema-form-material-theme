@@ -176,7 +176,8 @@ class ArrayField extends Component {
 		return this.renderNormalArray();
 	}
 
-	renderObjectFilesArray(schema) {
+	renderObjectFilesArray(schema, uiSchema) {
+    if (uiSchema['ui:hidden']) return null;
 		const title = schema.title === undefined ? name : schema.title;
 		const {
 			templates: { ArrayFileObjectTemplate },

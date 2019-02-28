@@ -1503,7 +1503,8 @@ function (_Component) {
     }
   }, {
     key: "renderObjectFilesArray",
-    value: function renderObjectFilesArray(schema) {
+    value: function renderObjectFilesArray(schema, uiSchema) {
+      if (uiSchema['ui:hidden']) return null;
       var title = schema.title === undefined ? name : schema.title;
       var ArrayFileObjectTemplate = this.props.registry.templates.ArrayFileObjectTemplate;
       return external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement(ArrayFileObjectTemplate, extends_default()({}, this.props, {
