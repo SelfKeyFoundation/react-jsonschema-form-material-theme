@@ -79,7 +79,7 @@ export default class ArrayFileObjectTemplate extends Component {
 			const formData = filesData.map(data => {
 				return {
 					name: data.name,
-					// content: data.content,
+					content: data.content,
 					mimeType: data.mimeType,
 					size: data.size,
 				};
@@ -94,11 +94,9 @@ export default class ArrayFileObjectTemplate extends Component {
 		}
 		let { files, formData } = this.state;
 		const index = files.indexOf(file);
-		console.log('XXX', files, formData, index);
 		if (index == -1) return;
 		files = files.filter((f, ind) => ind !== index);
 		formData = formData.filter((f, ind) => ind !== index);
-		console.log('XXX', files, formData, index);
 		this.setState({ files, formData }, onChange(formData));
 	};
 	render() {
@@ -127,6 +125,7 @@ export default class ArrayFileObjectTemplate extends Component {
 					files={this.state.files}
 					onClearForm={this.handleFileDelete}
 					accept={accept}
+					isError={props.errors && props.errors.length}
 					onChange={this.handleFileChange}
 				/>
 			</div>

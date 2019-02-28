@@ -161,7 +161,6 @@ class ArrayField extends Component {
 		if (!schema.hasOwnProperty('items')) {
 			return <UnsupportedField schema={schema} idSchema={idSchema} reason="Missing items definition" />;
 		}
-		console.log('XXX', isObjectFilesArray(schema, uiSchema, definitions), schema);
 		if (isObjectFilesArray(schema, uiSchema, definitions)) {
 			return this.renderObjectFilesArray(schema, uiSchema, definitions);
 		}
