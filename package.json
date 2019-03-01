@@ -27,7 +27,7 @@
 		"ajv": "^6.5.5",
 		"lodash.topath": "^4.5.2",
 		"react-jsonschema-form": "https://github.com/SelfKeyFoundation/react-jsonschema-form.git#57c07f0842f649baaf484e014a5069f55aca8b4f",
-		"selfkey-ui": "https://github.com/SelfKeyFoundation/selfkey-ui.git#08d61c4d11c39cdd90374ac31f486a35e248c87b",
+		"selfkey-ui": "https://github.com/SelfKeyFoundation/selfkey-ui.git#33cc721c5c8ee62a5f7ec62b4d9491f3f3bc8575",
 		"svg-inline-loader": "^0.8.0"
 	},
 	"devDependencies": {
