@@ -2307,18 +2307,27 @@ function StringField_StringField(props) {
       registry = _props$registry === void 0 ? Object(utils["f" /* getDefaultRegistry */])() : _props$registry,
       errors = props.errors;
   var title = schema.title,
-      format = schema.format;
+      format = schema.format,
+      description = schema.description;
   var widgets = registry.widgets,
       formContext = registry.formContext;
   var enumOptions = Object(utils["o" /* isSelect */])(schema) && Object(utils["q" /* optionsList */])(schema);
-  var defaultWidget = format || (enumOptions ? "select" : "text");
+  var defaultWidget = format || (enumOptions ? 'select' : 'text');
 
   var _getUiOptions = Object(utils["h" /* getUiOptions */])(uiSchema),
       _getUiOptions$widget = _getUiOptions.widget,
       widget = _getUiOptions$widget === void 0 ? defaultWidget : _getUiOptions$widget,
       _getUiOptions$placeho = _getUiOptions.placeholder,
-      placeholder = _getUiOptions$placeho === void 0 ? "" : _getUiOptions$placeho,
+      placeholder = _getUiOptions$placeho === void 0 ? '' : _getUiOptions$placeho,
       options = objectWithoutProperties_default()(_getUiOptions, ["widget", "placeholder"]);
+
+  if (options.description) {
+    description = options.description;
+  }
+
+  if (!placeholder && description) {
+    placeholder = description;
+  }
 
   var Widget = Object(utils["i" /* getWidget */])(schema, widget, widgets);
   return external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement(Widget, {
@@ -6934,7 +6943,7 @@ function ErrorListTemplate_ErrorListTemplate(props) {
 
 
 
-var REQUIRED_FIELD_SYMBOL = '*';
+var REQUIRED_FIELD_SYMBOL = '(required)';
 function FieldTemplate(props) {
   var id = props.id,
       label = props.label,
@@ -6957,11 +6966,7 @@ function FieldTemplate(props) {
     label: label,
     required: required,
     id: id
-  }), displayLabel && description ? external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement(DescriptionTemplate, {
-    id: "".concat(id, "__description"),
-    description: description,
-    formContext: formContext
-  }) : null, children, external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement(FieldTemplate_ErrorList, {
+  }), children, external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement(FieldTemplate_ErrorList, {
     errors: errors
   }), external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement(FieldTemplate_Help, {
     help: help
@@ -7004,8 +7009,13 @@ function Label(props) {
     variant: "overline",
     gutterBottom: true
   }, label, required && external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement("span", {
-    className: "required"
-  }, REQUIRED_FIELD_SYMBOL));
+    style: {
+      fontWeight: 'bold',
+      fontStyle: 'italic',
+      fontSize: '12px',
+      textTransform: 'lowercase'
+    }
+  }, ' ', REQUIRED_FIELD_SYMBOL));
 }
 
 function FieldTemplate_Help(props) {
