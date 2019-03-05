@@ -109,7 +109,13 @@ function ErrorList(props) {
 		<div>
 			{errors.map((error, index) => {
 				return (
-					<Typography variant="subtitle2" color="error" key={index} gutterBottom>
+					<Typography
+						variant="subtitle2"
+						color="error"
+						key={index}
+						gutterBottom
+						style={{ marginTop: '10px', marginLeft: '5px'}}
+					>
 						{error}
 					</Typography>
 				);

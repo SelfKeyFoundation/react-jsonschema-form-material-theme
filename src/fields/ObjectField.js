@@ -85,6 +85,7 @@ class ObjectField extends Component {
             autofocus={autofocus}
             registry={registry}
             errors={errors}
+            errorSchema={errorSchema}
           />
         );
       }

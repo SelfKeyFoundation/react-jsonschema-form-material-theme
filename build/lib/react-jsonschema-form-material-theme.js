@@ -2026,7 +2026,8 @@ function (_Component) {
             formContext: formContext,
             autofocus: autofocus,
             registry: registry,
-            errors: errors
+            errors: errors,
+            errorSchema: errorSchema
           });
         }
       } catch (error) {
@@ -4030,7 +4031,8 @@ function (_Component) {
           label = _this$props.label,
           uiSchema = _this$props.uiSchema,
           formData = _this$props.formData,
-          errors = _this$props.errors,
+          _this$props$errors = _this$props.errors,
+          errors = _this$props$errors === void 0 ? [] : _this$props$errors,
           idSchema = _this$props.idSchema,
           name = _this$props.name,
           help = _this$props.help,
@@ -4040,7 +4042,8 @@ function (_Component) {
           idPrefix = _this$props.idPrefix,
           onBlur = _this$props.onBlur,
           onFocus = _this$props.onFocus,
-          registry = _this$props.registry;
+          registry = _this$props.registry,
+          errorSchema = _this$props.errorSchema;
       var definitions = registry.definitions,
           templates = registry.templates,
           formContext = registry.formContext;
@@ -4048,6 +4051,11 @@ function (_Component) {
       var schema = Object(util_["retrieveSchema"])(this.props.schema, definitions, formData);
       var description = uiSchema['ui:description'] || schema.description;
       var displayLabel = uiSchema['ui:label'] === false ? false : true;
+
+      if (errorSchema.mimeType && errorSchema.mimeType.__errors.length) {
+        errors.push(errorSchema.mimeType.__errors[0]);
+      }
+
       var templateProps = {
         id: id,
         label: label,
@@ -4058,6 +4066,7 @@ function (_Component) {
         formData: formData,
         formContext: formContext,
         registry: registry,
+        required: required,
         errors: errors,
         help: help,
         idPrefix: idPrefix,
@@ -6883,10 +6892,6 @@ function (_Component) {
         placeholder: description,
         isError: props.errors && props.errors.length,
         onChange: this.handleFileChange
-      }), external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement(ErrorList, {
-        errors: this.props.errors
-      }), external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement(Help, {
-        help: this.props.help
       }));
     }
   }]);
@@ -7070,7 +7075,11 @@ function FieldTemplate_ErrorList(props) {
       variant: "subtitle2",
       color: "error",
       key: index,
-      gutterBottom: true
+      gutterBottom: true,
+      style: {
+        marginTop: '10px',
+        marginLeft: '5px'
+      }
     }, error);
   }));
 }
@@ -7121,18 +7130,24 @@ function SubmitTemplate_SubmitTemplate() {
 
 
 
-var TitleTemplate_REQUIRED_FIELD_SYMBOL = "*";
+var TitleTemplate_REQUIRED_FIELD_SYMBOL = '(required)';
 
 function TitleTemplate_TitleTemplate(props) {
   var id = props.id,
       title = props.title,
       required = props.required;
-  var legend = required ? title + TitleTemplate_REQUIRED_FIELD_SYMBOL : title;
   return external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement(core_["Typography"], {
-    variant: "h4",
+    variant: "overline",
     id: id,
     gutterBottom: true
-  }, legend);
+  }, title, required ? external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement("span", {
+    style: {
+      fontWeight: 'bold',
+      fontStyle: 'italic',
+      fontSize: '12px',
+      textTransform: 'lowercase'
+    }
+  }, ' ', TitleTemplate_REQUIRED_FIELD_SYMBOL) : null);
 }
 
 TitleTemplate_TitleTemplate.propTypes = {

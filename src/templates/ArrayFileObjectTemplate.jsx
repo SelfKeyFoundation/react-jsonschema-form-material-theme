@@ -168,8 +168,6 @@ export default class ArrayFileObjectTemplate extends Component {
 					isError={props.errors && props.errors.length}
 					onChange={this.handleFileChange}
 				/>
-				<ErrorList errors={this.props.errors} />
-				<Help help={this.props.help} />
 			</div>
 		);
 	}
