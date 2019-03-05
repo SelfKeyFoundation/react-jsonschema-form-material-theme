@@ -3741,6 +3741,7 @@ function SelectWidget_SelectWidget(props) {
   var emptyValue = multiple ? [] : "";
   return external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement(core_["FormControl"], null, external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement(core_["Select"], {
     id: id,
+    native: true,
     multiple: multiple,
     className: "form-control",
     value: typeof value === "undefined" ? emptyValue : value,
@@ -3766,7 +3767,7 @@ function SelectWidget_SelectWidget(props) {
     var value = _ref2.value,
         label = _ref2.label;
     var disabled = enumDisabled && enumDisabled.indexOf(value) != -1;
-    return external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement(core_["MenuItem"], {
+    return external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement("option", {
       key: i,
       value: value,
       disabled: disabled

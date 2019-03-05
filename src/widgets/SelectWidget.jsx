@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import {Select} from '@material-ui/core';
 
 import { asNumber } from "react-jsonschema-form/lib/utils";
-import { MenuItem, FormControl } from "@material-ui/core";
+import { FormControl } from "@material-ui/core";
 
 const nums = new Set(["number", "integer"]);
 
@@ -57,6 +57,7 @@ function SelectWidget(props) {
     <FormControl>
       <Select
         id={id}
+        native
         multiple={multiple}
         className="form-control"
         value={typeof value === "undefined" ? emptyValue : value}
@@ -85,9 +86,9 @@ function SelectWidget(props) {
         {enumOptions.map(({ value, label }, i) => {
           const disabled = enumDisabled && enumDisabled.indexOf(value) != -1;
           return (
-            <MenuItem key={i} value={value} disabled={disabled}>
+            <option key={i} value={value} disabled={disabled}>
               { label }
-            </MenuItem>
+            </option>
           );
         })}
       </Select>
