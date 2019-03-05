@@ -6976,7 +6976,6 @@ function FieldTemplate(props) {
     return children;
   }
 
-  console.log('XXX', label, displayLabel, id, description, help);
   return external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement(core_["FormGroup"], null, displayLabel && external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement(Label, {
     label: label,
     required: required,
