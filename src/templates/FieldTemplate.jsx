@@ -25,7 +25,7 @@ export default function FieldTemplate(props) {
 	if (hidden) {
 		return children;
 	}
-
+	console.log('XXX', label, displayLabel, id, description, help);
 	return (
 		<FormGroup>
 			{displayLabel && <Label label={label} required={required} id={id} />}

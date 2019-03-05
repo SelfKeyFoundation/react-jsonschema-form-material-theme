@@ -4033,6 +4033,7 @@ function (_Component) {
           errors = _this$props.errors,
           idSchema = _this$props.idSchema,
           name = _this$props.name,
+          help = _this$props.help,
           required = _this$props.required,
           disabled = _this$props.disabled,
           readonly = _this$props.readonly,
@@ -4046,7 +4047,9 @@ function (_Component) {
       var FieldTemplate = templates.FieldTemplate;
       var schema = Object(util_["retrieveSchema"])(this.props.schema, definitions, formData);
       var description = uiSchema['ui:description'] || schema.description;
+      var displayLabel = uiSchema['ui:label'] === false ? false : true;
       var templateProps = {
+        id: id,
         label: label,
         description: description,
         idSchema: idSchema,
@@ -4056,7 +4059,9 @@ function (_Component) {
         formContext: formContext,
         registry: registry,
         errors: errors,
-        idPrefix: idPrefix
+        help: help,
+        idPrefix: idPrefix,
+        displayLabel: displayLabel
       };
       var accept = (((schema.properties || {}).mimeType || {}).enum || []).join(',');
       var file = this.state.formData && this.state.formData.name ? {
@@ -6640,6 +6645,7 @@ var external_commonjs_selfkey_ui_commonjs2_selfkey_ui_amd_selfkey_ui_root_selfke
 
 
 
+
 function ArrayFileObjectTemplate_ArrayFieldTitle(_ref) {
   var TitleTemplate = _ref.TitleTemplate,
       idSchema = _ref.idSchema,
@@ -6687,7 +6693,7 @@ function Help(props) {
   }
 
   if (typeof help === 'string') {
-    return external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement(Typography, {
+    return external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement(core_["Typography"], {
       variant: "subtitle1",
       color: "secondary",
       className: "help-block",
@@ -6695,7 +6701,7 @@ function Help(props) {
     }, help);
   }
 
-  return external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement(Typography, {
+  return external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement(core_["Typography"], {
     variant: "subtitle1",
     color: "secondary",
     className: "help-block",
@@ -6712,7 +6718,7 @@ function ErrorList(props) {
   }
 
   return external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement("div", null, errors.map(function (error, index) {
-    return external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement(Typography, {
+    return external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement(core_["Typography"], {
       variant: "subtitle2",
       color: "error",
       key: index,
@@ -6850,24 +6856,31 @@ function (_Component) {
     value: function render() {
       var props = this.props;
       var accept = (((props.schema.properties || {}).mimeType || {}).enum || []).join(',');
+      var title = props.uiSchema['ui:title'] || props.uiSchema['ui:label'] || props.title;
+      var description = this.props.placeholder || props.uiSchema['ui:description'] || props.schema.description;
+
+      if (props.uiSchema['ui:description'] === false) {
+        description = null;
+      }
+
+      if (props.uiSchema['ui:label'] === false) {
+        title = null;
+      }
+
       var _props$registry$templ = props.registry.templates,
           TitleTemplate = _props$registry$templ.TitleTemplate,
           DescriptionTemplate = _props$registry$templ.DescriptionTemplate;
-      return external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement("div", null, external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement(ArrayFileObjectTemplate_ArrayFieldTitle, {
+      return external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement("div", null, title ? external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement(ArrayFileObjectTemplate_ArrayFieldTitle, {
         key: "array-field-title-".concat(props.idSchema.$id),
         TitleTemplate: TitleTemplate,
         idSchema: props.idSchema,
         title: props.uiSchema['ui:title'] || props.title,
         required: props.required
-      }), (props.uiSchema['ui:description'] || props.schema.description) && external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement(ArrayFileObjectTemplate_ArrayFieldDescription, {
-        key: "array-field-description-".concat(props.idSchema.$id),
-        DescriptionTemplate: DescriptionTemplate,
-        idSchema: props.idSchema,
-        description: props.uiSchema['ui:description'] || props.schema.description
-      }), external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement(external_commonjs_selfkey_ui_commonjs2_selfkey_ui_amd_selfkey_ui_root_selfkey_ui_["ArrayFileUploadWidget"], {
+      }) : null, external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement(external_commonjs_selfkey_ui_commonjs2_selfkey_ui_amd_selfkey_ui_root_selfkey_ui_["ArrayFileUploadWidget"], {
         files: this.state.files,
         onClearForm: this.handleFileDelete,
         accept: accept,
+        placeholder: description,
         isError: props.errors && props.errors.length,
         onChange: this.handleFileChange
       }), external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement(ErrorList, {
@@ -6963,6 +6976,7 @@ function FieldTemplate(props) {
     return children;
   }
 
+  console.log('XXX', label, displayLabel, id, description, help);
   return external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement(core_["FormGroup"], null, displayLabel && external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement(Label, {
     label: label,
     required: required,
@@ -7067,14 +7081,26 @@ function ObjectFieldTemplate(props) {
   var _props$registry$templ = props.registry.templates,
       TitleTemplate = _props$registry$templ.TitleTemplate,
       DescriptionTemplate = _props$registry$templ.DescriptionTemplate;
-  return external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement("fieldset", null, (props.uiSchema["ui:title"] || props.title) && external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement(TitleTemplate, {
+  var title = props.uiSchema['ui:title'] || props.uiSchema['ui:label'] || props.title;
+
+  if (props.uiSchema['ui:label'] === false) {
+    title = null;
+  }
+
+  var description = props.placeholder || props.uiSchema['ui:description'] || props.schema.description;
+
+  if (props.uiSchema['ui:description'] === false) {
+    title = null;
+  }
+
+  return external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement("fieldset", null, title && external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement(TitleTemplate, {
     id: "".concat(props.idSchema.$id, "__title"),
-    title: props.title || props.uiSchema["ui:title"],
+    title: title,
     required: props.required,
     formContext: props.formContext
-  }), props.description && external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement(DescriptionTemplate, {
+  }), description && external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement(DescriptionTemplate, {
     id: "".concat(props.idSchema.$id, "__description"),
-    description: props.description,
+    description: description,
     formContext: props.formContext
   }), props.properties.map(function (prop) {
     return prop.content;

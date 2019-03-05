@@ -61,6 +61,7 @@ export class ObjectFileWidget extends Component {
 			errors,
 			idSchema,
 			name,
+			help,
 			required,
 			disabled,
 			readonly,
@@ -73,8 +74,10 @@ export class ObjectFileWidget extends Component {
 		const { FieldTemplate } = templates;
 		const schema = retrieveSchema(this.props.schema, definitions, formData);
 		const description = uiSchema['ui:description'] || schema.description;
-
+		const displayLabel = uiSchema['ui:label'] === false ? false : true;
+		
 		const templateProps = {
+			id,
 			label,
 			description,
 			idSchema,
@@ -84,7 +87,9 @@ export class ObjectFileWidget extends Component {
 			formContext,
 			registry,
 			errors,
+			help,
 			idPrefix,
+			displayLabel
 		};
 		const accept = (((schema.properties || {}).mimeType || {}).enum || []).join(',');
 		const file = this.state.formData && this.state.formData.name

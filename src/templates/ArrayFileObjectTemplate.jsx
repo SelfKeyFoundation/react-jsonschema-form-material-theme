@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Typography } from '@material-ui/core';
 import { ArrayFileUploadWidget } from 'selfkey-ui';
 import { dataURItoBlob } from '../utils';
 
@@ -139,29 +140,31 @@ export default class ArrayFileObjectTemplate extends Component {
 	render() {
 		const props = this.props;
 		const accept = (((props.schema.properties || {}).mimeType || {}).enum || []).join(',');
+		let title = props.uiSchema['ui:title'] || props.uiSchema['ui:label'] || props.title;
+		let description = this.props.placeholder || props.uiSchema['ui:description'] || props.schema.description;
+		if (props.uiSchema['ui:description'] === false){
+			description = null;
+		}
+		if (props.uiSchema['ui:label'] === false) {
+			title = null;
+		}
 		const { TitleTemplate, DescriptionTemplate } = props.registry.templates;
 		return (
 			<div>
-				<ArrayFieldTitle
-					key={`array-field-title-${props.idSchema.$id}`}
-					TitleTemplate={TitleTemplate}
-					idSchema={props.idSchema}
-					title={props.uiSchema['ui:title'] || props.title}
-					required={props.required}
-				/>
-
-				{(props.uiSchema['ui:description'] || props.schema.description) && (
-					<ArrayFieldDescription
-						key={`array-field-description-${props.idSchema.$id}`}
-						DescriptionTemplate={DescriptionTemplate}
+				{title ? (
+					<ArrayFieldTitle
+						key={`array-field-title-${props.idSchema.$id}`}
+						TitleTemplate={TitleTemplate}
 						idSchema={props.idSchema}
-						description={props.uiSchema['ui:description'] || props.schema.description}
+						title={props.uiSchema['ui:title'] || props.title}
+						required={props.required}
 					/>
-				)}
+				) : null}
 				<ArrayFileUploadWidget
 					files={this.state.files}
 					onClearForm={this.handleFileDelete}
 					accept={accept}
+					placeholder={description}
 					isError={props.errors && props.errors.length}
 					onChange={this.handleFileChange}
 				/>
