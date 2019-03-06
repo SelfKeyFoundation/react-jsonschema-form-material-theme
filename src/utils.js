@@ -92,7 +92,7 @@ function computeDefaults(schema, parentDefaults, definitions = {}) {
 
 		case 'array':
 			if (schema.minItems) {
-				if (!isMultiSelect(schema, definitions)) {
+				if (!isMultiSelect(schema, definitions) && !schema.noFill) {
 					const defaultsLength = defaults ? defaults.length : 0;
 					if (schema.minItems > defaultsLength) {
 						const defaultEntries = defaults || [];
@@ -281,11 +281,11 @@ export function isFilesArray(schema, uiSchema, definitions = {}) {
 }
 
 export function isObjectFilesArray(schema, uiSchema, definitions = {}) {
-  if (schema.items){
-    const itemsSchema = retrieveSchema(schema.items, definitions);
-    return itemsSchema.type === 'object' && itemsSchema.format === 'file';
-  }
-  return false;
+	if (schema.items) {
+		const itemsSchema = retrieveSchema(schema.items, definitions);
+		return itemsSchema.type === 'object' && itemsSchema.format === 'file';
+	}
+	return false;
 }
 
 export function isFixedItems(schema) {

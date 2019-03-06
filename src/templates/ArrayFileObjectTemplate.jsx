@@ -139,16 +139,43 @@ export default class ArrayFileObjectTemplate extends Component {
 	};
 	render() {
 		const props = this.props;
-		const accept = (((props.schema.properties || {}).mimeType || {}).enum || []).join(',');
+		let mimeTypes = [];
+		let itemsProps = {};
+		if (props.schema && props.schema.items && props.schema.items.properties) {
+			itemsProps = props.schema.items.properties;
+		}
+		if (itemsProps.mimeType && itemsProps.mimeType.enum) {
+			mimeTypes = itemsProps.mimeType.enum;
+		}
 		let title = props.uiSchema['ui:title'] || props.uiSchema['ui:label'] || props.title;
 		let description = this.props.placeholder || props.uiSchema['ui:description'] || props.schema.description;
-		if (props.uiSchema['ui:description'] === false){
+		if (props.uiSchema['ui:description'] === false) {
 			description = null;
 		}
 		if (props.uiSchema['ui:label'] === false) {
 			title = null;
 		}
-		const { TitleTemplate, DescriptionTemplate } = props.registry.templates;
+		let help = props.help;
+
+		if (!help && mimeTypes.length) {
+			help = `Alowed mime types: ${mimeTypes.join(', ')}`;
+		}
+		const errorSchema = props.errorSchema;
+		let itemErrors = {};
+		let isError = props.errors && props.errors.length;
+		if (Object.keys(errorSchema).length) {
+			isError = true;
+			for (let item in errorSchema) {
+				itemErrors[item] = [];
+				if (errorSchema[item].mimeType && errorSchema[item].mimeType.__errors) {
+					itemErrors[item].push(`Incorrect mime type, shoud be one of: ${mimeTypes.join(', ')}`);
+				}
+				if (errorSchema[item].size && errorSchema[item].size.__errors) {
+					itemErrors[item].push(`File too large, allowed up to: ${itemsProps.size} bytes`);
+				}
+			}
+		}
+		const { TitleTemplate } = props.registry.templates;
 		return (
 			<div>
 				{title ? (
@@ -162,12 +189,15 @@ export default class ArrayFileObjectTemplate extends Component {
 				) : null}
 				<ArrayFileUploadWidget
 					files={this.state.files}
+					errorFiles={itemErrors}
 					onClearForm={this.handleFileDelete}
-					accept={accept}
+					mimeTypes={mimeTypes}
 					placeholder={description}
-					isError={props.errors && props.errors.length}
+					isError={isError}
 					onChange={this.handleFileChange}
 				/>
+				<br />
+				<Help help={help} />
 			</div>
 		);
 	}

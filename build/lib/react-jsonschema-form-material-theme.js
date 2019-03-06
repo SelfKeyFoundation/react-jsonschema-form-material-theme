@@ -274,7 +274,7 @@ function computeDefaults(schema, parentDefaults) {
 
     case 'array':
       if (schema.minItems) {
-        if (!isMultiSelect(schema, definitions)) {
+        if (!isMultiSelect(schema, definitions) && !schema.noFill) {
           var defaultsLength = defaults ? defaults.length : 0;
 
           if (schema.minItems > defaultsLength) {
@@ -6864,7 +6864,17 @@ function (_Component) {
     key: "render",
     value: function render() {
       var props = this.props;
-      var accept = (((props.schema.properties || {}).mimeType || {}).enum || []).join(',');
+      var mimeTypes = [];
+      var itemsProps = {};
+
+      if (props.schema && props.schema.items && props.schema.items.properties) {
+        itemsProps = props.schema.items.properties;
+      }
+
+      if (itemsProps.mimeType && itemsProps.mimeType.enum) {
+        mimeTypes = itemsProps.mimeType.enum;
+      }
+
       var title = props.uiSchema['ui:title'] || props.uiSchema['ui:label'] || props.title;
       var description = this.props.placeholder || props.uiSchema['ui:description'] || props.schema.description;
 
@@ -6876,9 +6886,33 @@ function (_Component) {
         title = null;
       }
 
-      var _props$registry$templ = props.registry.templates,
-          TitleTemplate = _props$registry$templ.TitleTemplate,
-          DescriptionTemplate = _props$registry$templ.DescriptionTemplate;
+      var help = props.help;
+
+      if (!help && mimeTypes.length) {
+        help = "Alowed mime types: ".concat(mimeTypes.join(', '));
+      }
+
+      var errorSchema = props.errorSchema;
+      var itemErrors = {};
+      var isError = props.errors && props.errors.length;
+
+      if (Object.keys(errorSchema).length) {
+        isError = true;
+
+        for (var item in errorSchema) {
+          itemErrors[item] = [];
+
+          if (errorSchema[item].mimeType && errorSchema[item].mimeType.__errors) {
+            itemErrors[item].push("Incorrect mime type, shoud be one of: ".concat(mimeTypes.join(', ')));
+          }
+
+          if (errorSchema[item].size && errorSchema[item].size.__errors) {
+            itemErrors[item].push("File too large, allowed up to: ".concat(itemsProps.size, " bytes"));
+          }
+        }
+      }
+
+      var TitleTemplate = props.registry.templates.TitleTemplate;
       return external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement("div", null, title ? external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement(ArrayFileObjectTemplate_ArrayFieldTitle, {
         key: "array-field-title-".concat(props.idSchema.$id),
         TitleTemplate: TitleTemplate,
@@ -6887,11 +6921,14 @@ function (_Component) {
         required: props.required
       }) : null, external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement(external_commonjs_selfkey_ui_commonjs2_selfkey_ui_amd_selfkey_ui_root_selfkey_ui_["ArrayFileUploadWidget"], {
         files: this.state.files,
+        errorFiles: itemErrors,
         onClearForm: this.handleFileDelete,
-        accept: accept,
+        mimeTypes: mimeTypes,
         placeholder: description,
-        isError: props.errors && props.errors.length,
+        isError: isError,
         onChange: this.handleFileChange
+      }), external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement("br", null), external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement(Help, {
+        help: help
       }));
     }
   }]);

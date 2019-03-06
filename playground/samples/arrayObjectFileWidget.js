@@ -20,7 +20,9 @@ module.exports = {
 			},
 			required: ['mimeType', 'size', 'content'],
 		},
+		"minItems": 1,
+		"noFill": true
 	},
-	formData: [],
+	formData: undefined,
 	uiSchema: {},
 };

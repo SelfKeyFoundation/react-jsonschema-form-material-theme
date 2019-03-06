@@ -312,6 +312,24 @@ class App extends Component {
 		}
 	};
 
+	transformContent = formData => {
+		if (!formData){
+			return formData;
+		}
+		if (formData.content&& formData.content.length > 1000){
+			return toJson({ ...formData, content: 'too long to display' })
+		}
+		if (Array.isArray(formData)){
+			formData = formData.map(d => {
+				if (d.content&& d.content.length > 1000){
+					return { ...d, content: 'too long to display' }
+				}
+				return d;
+			});
+		}
+		return toJson(formData)
+	};
+
 	render() {
 		const {
 			schema,
@@ -429,11 +447,7 @@ class App extends Component {
 												<Editor
 													title="formData"
 													theme={editor}
-													code={toJson(
-														formData.content && formData.content.length > 100000
-															? { ...formData, content: 'too long to display' }
-															: formData
-													)}
+													code={this.transformContent(formData)}
 													onChange={this.onFormDataEdited}
 												/>
 											</Grid>
