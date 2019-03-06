@@ -6999,7 +6999,7 @@ function ErrorListTemplate_ErrorListTemplate(props) {
 
 
 
-var REQUIRED_FIELD_SYMBOL = '(required)';
+var REQUIRED_FIELD_SYMBOL = '*';
 function FieldTemplate(props) {
   var id = props.id,
       label = props.label,
@@ -7066,10 +7066,7 @@ function Label(props) {
     gutterBottom: true
   }, label, required && external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement("span", {
     style: {
-      fontWeight: 'bold',
-      fontStyle: 'italic',
-      fontSize: '12px',
-      textTransform: 'lowercase'
+      fontWeight: 'bold'
     }
   }, ' ', REQUIRED_FIELD_SYMBOL));
 }
@@ -7167,7 +7164,7 @@ function SubmitTemplate_SubmitTemplate() {
 
 
 
-var TitleTemplate_REQUIRED_FIELD_SYMBOL = '(required)';
+var TitleTemplate_REQUIRED_FIELD_SYMBOL = '*';
 
 function TitleTemplate_TitleTemplate(props) {
   var id = props.id,
@@ -7179,10 +7176,7 @@ function TitleTemplate_TitleTemplate(props) {
     gutterBottom: true
   }, title, required ? external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement("span", {
     style: {
-      fontWeight: 'bold',
-      fontStyle: 'italic',
-      fontSize: '12px',
-      textTransform: 'lowercase'
+      fontWeight: 'bold'
     }
   }, ' ', TitleTemplate_REQUIRED_FIELD_SYMBOL) : null);
 }

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Typography } from '@material-ui/core';
 
-const REQUIRED_FIELD_SYMBOL = '(required)';
+const REQUIRED_FIELD_SYMBOL = '*';
 
 function TitleTemplate(props) {
 	const { id, title, required } = props;
@@ -10,7 +10,7 @@ function TitleTemplate(props) {
 		<Typography variant="overline" id={id} gutterBottom>
 			{title}
 			{required ? (
-				<span style={{ fontWeight: 'bold', fontStyle: 'italic', fontSize: '12px', textTransform: 'lowercase' }}>
+				<span style={{ fontWeight: 'bold' }}>
 					{' '}
 					{REQUIRED_FIELD_SYMBOL}
 				</span>
