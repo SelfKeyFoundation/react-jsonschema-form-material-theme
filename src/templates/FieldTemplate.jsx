@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Typography, FormGroup } from '@material-ui/core';
 
-const REQUIRED_FIELD_SYMBOL = '(required)';
+const REQUIRED_FIELD_SYMBOL = '*';
 
 export default function FieldTemplate(props) {
 	const {
@@ -71,7 +71,7 @@ function Label(props) {
 		<Typography htmlFor={id} variant="overline" gutterBottom>
 			{label}
 			{required && (
-				<span style={{ fontWeight: 'bold', fontStyle: 'italic', fontSize: '12px', textTransform: 'lowercase' }}>
+				<span style={{ fontWeight: 'bold'}}>
 					{' '}
 					{REQUIRED_FIELD_SYMBOL}
 				</span>
