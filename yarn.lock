@@ -4396,9 +4396,9 @@ select-hose@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/select-hose/-/select-hose-2.0.0.tgz#625d8658f865af43ec962bfc376a37359a4994ca"
 
-"selfkey-ui@https://github.com/SelfKeyFoundation/selfkey-ui.git#67392ac":
+"selfkey-ui@https://github.com/SelfKeyFoundation/selfkey-ui.git#d36204d":
   version "1.0.0"
-  resolved "https://github.com/SelfKeyFoundation/selfkey-ui.git#67392ac638433949ac2f54a4052eb6a1b61bf4a4"
+  resolved "https://github.com/SelfKeyFoundation/selfkey-ui.git#d36204d065254cf3f65eb0153d2f20c768b0e6d1"
   dependencies:
     "@material-ui/core" "3.9.2"
     "@material-ui/icons" "3.0.2"
