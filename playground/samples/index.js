@@ -19,8 +19,16 @@ import propertyDependencies from './propertyDependencies';
 import schemaDependencies from './schemaDependencies';
 import objectFileWidget from './objectFileWidget';
 import arrayObjectFileWidget from './arrayObjectFileWidget';
+import nationalId from './national-id';
+import passport from './passport';
+import bankStatement from './bank-statement';
 
 export const samples = {
+	'Object file widget': objectFileWidget,
+	'Array object file widget': arrayObjectFileWidget,
+	'National ID': nationalId,
+	Passport: passport,
+	'Bank Statement': bankStatement,
 	Simple: simple,
 	Nested: nested,
 	Arrays: arrays,
@@ -40,6 +48,4 @@ export const samples = {
 	Alternatives: alternatives,
 	'Property dependencies': propertyDependencies,
 	'Schema dependencies': schemaDependencies,
-	'Object file widget': objectFileWidget,
-	'Array object file widget': arrayObjectFileWidget,
 };

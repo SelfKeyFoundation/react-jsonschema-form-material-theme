@@ -2026,7 +2026,8 @@ function (_Component) {
             formContext: formContext,
             autofocus: autofocus,
             registry: registry,
-            errors: errors
+            errors: errors,
+            errorSchema: errorSchema
           });
         }
       } catch (error) {
@@ -4030,23 +4031,33 @@ function (_Component) {
           label = _this$props.label,
           uiSchema = _this$props.uiSchema,
           formData = _this$props.formData,
-          errors = _this$props.errors,
+          _this$props$errors = _this$props.errors,
+          errors = _this$props$errors === void 0 ? [] : _this$props$errors,
           idSchema = _this$props.idSchema,
           name = _this$props.name,
+          help = _this$props.help,
           required = _this$props.required,
           disabled = _this$props.disabled,
           readonly = _this$props.readonly,
           idPrefix = _this$props.idPrefix,
           onBlur = _this$props.onBlur,
           onFocus = _this$props.onFocus,
-          registry = _this$props.registry;
+          registry = _this$props.registry,
+          errorSchema = _this$props.errorSchema;
       var definitions = registry.definitions,
           templates = registry.templates,
           formContext = registry.formContext;
       var FieldTemplate = templates.FieldTemplate;
       var schema = Object(util_["retrieveSchema"])(this.props.schema, definitions, formData);
       var description = uiSchema['ui:description'] || schema.description;
+      var displayLabel = uiSchema['ui:label'] === false ? false : true;
+
+      if (errorSchema.mimeType && errorSchema.mimeType.__errors.length) {
+        errors.push(errorSchema.mimeType.__errors[0]);
+      }
+
       var templateProps = {
+        id: id,
         label: label,
         description: description,
         idSchema: idSchema,
@@ -4055,8 +4066,11 @@ function (_Component) {
         formData: formData,
         formContext: formContext,
         registry: registry,
+        required: required,
         errors: errors,
-        idPrefix: idPrefix
+        help: help,
+        idPrefix: idPrefix,
+        displayLabel: displayLabel
       };
       var accept = (((schema.properties || {}).mimeType || {}).enum || []).join(',');
       var file = this.state.formData && this.state.formData.name ? {
@@ -6640,6 +6654,7 @@ var external_commonjs_selfkey_ui_commonjs2_selfkey_ui_amd_selfkey_ui_root_selfke
 
 
 
+
 function ArrayFileObjectTemplate_ArrayFieldTitle(_ref) {
   var TitleTemplate = _ref.TitleTemplate,
       idSchema = _ref.idSchema,
@@ -6687,7 +6702,7 @@ function Help(props) {
   }
 
   if (typeof help === 'string') {
-    return external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement(Typography, {
+    return external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement(core_["Typography"], {
       variant: "subtitle1",
       color: "secondary",
       className: "help-block",
@@ -6695,7 +6710,7 @@ function Help(props) {
     }, help);
   }
 
-  return external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement(Typography, {
+  return external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement(core_["Typography"], {
     variant: "subtitle1",
     color: "secondary",
     className: "help-block",
@@ -6712,7 +6727,7 @@ function ErrorList(props) {
   }
 
   return external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement("div", null, errors.map(function (error, index) {
-    return external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement(Typography, {
+    return external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement(core_["Typography"], {
       variant: "subtitle2",
       color: "error",
       key: index,
@@ -6850,30 +6865,33 @@ function (_Component) {
     value: function render() {
       var props = this.props;
       var accept = (((props.schema.properties || {}).mimeType || {}).enum || []).join(',');
+      var title = props.uiSchema['ui:title'] || props.uiSchema['ui:label'] || props.title;
+      var description = this.props.placeholder || props.uiSchema['ui:description'] || props.schema.description;
+
+      if (props.uiSchema['ui:description'] === false) {
+        description = null;
+      }
+
+      if (props.uiSchema['ui:label'] === false) {
+        title = null;
+      }
+
       var _props$registry$templ = props.registry.templates,
           TitleTemplate = _props$registry$templ.TitleTemplate,
           DescriptionTemplate = _props$registry$templ.DescriptionTemplate;
-      return external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement("div", null, external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement(ArrayFileObjectTemplate_ArrayFieldTitle, {
+      return external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement("div", null, title ? external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement(ArrayFileObjectTemplate_ArrayFieldTitle, {
         key: "array-field-title-".concat(props.idSchema.$id),
         TitleTemplate: TitleTemplate,
         idSchema: props.idSchema,
         title: props.uiSchema['ui:title'] || props.title,
         required: props.required
-      }), (props.uiSchema['ui:description'] || props.schema.description) && external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement(ArrayFileObjectTemplate_ArrayFieldDescription, {
-        key: "array-field-description-".concat(props.idSchema.$id),
-        DescriptionTemplate: DescriptionTemplate,
-        idSchema: props.idSchema,
-        description: props.uiSchema['ui:description'] || props.schema.description
-      }), external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement(external_commonjs_selfkey_ui_commonjs2_selfkey_ui_amd_selfkey_ui_root_selfkey_ui_["ArrayFileUploadWidget"], {
+      }) : null, external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement(external_commonjs_selfkey_ui_commonjs2_selfkey_ui_amd_selfkey_ui_root_selfkey_ui_["ArrayFileUploadWidget"], {
         files: this.state.files,
         onClearForm: this.handleFileDelete,
         accept: accept,
+        placeholder: description,
         isError: props.errors && props.errors.length,
         onChange: this.handleFileChange
-      }), external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement(ErrorList, {
-        errors: this.props.errors
-      }), external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement(Help, {
-        help: this.props.help
       }));
     }
   }]);
@@ -7057,7 +7075,11 @@ function FieldTemplate_ErrorList(props) {
       variant: "subtitle2",
       color: "error",
       key: index,
-      gutterBottom: true
+      gutterBottom: true,
+      style: {
+        marginTop: '10px',
+        marginLeft: '5px'
+      }
     }, error);
   }));
 }
@@ -7067,14 +7089,26 @@ function ObjectFieldTemplate(props) {
   var _props$registry$templ = props.registry.templates,
       TitleTemplate = _props$registry$templ.TitleTemplate,
       DescriptionTemplate = _props$registry$templ.DescriptionTemplate;
-  return external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement("fieldset", null, (props.uiSchema["ui:title"] || props.title) && external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement(TitleTemplate, {
+  var title = props.uiSchema['ui:title'] || props.uiSchema['ui:label'] || props.title;
+
+  if (props.uiSchema['ui:label'] === false) {
+    title = null;
+  }
+
+  var description = props.placeholder || props.uiSchema['ui:description'] || props.schema.description;
+
+  if (props.uiSchema['ui:description'] === false) {
+    title = null;
+  }
+
+  return external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement("fieldset", null, title && external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement(TitleTemplate, {
     id: "".concat(props.idSchema.$id, "__title"),
-    title: props.title || props.uiSchema["ui:title"],
+    title: title,
     required: props.required,
     formContext: props.formContext
-  }), props.description && external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement(DescriptionTemplate, {
+  }), description && external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement(DescriptionTemplate, {
     id: "".concat(props.idSchema.$id, "__description"),
-    description: props.description,
+    description: description,
     formContext: props.formContext
   }), props.properties.map(function (prop) {
     return prop.content;
@@ -7096,18 +7130,24 @@ function SubmitTemplate_SubmitTemplate() {
 
 
 
-var TitleTemplate_REQUIRED_FIELD_SYMBOL = "*";
+var TitleTemplate_REQUIRED_FIELD_SYMBOL = '(required)';
 
 function TitleTemplate_TitleTemplate(props) {
   var id = props.id,
       title = props.title,
       required = props.required;
-  var legend = required ? title + TitleTemplate_REQUIRED_FIELD_SYMBOL : title;
   return external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement(core_["Typography"], {
-    variant: "h4",
+    variant: "overline",
     id: id,
     gutterBottom: true
-  }, legend);
+  }, title, required ? external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement("span", {
+    style: {
+      fontWeight: 'bold',
+      fontStyle: 'italic',
+      fontSize: '12px',
+      textTransform: 'lowercase'
+    }
+  }, ' ', TitleTemplate_REQUIRED_FIELD_SYMBOL) : null);
 }
 
 TitleTemplate_TitleTemplate.propTypes = {

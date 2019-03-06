@@ -53,14 +53,15 @@ export class ObjectFileWidget extends Component {
 	}
 
 	render() {
-		const {
+		let {
 			id,
 			label,
 			uiSchema,
 			formData,
-			errors,
+			errors = [],
 			idSchema,
 			name,
+			help,
 			required,
 			disabled,
 			readonly,
@@ -68,13 +69,20 @@ export class ObjectFileWidget extends Component {
 			onBlur,
 			onFocus,
 			registry,
+			errorSchema,
 		} = this.props;
 		const { definitions, templates, formContext } = registry;
 		const { FieldTemplate } = templates;
 		const schema = retrieveSchema(this.props.schema, definitions, formData);
 		const description = uiSchema['ui:description'] || schema.description;
+		const displayLabel = uiSchema['ui:label'] === false ? false : true;
+		
+		if (errorSchema.mimeType && errorSchema.mimeType.__errors.length){
+			errors.push(errorSchema.mimeType.__errors[0]);
+		}
 
 		const templateProps = {
+			id,
 			label,
 			description,
 			idSchema,
@@ -83,16 +91,20 @@ export class ObjectFileWidget extends Component {
 			formData,
 			formContext,
 			registry,
+			required,
 			errors,
+			help,
 			idPrefix,
+			displayLabel,
 		};
 		const accept = (((schema.properties || {}).mimeType || {}).enum || []).join(',');
-		const file = this.state.formData && this.state.formData.name
-			? {
-					url: this.state.url,
-					name: this.state.formData.name,
-			  }
-			: null;
+		const file =
+			this.state.formData && this.state.formData.name
+				? {
+						url: this.state.url,
+						name: this.state.formData.name,
+				  }
+				: null;
 		return (
 			<FieldTemplate {...templateProps}>
 				<FileUploadWidget
