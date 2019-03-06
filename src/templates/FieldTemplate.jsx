@@ -68,7 +68,7 @@ function Label(props) {
 		return <div />;
 	}
 	return (
-		<Typography htmlFor={id} variant="overline" gutterBottom>
+		<Typography htmlFor={id} variant="overline" style={{ marginBottom: '10px' }}>
 			{label}
 			{required && (
 				<span style={{ fontWeight: 'bold'}}>
