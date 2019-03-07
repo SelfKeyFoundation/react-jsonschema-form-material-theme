@@ -62,7 +62,7 @@ export default class ArrayFileObjectTemplate extends Component {
 	constructor(props) {
 		super(props);
 		const { formData = [] } = props;
-		const state = {};
+		const state = { uploadError: false };
 		state.files = (formData || []).map(data => {
 			const f = {};
 			if (data.content) {
@@ -82,6 +82,7 @@ export default class ArrayFileObjectTemplate extends Component {
 
 	handleFileChange = files => {
 		const onChange = this.props.onChange;
+		this.setState({ uploadError: false });
 		if (!onChange) {
 			onChange = () => {};
 		}
@@ -91,6 +92,10 @@ export default class ArrayFileObjectTemplate extends Component {
 					return null;
 				}
 				const url = URL.createObjectURL(f);
+				if (!this.mimeTypes.includes(f.type)) {
+					this.setState({ uploadError: `Incorrect file extension. Allowed: ${this.formatExtensionsList()}` });
+					return null;
+				}
 				const data = {
 					file: f,
 					mimeType: f.type,
@@ -104,6 +109,9 @@ export default class ArrayFileObjectTemplate extends Component {
 				reader.readAsDataURL(f);
 				return new Promise((resolve, reject) => {
 					reader.onload = () => {
+						if (!reader.result) {
+							return resolve(null);
+						}
 						data.content = reader.result;
 						resolve(data);
 					};
@@ -172,12 +180,13 @@ export default class ArrayFileObjectTemplate extends Component {
 		const errorSchema = this.props.errorSchema;
 		if (Object.keys(errorSchema).length) {
 			for (let item in errorSchema) {
-				itemErrors[item] = [];
+
+				itemErrors[+item] = [];
 				if (errorSchema[item].mimeType && errorSchema[item].mimeType.__errors) {
-					itemErrors[item].push(`Incorrect file extension. Allowed: ${this.formatExtensionsList()}`);
+					itemErrors[+item].push(`Incorrect file extension. Allowed: ${this.formatExtensionsList()}`);
 				}
 				if (errorSchema[item].size && errorSchema[item].size.__errors) {
-					itemErrors[item].push(
+					itemErrors[+item].push(
 						`File size is over ${this.maxFileSize / 100000}MB. Please upload a smaller file`
 					);
 				}
@@ -185,7 +194,7 @@ export default class ArrayFileObjectTemplate extends Component {
 		}
 		return itemErrors;
 	}
-
+	
 	handleFileDelete = file => {
 		const onChange = this.props.onChange;
 		if (!onChange) {
@@ -213,10 +222,12 @@ export default class ArrayFileObjectTemplate extends Component {
 		let help = props.help;
 
 		if (!help && mimeTypes.length) {
-			help = `Alowed file extensions: ${this.formatExtensionsList()}`;
+
+			help = `Allowed file extensions: ${this.formatExtensionsList()}`;
 		}
 
 		let itemErrors = this.computeItemErrors();
+		console.log('XXX', itemErrors);
 		let isError = (props.errors && props.errors.length) || Object.keys(itemErrors).length > 0;
 		const { TitleTemplate } = props.registry.templates;
 		return (
