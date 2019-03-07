@@ -6892,15 +6892,10 @@ function (_Component) {
           return null;
         }
 
-        var url = URL.createObjectURL(f);
-
-        if (!_this.mimeTypes.includes(f.type)) {
-          _this.setState({
-            uploadError: "Incorrect file extension. Allowed: ".concat(_this.formatExtensionsList())
-          });
-
-          return null;
-        }
+        var url = URL.createObjectURL(f); // if (!this.mimeTypes.includes(f.type)) {
+        // 	this.setState({ uploadError: `Incorrect file extension. Allowed: ${this.formatExtensionsList()}` });
+        // 	return null;
+        // }
 
         var data = {
           file: f,
@@ -7031,6 +7026,8 @@ function (_Component) {
       var errorSchema = this.props.errorSchema;
 
       if (Object.keys(errorSchema).length) {
+        console.log('XXX', errorSchema);
+
         for (var item in errorSchema) {
           itemErrors[+item] = [];
 
@@ -7039,7 +7036,7 @@ function (_Component) {
           }
 
           if (errorSchema[item].size && errorSchema[item].size.__errors) {
-            itemErrors[+item].push("File size is over ".concat(this.maxFileSize / 100000, "MB. Please upload a smaller file"));
+            itemErrors[+item].push("File size is over ".concat(this.maxFileSize / 1000000, "MB. Please upload a smaller file"));
           }
         }
       }
