@@ -71,6 +71,8 @@ export default class ArrayFileObjectTemplate extends Component {
 			}
 			f.mimeType = data.mimeType;
 			f.name = data.name;
+			f.size = data.size;
+			f.content = data.content;
 			if (f.file) {
 				f.url = URL.createObjectURL(f.file);
 			}
