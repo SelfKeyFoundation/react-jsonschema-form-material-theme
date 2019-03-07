@@ -195,7 +195,7 @@ export default class ArrayFileObjectTemplate extends Component {
 		}
 		return itemErrors;
 	}
-	
+
 	handleFileDelete = file => {
 		const onChange = this.props.onChange;
 		if (!onChange) {
@@ -221,7 +221,6 @@ export default class ArrayFileObjectTemplate extends Component {
 		let help = props.help;
 
 		if (!help && this.mimeTypes.length) {
-
 			help = `Allowed file extensions: ${this.formatExtensionsList()}`;
 		}
 
@@ -244,6 +243,7 @@ export default class ArrayFileObjectTemplate extends Component {
 					errorFiles={itemErrors}
 					onClearForm={this.handleFileDelete}
 					mimeTypes={this.mimeTypes}
+					uploadError={this.state.uploadError}
 					placeholder={description}
 					isError={isError}
 					onChange={this.handleFileChange}

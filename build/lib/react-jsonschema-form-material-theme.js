@@ -7083,6 +7083,7 @@ function (_Component) {
         errorFiles: itemErrors,
         onClearForm: this.handleFileDelete,
         mimeTypes: this.mimeTypes,
+        uploadError: this.state.uploadError,
         placeholder: description,
         isError: isError,
         onChange: this.handleFileChange
