@@ -179,6 +179,7 @@ export default class ArrayFileObjectTemplate extends Component {
 		let itemErrors = {};
 		const errorSchema = this.props.errorSchema;
 		if (Object.keys(errorSchema).length) {
+			console.log('XXX', errorSchema);
 			for (let item in errorSchema) {
 
 				itemErrors[+item] = [];
@@ -187,7 +188,7 @@ export default class ArrayFileObjectTemplate extends Component {
 				}
 				if (errorSchema[item].size && errorSchema[item].size.__errors) {
 					itemErrors[+item].push(
-						`File size is over ${this.maxFileSize / 100000}MB. Please upload a smaller file`
+						`File size is over ${this.maxFileSize / 1000000}MB. Please upload a smaller file`
 					);
 				}
 			}
