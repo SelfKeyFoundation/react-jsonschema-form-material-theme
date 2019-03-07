@@ -92,10 +92,10 @@ export default class ArrayFileObjectTemplate extends Component {
 					return null;
 				}
 				const url = URL.createObjectURL(f);
-				if (!this.mimeTypes.includes(f.type)) {
-					this.setState({ uploadError: `Incorrect file extension. Allowed: ${this.formatExtensionsList()}` });
-					return null;
-				}
+				// if (!this.mimeTypes.includes(f.type)) {
+				// 	this.setState({ uploadError: `Incorrect file extension. Allowed: ${this.formatExtensionsList()}` });
+				// 	return null;
+				// }
 				const data = {
 					file: f,
 					mimeType: f.type,
