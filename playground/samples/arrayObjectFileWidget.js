@@ -8,7 +8,7 @@ module.exports = {
 			properties: {
 				mimeType: {
 					type: 'string',
-					enum: ['image/jpg', 'image/png', 'application/pdf'],
+					enum: ['image/jpeg', 'image/png', 'application/pdf'],
 				},
 				size: {
 					type: 'integer',

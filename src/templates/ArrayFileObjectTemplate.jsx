@@ -62,7 +62,7 @@ export default class ArrayFileObjectTemplate extends Component {
 	constructor(props) {
 		super(props);
 		const { formData = [] } = props;
-		const state = {};
+		const state = { uploadError: false };
 		state.files = (formData || []).map(data => {
 			const f = {};
 			if (data.content) {
@@ -71,6 +71,8 @@ export default class ArrayFileObjectTemplate extends Component {
 			}
 			f.mimeType = data.mimeType;
 			f.name = data.name;
+			f.size = data.size;
+			f.content = data.content;
 			if (f.file) {
 				f.url = URL.createObjectURL(f.file);
 			}
@@ -82,6 +84,7 @@ export default class ArrayFileObjectTemplate extends Component {
 
 	handleFileChange = files => {
 		const onChange = this.props.onChange;
+		this.setState({ uploadError: false });
 		if (!onChange) {
 			onChange = () => {};
 		}
@@ -91,6 +94,10 @@ export default class ArrayFileObjectTemplate extends Component {
 					return null;
 				}
 				const url = URL.createObjectURL(f);
+				if (!this.mimeTypes.includes(f.type)) {
+					this.setState({ uploadError: `Incorrect file extension. Allowed: ${this.formatExtensionsList()}` });
+					return null;
+				}
 				const data = {
 					file: f,
 					mimeType: f.type,
@@ -104,6 +111,9 @@ export default class ArrayFileObjectTemplate extends Component {
 				reader.readAsDataURL(f);
 				return new Promise((resolve, reject) => {
 					reader.onload = () => {
+						if (!reader.result) {
+							return resolve(null);
+						}
 						data.content = reader.result;
 						resolve(data);
 					};
@@ -159,10 +169,18 @@ export default class ArrayFileObjectTemplate extends Component {
 		const extensions = mimeTypes.map(type => mime.getExtension(type));
 		return extensions
 			.map((ext, ind) => {
+				const mimeType = mimeTypes[ind];
 				const ft = fileTypes[ind];
-				if (!ext) return mimeTypes[ind];
+				if (!ext) return mimeType;
 				if (!ft) return ext;
-				return `${ft} .${ext}`;
+				if ( mimeType === 'image/jpeg'){
+					return `.jpg, .jpeg`;
+				}
+				if (ft === 'audio'){
+					return `${ft} .${ext}`;
+				}
+				return `.${ext}`;
+				
 			})
 			.join(', ');
 	}
@@ -172,13 +190,13 @@ export default class ArrayFileObjectTemplate extends Component {
 		const errorSchema = this.props.errorSchema;
 		if (Object.keys(errorSchema).length) {
 			for (let item in errorSchema) {
-				itemErrors[item] = [];
+				itemErrors[+item] = [];
 				if (errorSchema[item].mimeType && errorSchema[item].mimeType.__errors) {
-					itemErrors[item].push(`Incorrect file extension. Allowed: ${this.formatExtensionsList()}`);
+					itemErrors[+item].push(`Incorrect file extension. Allowed: ${this.formatExtensionsList()}`);
 				}
 				if (errorSchema[item].size && errorSchema[item].size.__errors) {
-					itemErrors[item].push(
-						`File size is over ${this.maxFileSize / 100000}MB. Please upload a smaller file`
+					itemErrors[+item].push(
+						`File size is over ${this.maxFileSize / 1000000}MB. Please upload a smaller file`
 					);
 				}
 			}
@@ -200,8 +218,6 @@ export default class ArrayFileObjectTemplate extends Component {
 	};
 	render() {
 		const props = this.props;
-		let mimeTypes = [];
-
 		let title = props.uiSchema['ui:title'] || props.uiSchema['ui:label'] || props.title;
 		let description = this.props.placeholder || props.uiSchema['ui:description'] || props.schema.description;
 		if (props.uiSchema['ui:description'] === false) {
@@ -212,8 +228,8 @@ export default class ArrayFileObjectTemplate extends Component {
 		}
 		let help = props.help;
 
-		if (!help && mimeTypes.length) {
-			help = `Alowed file extensions: ${this.formatExtensionsList()}`;
+		if (!help && this.mimeTypes.length) {
+			help = `Allowed file extensions: ${this.formatExtensionsList()}`;
 		}
 
 		let itemErrors = this.computeItemErrors();
@@ -234,7 +250,8 @@ export default class ArrayFileObjectTemplate extends Component {
 					files={this.state.files}
 					errorFiles={itemErrors}
 					onClearForm={this.handleFileDelete}
-					mimeTypes={mimeTypes}
+					mimeTypes={this.mimeTypes}
+					uploadError={this.state.uploadError}
 					placeholder={description}
 					isError={isError}
 					onChange={this.handleFileChange}
