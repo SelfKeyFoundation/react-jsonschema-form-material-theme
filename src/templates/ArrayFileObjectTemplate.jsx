@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Typography } from '@material-ui/core';
 import { ArrayFileUploadWidget } from 'selfkey-ui';
 import { dataURItoBlob } from '../utils';
+import mime from 'mime';
 
 function ArrayFieldTitle({ TitleTemplate, idSchema, title, required }) {
 	if (!title) {
@@ -125,6 +126,66 @@ export default class ArrayFileObjectTemplate extends Component {
 			this.setState({ files: filesData, formData }, onChange(formData));
 		});
 	};
+
+	get itemsProps() {
+		let itemsProps = {};
+		const props = this.props;
+		if (props.schema && props.schema.items && props.schema.items.properties) {
+			itemsProps = props.schema.items.properties;
+		}
+		return itemsProps;
+	}
+
+	get mimeTypes() {
+		let mimeTypes = [];
+		const itemsProps = this.itemsProps;
+		if (itemsProps.mimeType && itemsProps.mimeType.enum) {
+			mimeTypes = itemsProps.mimeType.enum;
+		}
+		return mimeTypes;
+	}
+
+	get maxFileSize() {
+		const itemsProps = this.itemsProps;
+		if (!itemsProps.size || !itemsProps.size.maximum) {
+			return 'unlimited';
+		}
+		return itemsProps.size.maximum;
+	}
+
+	formatExtensionsList() {
+		const mimeTypes = this.mimeTypes;
+		const fileTypes = mimeTypes.map(mt => ('' || mt).split('/')[0]);
+		const extensions = mimeTypes.map(type => mime.getExtension(type));
+		return extensions
+			.map((ext, ind) => {
+				const ft = fileTypes[ind];
+				if (!ext) return mimeTypes[ind];
+				if (!ft) return ext;
+				return `${ft} .${ext}`;
+			})
+			.join(', ');
+	}
+
+	computeItemErrors() {
+		let itemErrors = {};
+		const errorSchema = this.props.errorSchema;
+		if (Object.keys(errorSchema).length) {
+			for (let item in errorSchema) {
+				itemErrors[item] = [];
+				if (errorSchema[item].mimeType && errorSchema[item].mimeType.__errors) {
+					itemErrors[item].push(`Incorrect file extension. Allowed: ${this.formatExtensionsList()}`);
+				}
+				if (errorSchema[item].size && errorSchema[item].size.__errors) {
+					itemErrors[item].push(
+						`File size is over ${this.maxFileSize / 100000}MB. Please upload a smaller file`
+					);
+				}
+			}
+		}
+		return itemErrors;
+	}
+
 	handleFileDelete = file => {
 		const onChange = this.props.onChange;
 		if (!onChange) {
@@ -140,13 +201,7 @@ export default class ArrayFileObjectTemplate extends Component {
 	render() {
 		const props = this.props;
 		let mimeTypes = [];
-		let itemsProps = {};
-		if (props.schema && props.schema.items && props.schema.items.properties) {
-			itemsProps = props.schema.items.properties;
-		}
-		if (itemsProps.mimeType && itemsProps.mimeType.enum) {
-			mimeTypes = itemsProps.mimeType.enum;
-		}
+
 		let title = props.uiSchema['ui:title'] || props.uiSchema['ui:label'] || props.title;
 		let description = this.props.placeholder || props.uiSchema['ui:description'] || props.schema.description;
 		if (props.uiSchema['ui:description'] === false) {
@@ -158,23 +213,11 @@ export default class ArrayFileObjectTemplate extends Component {
 		let help = props.help;
 
 		if (!help && mimeTypes.length) {
-			help = `Alowed mime types: ${mimeTypes.join(', ')}`;
+			help = `Alowed file extensions: ${this.formatExtensionsList()}`;
 		}
-		const errorSchema = props.errorSchema;
-		let itemErrors = {};
-		let isError = props.errors && props.errors.length;
-		if (Object.keys(errorSchema).length) {
-			isError = true;
-			for (let item in errorSchema) {
-				itemErrors[item] = [];
-				if (errorSchema[item].mimeType && errorSchema[item].mimeType.__errors) {
-					itemErrors[item].push(`Incorrect mime type, shoud be one of: ${mimeTypes.join(', ')}`);
-				}
-				if (errorSchema[item].size && errorSchema[item].size.__errors) {
-					itemErrors[item].push(`File too large, allowed up to: ${itemsProps.size} bytes`);
-				}
-			}
-		}
+
+		let itemErrors = this.computeItemErrors();
+		let isError = (props.errors && props.errors.length) || Object.keys(itemErrors).length > 0;
 		const { TitleTemplate } = props.registry.templates;
 		return (
 			<div>
