@@ -169,10 +169,18 @@ export default class ArrayFileObjectTemplate extends Component {
 		const extensions = mimeTypes.map(type => mime.getExtension(type));
 		return extensions
 			.map((ext, ind) => {
+				const mimeType = mimeTypes[ind];
 				const ft = fileTypes[ind];
-				if (!ext) return mimeTypes[ind];
+				if (!ext) return mimeType;
 				if (!ft) return ext;
-				return `${ft} .${ext}`;
+				if ( mimeType === 'image/jpeg'){
+					return `.jpg, .jpeg`;
+				}
+				if (ft === 'audio'){
+					return `${ft} .${ext}`;
+				}
+				return `.${ext}`;
+				
 			})
 			.join(', ');
 	}

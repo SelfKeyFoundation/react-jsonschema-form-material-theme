@@ -7020,10 +7020,20 @@ function (_Component) {
         return mime_default.a.getExtension(type);
       });
       return extensions.map(function (ext, ind) {
+        var mimeType = mimeTypes[ind];
         var ft = fileTypes[ind];
-        if (!ext) return mimeTypes[ind];
+        if (!ext) return mimeType;
         if (!ft) return ext;
-        return "".concat(ft, " .").concat(ext);
+
+        if (mimeType === 'image/jpeg') {
+          return ".jpg, .jpeg";
+        }
+
+        if (ft === 'audio') {
+          return "".concat(ft, " .").concat(ext);
+        }
+
+        return ".".concat(ext);
       }).join(', ');
     }
   }, {
