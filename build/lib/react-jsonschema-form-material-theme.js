@@ -6892,10 +6892,15 @@ function (_Component) {
           return null;
         }
 
-        var url = URL.createObjectURL(f); // if (!this.mimeTypes.includes(f.type)) {
-        // 	this.setState({ uploadError: `Incorrect file extension. Allowed: ${this.formatExtensionsList()}` });
-        // 	return null;
-        // }
+        var url = URL.createObjectURL(f);
+
+        if (!_this.mimeTypes.includes(f.type)) {
+          _this.setState({
+            uploadError: "Incorrect file extension. Allowed: ".concat(_this.formatExtensionsList())
+          });
+
+          return null;
+        }
 
         var data = {
           file: f,
@@ -7028,8 +7033,6 @@ function (_Component) {
       var errorSchema = this.props.errorSchema;
 
       if (Object.keys(errorSchema).length) {
-        console.log('XXX', errorSchema);
-
         for (var item in errorSchema) {
           itemErrors[+item] = [];
 
@@ -7049,7 +7052,6 @@ function (_Component) {
     key: "render",
     value: function render() {
       var props = this.props;
-      var mimeTypes = [];
       var title = props.uiSchema['ui:title'] || props.uiSchema['ui:label'] || props.title;
       var description = this.props.placeholder || props.uiSchema['ui:description'] || props.schema.description;
 
@@ -7063,12 +7065,11 @@ function (_Component) {
 
       var help = props.help;
 
-      if (!help && mimeTypes.length) {
+      if (!help && this.mimeTypes.length) {
         help = "Allowed file extensions: ".concat(this.formatExtensionsList());
       }
 
       var itemErrors = this.computeItemErrors();
-      console.log('XXX', itemErrors);
       var isError = props.errors && props.errors.length || Object.keys(itemErrors).length > 0;
       var TitleTemplate = props.registry.templates.TitleTemplate;
       return external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement("div", null, title ? external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement(ArrayFileObjectTemplate_ArrayFieldTitle, {
@@ -7081,7 +7082,7 @@ function (_Component) {
         files: this.state.files,
         errorFiles: itemErrors,
         onClearForm: this.handleFileDelete,
-        mimeTypes: mimeTypes,
+        mimeTypes: this.mimeTypes,
         placeholder: description,
         isError: isError,
         onChange: this.handleFileChange

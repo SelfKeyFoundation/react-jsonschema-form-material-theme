@@ -94,10 +94,10 @@ export default class ArrayFileObjectTemplate extends Component {
 					return null;
 				}
 				const url = URL.createObjectURL(f);
-				// if (!this.mimeTypes.includes(f.type)) {
-				// 	this.setState({ uploadError: `Incorrect file extension. Allowed: ${this.formatExtensionsList()}` });
-				// 	return null;
-				// }
+				if (!this.mimeTypes.includes(f.type)) {
+					this.setState({ uploadError: `Incorrect file extension. Allowed: ${this.formatExtensionsList()}` });
+					return null;
+				}
 				const data = {
 					file: f,
 					mimeType: f.type,
@@ -181,9 +181,7 @@ export default class ArrayFileObjectTemplate extends Component {
 		let itemErrors = {};
 		const errorSchema = this.props.errorSchema;
 		if (Object.keys(errorSchema).length) {
-			console.log('XXX', errorSchema);
 			for (let item in errorSchema) {
-
 				itemErrors[+item] = [];
 				if (errorSchema[item].mimeType && errorSchema[item].mimeType.__errors) {
 					itemErrors[+item].push(`Incorrect file extension. Allowed: ${this.formatExtensionsList()}`);
@@ -212,8 +210,6 @@ export default class ArrayFileObjectTemplate extends Component {
 	};
 	render() {
 		const props = this.props;
-		let mimeTypes = [];
-
 		let title = props.uiSchema['ui:title'] || props.uiSchema['ui:label'] || props.title;
 		let description = this.props.placeholder || props.uiSchema['ui:description'] || props.schema.description;
 		if (props.uiSchema['ui:description'] === false) {
@@ -224,13 +220,12 @@ export default class ArrayFileObjectTemplate extends Component {
 		}
 		let help = props.help;
 
-		if (!help && mimeTypes.length) {
+		if (!help && this.mimeTypes.length) {
 
 			help = `Allowed file extensions: ${this.formatExtensionsList()}`;
 		}
 
 		let itemErrors = this.computeItemErrors();
-		console.log('XXX', itemErrors);
 		let isError = (props.errors && props.errors.length) || Object.keys(itemErrors).length > 0;
 		const { TitleTemplate } = props.registry.templates;
 		return (
@@ -248,7 +243,7 @@ export default class ArrayFileObjectTemplate extends Component {
 					files={this.state.files}
 					errorFiles={itemErrors}
 					onClearForm={this.handleFileDelete}
-					mimeTypes={mimeTypes}
+					mimeTypes={this.mimeTypes}
 					placeholder={description}
 					isError={isError}
 					onChange={this.handleFileChange}
