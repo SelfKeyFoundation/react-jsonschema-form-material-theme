@@ -103,6 +103,7 @@ export class ObjectFileWidget extends Component {
 				? {
 						url: this.state.url,
 						name: this.state.formData.name,
+						mimeType: this.state.formData.mimeType,
 				  }
 				: null;
 		return (
