@@ -7,7 +7,7 @@
 		exports["reactJsonSchemaMaterialTheme"] = factory(require("react"), require("prop-types"), require("@material-ui/core"), require("react-jsonschema-form/lib/utils"), require("selfkey-ui"), require("@material-ui/icons"), require("@material-ui/lab"), require("ajv"));
 	else
 		root["reactJsonSchemaMaterialTheme"] = factory(root["React"], root["PropTypes"], root["@material-ui/core"], root["react-jsonschema-form/lib/util"], root["selfkey-ui"], root["@material-ui/icons"], root["@material-ui/lab"], root["ajv"]);
-})(window, function(__WEBPACK_EXTERNAL_MODULE__0__, __WEBPACK_EXTERNAL_MODULE__1__, __WEBPACK_EXTERNAL_MODULE__4__, __WEBPACK_EXTERNAL_MODULE__8__, __WEBPACK_EXTERNAL_MODULE__17__, __WEBPACK_EXTERNAL_MODULE__18__, __WEBPACK_EXTERNAL_MODULE__19__, __WEBPACK_EXTERNAL_MODULE__37__) {
+})(window, function(__WEBPACK_EXTERNAL_MODULE__0__, __WEBPACK_EXTERNAL_MODULE__1__, __WEBPACK_EXTERNAL_MODULE__3__, __WEBPACK_EXTERNAL_MODULE__7__, __WEBPACK_EXTERNAL_MODULE__17__, __WEBPACK_EXTERNAL_MODULE__18__, __WEBPACK_EXTERNAL_MODULE__19__, __WEBPACK_EXTERNAL_MODULE__37__) {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -141,13 +141,13 @@ module.exports = __WEBPACK_EXTERNAL_MODULE__1__;
 /* unused harmony export rangeSpec */
 /* harmony import */ var _babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(15);
 /* harmony import */ var _babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(6);
+/* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(5);
 /* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _babel_runtime_helpers_typeof__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(16);
 /* harmony import */ var _babel_runtime_helpers_typeof__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_typeof__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(7);
+/* harmony import */ var _babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(6);
 /* harmony import */ var _babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _babel_runtime_helpers_objectSpread__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(5);
+/* harmony import */ var _babel_runtime_helpers_objectSpread__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(4);
 /* harmony import */ var _babel_runtime_helpers_objectSpread__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_objectSpread__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var _babel_runtime_helpers_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(9);
 /* harmony import */ var _babel_runtime_helpers_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_5__);
@@ -937,27 +937,13 @@ function rangeSpec(schema) {
 /* 3 */
 /***/ (function(module, exports) {
 
-function _assertThisInitialized(self) {
-  if (self === void 0) {
-    throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
-  }
-
-  return self;
-}
-
-module.exports = _assertThisInitialized;
+module.exports = __WEBPACK_EXTERNAL_MODULE__3__;
 
 /***/ }),
 /* 4 */
-/***/ (function(module, exports) {
-
-module.exports = __WEBPACK_EXTERNAL_MODULE__4__;
-
-/***/ }),
-/* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var defineProperty = __webpack_require__(6);
+var defineProperty = __webpack_require__(5);
 
 function _objectSpread(target) {
   for (var i = 1; i < arguments.length; i++) {
@@ -981,7 +967,7 @@ function _objectSpread(target) {
 module.exports = _objectSpread;
 
 /***/ }),
-/* 6 */
+/* 5 */
 /***/ (function(module, exports) {
 
 function _defineProperty(obj, key, value) {
@@ -1002,7 +988,7 @@ function _defineProperty(obj, key, value) {
 module.exports = _defineProperty;
 
 /***/ }),
-/* 7 */
+/* 6 */
 /***/ (function(module, exports) {
 
 function _extends() {
@@ -1026,10 +1012,24 @@ function _extends() {
 module.exports = _extends;
 
 /***/ }),
+/* 7 */
+/***/ (function(module, exports) {
+
+module.exports = __WEBPACK_EXTERNAL_MODULE__7__;
+
+/***/ }),
 /* 8 */
 /***/ (function(module, exports) {
 
-module.exports = __WEBPACK_EXTERNAL_MODULE__8__;
+function _assertThisInitialized(self) {
+  if (self === void 0) {
+    throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+  }
+
+  return self;
+}
+
+module.exports = _assertThisInitialized;
 
 /***/ }),
 /* 9 */
@@ -1098,7 +1098,7 @@ module.exports = _createClass;
 
 var _typeof = __webpack_require__(16);
 
-var assertThisInitialized = __webpack_require__(3);
+var assertThisInitialized = __webpack_require__(8);
 
 function _possibleConstructorReturn(self, call) {
   if (call && (_typeof(call) === "object" || typeof call === "function")) {
@@ -1214,11 +1214,11 @@ var objectWithoutProperties = __webpack_require__(9);
 var objectWithoutProperties_default = /*#__PURE__*/__webpack_require__.n(objectWithoutProperties);
 
 // EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/extends.js
-var helpers_extends = __webpack_require__(7);
+var helpers_extends = __webpack_require__(6);
 var extends_default = /*#__PURE__*/__webpack_require__.n(helpers_extends);
 
 // EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/objectSpread.js
-var objectSpread = __webpack_require__(5);
+var objectSpread = __webpack_require__(4);
 var objectSpread_default = /*#__PURE__*/__webpack_require__.n(objectSpread);
 
 // EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/toConsumableArray.js
@@ -1241,16 +1241,16 @@ var possibleConstructorReturn_default = /*#__PURE__*/__webpack_require__.n(possi
 var getPrototypeOf = __webpack_require__(13);
 var getPrototypeOf_default = /*#__PURE__*/__webpack_require__.n(getPrototypeOf);
 
+// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/assertThisInitialized.js
+var assertThisInitialized = __webpack_require__(8);
+var assertThisInitialized_default = /*#__PURE__*/__webpack_require__.n(assertThisInitialized);
+
 // EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/inherits.js
 var inherits = __webpack_require__(14);
 var inherits_default = /*#__PURE__*/__webpack_require__.n(inherits);
 
-// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/assertThisInitialized.js
-var assertThisInitialized = __webpack_require__(3);
-var assertThisInitialized_default = /*#__PURE__*/__webpack_require__.n(assertThisInitialized);
-
 // EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/defineProperty.js
-var defineProperty = __webpack_require__(6);
+var defineProperty = __webpack_require__(5);
 var defineProperty_default = /*#__PURE__*/__webpack_require__.n(defineProperty);
 
 // EXTERNAL MODULE: external {"commonjs":"react","commonjs2":"react","amd":"React","root":"React"}
@@ -1319,7 +1319,7 @@ function (_Component) {
 
     _this = possibleConstructorReturn_default()(this, (_getPrototypeOf2 = getPrototypeOf_default()(ArrayField)).call.apply(_getPrototypeOf2, [this].concat(args)));
 
-    defineProperty_default()(assertThisInitialized_default()(assertThisInitialized_default()(_this)), "onAddClick", function (event) {
+    defineProperty_default()(assertThisInitialized_default()(_this), "onAddClick", function (event) {
       event.preventDefault();
       var _this$props = _this.props,
           schema = _this$props.schema,
@@ -1335,7 +1335,7 @@ function (_Component) {
       _this.props.onChange([].concat(toConsumableArray_default()(formData), [Object(utils["e" /* getDefaultFormState */])(itemSchema, undefined, definitions)]));
     });
 
-    defineProperty_default()(assertThisInitialized_default()(assertThisInitialized_default()(_this)), "onDropIndexClick", function (index) {
+    defineProperty_default()(assertThisInitialized_default()(_this), "onDropIndexClick", function (index) {
       return function (event) {
         if (event) {
           event.preventDefault();
@@ -1368,7 +1368,7 @@ function (_Component) {
       };
     });
 
-    defineProperty_default()(assertThisInitialized_default()(assertThisInitialized_default()(_this)), "onReorderClick", function (index, newIndex) {
+    defineProperty_default()(assertThisInitialized_default()(_this), "onReorderClick", function (index, newIndex) {
       return function (event) {
         if (event) {
           event.preventDefault();
@@ -1409,7 +1409,7 @@ function (_Component) {
       };
     });
 
-    defineProperty_default()(assertThisInitialized_default()(assertThisInitialized_default()(_this)), "onChangeForIndex", function (index) {
+    defineProperty_default()(assertThisInitialized_default()(_this), "onChangeForIndex", function (index) {
       return function (value, errorSchema) {
         var _this$props4 = _this.props,
             formData = _this$props4.formData,
@@ -1424,7 +1424,7 @@ function (_Component) {
       };
     });
 
-    defineProperty_default()(assertThisInitialized_default()(assertThisInitialized_default()(_this)), "onSelectChange", function (value) {
+    defineProperty_default()(assertThisInitialized_default()(_this), "onSelectChange", function (value) {
       _this.props.onChange(value);
     });
 
@@ -1953,7 +1953,7 @@ function (_Component) {
 
     _this = possibleConstructorReturn_default()(this, (_getPrototypeOf2 = getPrototypeOf_default()(ObjectField)).call.apply(_getPrototypeOf2, [this].concat(args)));
 
-    defineProperty_default()(assertThisInitialized_default()(assertThisInitialized_default()(_this)), "onPropertyChange", function (name) {
+    defineProperty_default()(assertThisInitialized_default()(_this), "onPropertyChange", function (name) {
       return function (value, errorSchema) {
         var newFormData = objectSpread_default()({}, _this.props.formData, defineProperty_default()({}, name, value));
 
@@ -2387,9 +2387,9 @@ StringField_StringField.defaultProps = {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return toErrorList; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return validateFormData; });
-/* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(6);
+/* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(5);
 /* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _babel_runtime_helpers_objectSpread__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(5);
+/* harmony import */ var _babel_runtime_helpers_objectSpread__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(4);
 /* harmony import */ var _babel_runtime_helpers_objectSpread__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_objectSpread__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var lodash_topath__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(36);
 /* harmony import */ var lodash_topath__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(lodash_topath__WEBPACK_IMPORTED_MODULE_2__);
@@ -2625,7 +2625,7 @@ function validateFormData(formData, schema, customValidate, transformErrors) {
 __webpack_require__.r(__webpack_exports__);
 
 // EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/extends.js
-var helpers_extends = __webpack_require__(7);
+var helpers_extends = __webpack_require__(6);
 var extends_default = /*#__PURE__*/__webpack_require__.n(helpers_extends);
 
 // EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/classCallCheck.js
@@ -2644,16 +2644,16 @@ var possibleConstructorReturn_default = /*#__PURE__*/__webpack_require__.n(possi
 var getPrototypeOf = __webpack_require__(13);
 var getPrototypeOf_default = /*#__PURE__*/__webpack_require__.n(getPrototypeOf);
 
+// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/assertThisInitialized.js
+var assertThisInitialized = __webpack_require__(8);
+var assertThisInitialized_default = /*#__PURE__*/__webpack_require__.n(assertThisInitialized);
+
 // EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/inherits.js
 var inherits = __webpack_require__(14);
 var inherits_default = /*#__PURE__*/__webpack_require__.n(inherits);
 
-// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/assertThisInitialized.js
-var assertThisInitialized = __webpack_require__(3);
-var assertThisInitialized_default = /*#__PURE__*/__webpack_require__.n(assertThisInitialized);
-
 // EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/defineProperty.js
-var defineProperty = __webpack_require__(6);
+var defineProperty = __webpack_require__(5);
 var defineProperty_default = /*#__PURE__*/__webpack_require__.n(defineProperty);
 
 // EXTERNAL MODULE: external {"commonjs":"react","commonjs2":"react","amd":"React","root":"React"}
@@ -2665,7 +2665,7 @@ var external_commonjs_prop_types_commonjs2_prop_types_amd_PropTypes_root_PropTyp
 var external_commonjs_prop_types_commonjs2_prop_types_amd_PropTypes_root_PropTypes_default = /*#__PURE__*/__webpack_require__.n(external_commonjs_prop_types_commonjs2_prop_types_amd_PropTypes_root_PropTypes_);
 
 // EXTERNAL MODULE: external {"commonjs":"react-jsonschema-form/lib/utils","commonjs2":"react-jsonschema-form/lib/utils","amd":"react-jsonschema-form/lib/util","root":"react-jsonschema-form/lib/util"}
-var util_ = __webpack_require__(8);
+var util_ = __webpack_require__(7);
 
 // CONCATENATED MODULE: ./src/widgets/AltDateWidget.jsx
 
@@ -2745,7 +2745,7 @@ function (_Component) {
 
     _this = possibleConstructorReturn_default()(this, getPrototypeOf_default()(AltDateWidget).call(this, props));
 
-    defineProperty_default()(assertThisInitialized_default()(assertThisInitialized_default()(_this)), "onChange", function (property, value) {
+    defineProperty_default()(assertThisInitialized_default()(_this), "onChange", function (property, value) {
       _this.setState(defineProperty_default()({}, property, typeof value === "undefined" ? -1 : value), function () {
         // Only propagate to parent state if we have a complete date{time}
         if (readyForChange(_this.state)) {
@@ -2754,7 +2754,7 @@ function (_Component) {
       });
     });
 
-    defineProperty_default()(assertThisInitialized_default()(assertThisInitialized_default()(_this)), "setNow", function (event) {
+    defineProperty_default()(assertThisInitialized_default()(_this), "setNow", function (event) {
       event.preventDefault();
       var _this$props = _this.props,
           time = _this$props.time,
@@ -2773,7 +2773,7 @@ function (_Component) {
       });
     });
 
-    defineProperty_default()(assertThisInitialized_default()(assertThisInitialized_default()(_this)), "clear", function (event) {
+    defineProperty_default()(assertThisInitialized_default()(_this), "clear", function (event) {
       event.preventDefault();
       var _this$props2 = _this.props,
           time = _this$props2.time,
@@ -2949,7 +2949,7 @@ var objectWithoutProperties = __webpack_require__(9);
 var objectWithoutProperties_default = /*#__PURE__*/__webpack_require__.n(objectWithoutProperties);
 
 // EXTERNAL MODULE: external {"commonjs":"@material-ui/core","commonjs2":"@material-ui/core","amd":"@material-ui/core","root":"@material-ui/core"}
-var core_ = __webpack_require__(4);
+var core_ = __webpack_require__(3);
 
 // CONCATENATED MODULE: ./src/widgets/BaseInput.jsx
 
@@ -3458,7 +3458,7 @@ function (_Component) {
 
     _this = possibleConstructorReturn_default()(this, getPrototypeOf_default()(FileWidget).call(this, props));
 
-    defineProperty_default()(assertThisInitialized_default()(assertThisInitialized_default()(_this)), "onChange", function (event) {
+    defineProperty_default()(assertThisInitialized_default()(_this), "onChange", function (event) {
       var _this$props = _this.props,
           multiple = _this$props.multiple,
           onChange = _this$props.onChange;
@@ -3469,7 +3469,7 @@ function (_Component) {
           }),
           filesInfo: filesInfo
         };
-        Object(util_["setState"])(assertThisInitialized_default()(assertThisInitialized_default()(_this)), state, function () {
+        Object(util_["setState"])(assertThisInitialized_default()(_this), state, function () {
           if (multiple) {
             onChange(state.values);
           } else {
@@ -3908,7 +3908,7 @@ UpDownWidget.propTypes = {
 };
 /* harmony default export */ var widgets_UpDownWidget = (UpDownWidget);
 // EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/objectSpread.js
-var objectSpread = __webpack_require__(5);
+var objectSpread = __webpack_require__(4);
 var objectSpread_default = /*#__PURE__*/__webpack_require__.n(objectSpread);
 
 // CONCATENATED MODULE: ./src/widgets/ObjectFileWidget.jsx
@@ -4075,7 +4075,8 @@ function (_Component) {
       var accept = (((schema.properties || {}).mimeType || {}).enum || []).join(',');
       var file = this.state.formData && this.state.formData.name ? {
         url: this.state.url,
-        name: this.state.formData.name
+        name: this.state.formData.name,
+        mimeType: this.state.formData.mimeType
       } : null;
       return external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement(FieldTemplate, templateProps, external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement(external_commonjs_selfkey_ui_commonjs2_selfkey_ui_amd_selfkey_ui_root_selfkey_ui_["FileUploadWidget"], {
         id: id,
@@ -4227,7 +4228,7 @@ module.exports = g;
 /* 24 */
 /***/ (function(module, exports) {
 
-var core = module.exports = { version: '2.6.1' };
+var core = module.exports = { version: '2.6.5' };
 if (typeof __e == 'number') __e = core; // eslint-disable-line no-undef
 
 
@@ -6278,7 +6279,7 @@ module.exports = {"application/prs.cww":["cww"],"application/vnd.3gpp.pic-bw-lar
 __webpack_require__.r(__webpack_exports__);
 
 // EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/objectSpread.js
-var objectSpread = __webpack_require__(5);
+var objectSpread = __webpack_require__(4);
 var objectSpread_default = /*#__PURE__*/__webpack_require__.n(objectSpread);
 
 // EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/classCallCheck.js
@@ -6297,16 +6298,16 @@ var possibleConstructorReturn_default = /*#__PURE__*/__webpack_require__.n(possi
 var getPrototypeOf = __webpack_require__(13);
 var getPrototypeOf_default = /*#__PURE__*/__webpack_require__.n(getPrototypeOf);
 
+// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/assertThisInitialized.js
+var assertThisInitialized = __webpack_require__(8);
+var assertThisInitialized_default = /*#__PURE__*/__webpack_require__.n(assertThisInitialized);
+
 // EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/inherits.js
 var inherits = __webpack_require__(14);
 var inherits_default = /*#__PURE__*/__webpack_require__.n(inherits);
 
-// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/assertThisInitialized.js
-var assertThisInitialized = __webpack_require__(3);
-var assertThisInitialized_default = /*#__PURE__*/__webpack_require__.n(assertThisInitialized);
-
 // EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/defineProperty.js
-var defineProperty = __webpack_require__(6);
+var defineProperty = __webpack_require__(5);
 var defineProperty_default = /*#__PURE__*/__webpack_require__.n(defineProperty);
 
 // EXTERNAL MODULE: external {"commonjs":"react","commonjs2":"react","amd":"React","root":"React"}
@@ -6349,7 +6350,7 @@ function (_Component) {
 
     _this = possibleConstructorReturn_default()(this, getPrototypeOf_default()(Form).call(this, props));
 
-    defineProperty_default()(assertThisInitialized_default()(assertThisInitialized_default()(_this)), "onChange", function (formData, newErrorSchema) {
+    defineProperty_default()(assertThisInitialized_default()(_this), "onChange", function (formData, newErrorSchema) {
       var mustValidate = !_this.props.noValidate && _this.props.liveValidate;
       var state = {
         formData: formData
@@ -6371,14 +6372,14 @@ function (_Component) {
         });
       }
 
-      Object(utils["t" /* setState */])(assertThisInitialized_default()(assertThisInitialized_default()(_this)), state, function () {
+      Object(utils["t" /* setState */])(assertThisInitialized_default()(_this), state, function () {
         if (_this.props.onChange) {
           _this.props.onChange(_this.state);
         }
       });
     });
 
-    defineProperty_default()(assertThisInitialized_default()(assertThisInitialized_default()(_this)), "onBlur", function () {
+    defineProperty_default()(assertThisInitialized_default()(_this), "onBlur", function () {
       if (_this.props.onBlur) {
         var _this$props;
 
@@ -6386,7 +6387,7 @@ function (_Component) {
       }
     });
 
-    defineProperty_default()(assertThisInitialized_default()(assertThisInitialized_default()(_this)), "onFocus", function () {
+    defineProperty_default()(assertThisInitialized_default()(_this), "onFocus", function () {
       if (_this.props.onFocus) {
         var _this$props2;
 
@@ -6394,7 +6395,7 @@ function (_Component) {
       }
     });
 
-    defineProperty_default()(assertThisInitialized_default()(assertThisInitialized_default()(_this)), "onSubmit", function (event) {
+    defineProperty_default()(assertThisInitialized_default()(_this), "onSubmit", function (event) {
       event.preventDefault();
 
       if (!_this.props.noValidate) {
@@ -6403,7 +6404,7 @@ function (_Component) {
             errorSchema = _this$validate2.errorSchema;
 
         if (Object.keys(errors).length > 0) {
-          Object(utils["t" /* setState */])(assertThisInitialized_default()(assertThisInitialized_default()(_this)), {
+          Object(utils["t" /* setState */])(assertThisInitialized_default()(_this), {
             errors: errors,
             errorSchema: errorSchema
           }, function () {
@@ -6417,7 +6418,7 @@ function (_Component) {
         }
       }
 
-      Object(utils["t" /* setState */])(assertThisInitialized_default()(assertThisInitialized_default()(_this)), {
+      Object(utils["t" /* setState */])(assertThisInitialized_default()(_this), {
         errors: [],
         errorSchema: {}
       }, function () {
@@ -6600,7 +6601,7 @@ var src_fields = __webpack_require__(20);
 var widgets = __webpack_require__(22);
 
 // EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/extends.js
-var helpers_extends = __webpack_require__(7);
+var helpers_extends = __webpack_require__(6);
 var extends_default = /*#__PURE__*/__webpack_require__.n(helpers_extends);
 
 // EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/objectWithoutProperties.js
@@ -6614,7 +6615,7 @@ var lab_ = __webpack_require__(19);
 var icons_ = __webpack_require__(18);
 
 // EXTERNAL MODULE: external {"commonjs":"@material-ui/core","commonjs2":"@material-ui/core","amd":"@material-ui/core","root":"@material-ui/core"}
-var core_ = __webpack_require__(4);
+var core_ = __webpack_require__(3);
 
 // CONCATENATED MODULE: ./src/templates/ArrayFieldTemplate.jsx
 
@@ -6876,7 +6877,7 @@ function (_Component) {
 
     _this = possibleConstructorReturn_default()(this, getPrototypeOf_default()(ArrayFileObjectTemplate).call(this, props));
 
-    defineProperty_default()(assertThisInitialized_default()(assertThisInitialized_default()(_this)), "handleFileChange", function (files) {
+    defineProperty_default()(assertThisInitialized_default()(_this), "handleFileChange", function (files) {
       var onChange = _this.props.onChange;
 
       _this.setState({
@@ -6947,7 +6948,7 @@ function (_Component) {
       });
     });
 
-    defineProperty_default()(assertThisInitialized_default()(assertThisInitialized_default()(_this)), "handleFileDelete", function (file) {
+    defineProperty_default()(assertThisInitialized_default()(_this), "handleFileDelete", function (file) {
       var onChange = _this.props.onChange;
 
       if (!onChange) {
@@ -7446,7 +7447,7 @@ var withTheme_initWithTheme = function initWithTheme(WrappedForm, fields) {
 
         _this = possibleConstructorReturn_default()(this, (_getPrototypeOf2 = getPrototypeOf_default()(WithTheme)).call.apply(_getPrototypeOf2, [this].concat(args)));
 
-        defineProperty_default()(assertThisInitialized_default()(assertThisInitialized_default()(_this)), "state", mergeComponents(_this.props));
+        defineProperty_default()(assertThisInitialized_default()(_this), "state", mergeComponents(_this.props));
 
         return _this;
       }
