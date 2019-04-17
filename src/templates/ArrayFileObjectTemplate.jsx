@@ -255,6 +255,7 @@ export default class ArrayFileObjectTemplate extends Component {
 					placeholder={description}
 					isError={isError}
 					onChange={this.handleFileChange}
+					onPDFOpen={props.onPDFOpen}
 				/>
 				<br />
 				<Help help={help} />

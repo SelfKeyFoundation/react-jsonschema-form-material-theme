@@ -69,6 +69,7 @@ export class ObjectFileWidget extends Component {
 			onBlur,
 			onFocus,
 			registry,
+			onPDFOpen,
 			errorSchema,
 		} = this.props;
 		const { definitions, templates, formContext } = registry;
@@ -116,6 +117,7 @@ export class ObjectFileWidget extends Component {
 					file={file}
 					onClearForm={this.clearState()}
 					onChange={this.onChange()}
+					onPDFOpen={onPDFOpen}
 					onBlur={onBlur && (event => onBlur(this.state))}
 					onFocus={onFocus && (event => onFocus(this.state))}
 					accept={accept}

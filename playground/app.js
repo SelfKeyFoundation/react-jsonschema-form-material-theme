@@ -313,21 +313,21 @@ class App extends Component {
 	};
 
 	transformContent = formData => {
-		if (!formData){
+		if (!formData) {
 			return formData;
 		}
-		if (formData.content&& formData.content.length > 1000){
-			return toJson({ ...formData, content: 'too long to display' })
+		if (formData.content && formData.content.length > 1000) {
+			return toJson({ ...formData, content: 'too long to display' });
 		}
-		if (Array.isArray(formData)){
+		if (Array.isArray(formData)) {
 			formData = formData.map(d => {
-				if (d.content&& d.content.length > 1000){
-					return { ...d, content: 'too long to display' }
+				if (d.content && d.content.length > 1000) {
+					return { ...d, content: 'too long to display' };
 				}
 				return d;
 			});
 		}
-		return toJson(formData)
+		return toJson(formData);
 	};
 
 	render() {
@@ -358,6 +358,9 @@ class App extends Component {
 					formData={formData}
 					onChange={this.onFormDataChange}
 					onSubmit={({ formData }) => console.log('submitted formData', formData)}
+					onPDFOpen={file => {
+						console.log('XXX', file);
+					}}
 					fields={{ geo: GeoPosition }}
 					validate={validate}
 					onBlur={(id, value) => console.log(`Touched ${id} with value ${value}`)}
@@ -407,6 +410,9 @@ class App extends Component {
 									schema={liveValidateSchema}
 									formData={liveValidate}
 									onChange={this.setLiveValidate}
+									onPDFOpen={file => {
+										console.log('XXX', file);
+									}}
 								>
 									<div />
 								</Form>
@@ -415,6 +421,9 @@ class App extends Component {
 									schema={selfkeyDarkThemeSchema}
 									formData={selfkeyDarkTheme}
 									onChange={this.setSelfkeyDarkTheme}
+									onPDFOpen={file => {
+										console.log('XXX', file);
+									}}
 								>
 									<div />
 								</Form>
