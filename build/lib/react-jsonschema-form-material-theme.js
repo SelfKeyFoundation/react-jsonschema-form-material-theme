@@ -1990,6 +1990,7 @@ function (_Component) {
           registry = _this$props.registry,
           autofocus = _this$props.autofocus,
           onChange = _this$props.onChange,
+          onPDFOpen = _this$props.onPDFOpen,
           errors = _this$props.errors;
       var definitions = registry.definitions,
           fields = registry.fields,
@@ -2020,6 +2021,7 @@ function (_Component) {
             onChange: onChange,
             onBlur: onBlur,
             onFocus: onFocus,
+            onPDFOpen: onPDFOpen,
             required: required,
             disabled: disabled,
             readonly: readonly,
@@ -2067,6 +2069,7 @@ function (_Component) {
               idPrefix: idPrefix,
               formData: formData[name],
               onChange: _this2.onPropertyChange(name),
+              onPDFOpen: onPDFOpen,
               onBlur: onBlur,
               onFocus: onFocus,
               registry: registry,
@@ -2085,6 +2088,7 @@ function (_Component) {
         schema: schema,
         formData: formData,
         formContext: formContext,
+        onPDFOpen: onPDFOpen,
         registry: registry
       };
       return external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement(ObjectFieldTemplate, templateProps);
@@ -2156,7 +2160,8 @@ function SchemaFieldRender(props) {
       idPrefix = props.idPrefix,
       name = props.name,
       required = props.required,
-      registry = props.registry;
+      registry = props.registry,
+      onPDFOpen = props.onPDFOpen;
   var definitions = registry.definitions,
       fields = registry.fields,
       formContext = registry.formContext,
@@ -2235,7 +2240,8 @@ function SchemaFieldRender(props) {
     fields: fields,
     schema: schema,
     uiSchema: uiSchema,
-    registry: registry
+    registry: registry,
+    onPDFOpen: onPDFOpen
   };
   return external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement(FieldTemplate, templateProps, external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement(Field, fieldProps));
 }
@@ -4043,6 +4049,7 @@ function (_Component) {
           onBlur = _this$props.onBlur,
           onFocus = _this$props.onFocus,
           registry = _this$props.registry,
+          onPDFOpen = _this$props.onPDFOpen,
           errorSchema = _this$props.errorSchema;
       var definitions = registry.definitions,
           templates = registry.templates,
@@ -4086,6 +4093,7 @@ function (_Component) {
         file: file,
         onClearForm: this.clearState(),
         onChange: this.onChange(),
+        onPDFOpen: onPDFOpen,
         onBlur: onBlur && function (event) {
           return onBlur(_this4.state);
         },
@@ -6540,7 +6548,8 @@ function (_Component) {
           autocomplete = _this$props5.autocomplete,
           enctype = _this$props5.enctype,
           acceptcharset = _this$props5.acceptcharset,
-          noHtml5Validate = _this$props5.noHtml5Validate;
+          noHtml5Validate = _this$props5.noHtml5Validate,
+          onPDFOpen = _this$props5.onPDFOpen;
       var _this$state2 = this.state,
           schema = _this$state2.schema,
           uiSchema = _this$state2.uiSchema,
@@ -6574,6 +6583,7 @@ function (_Component) {
         onChange: this.onChange,
         onBlur: this.onBlur,
         onFocus: this.onFocus,
+        onPDFOpen: onPDFOpen,
         registry: registry,
         safeRenderCompletion: safeRenderCompletion
       }), children ? children : external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement(SubmitTemplate, null));
@@ -7097,7 +7107,8 @@ function (_Component) {
         uploadError: this.state.uploadError,
         placeholder: description,
         isError: isError,
-        onChange: this.handleFileChange
+        onChange: this.handleFileChange,
+        onPDFOpen: props.onPDFOpen
       }), external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement("br", null), external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement(Help, {
         help: help
       }));

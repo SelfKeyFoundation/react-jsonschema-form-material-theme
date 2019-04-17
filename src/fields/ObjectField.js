@@ -56,6 +56,7 @@ class ObjectField extends Component {
       registry,
       autofocus,
       onChange,
+      onPDFOpen,
       errors,
     } = this.props;
     const { definitions, fields, templates, formContext, widgets } = registry;
@@ -78,6 +79,7 @@ class ObjectField extends Component {
             onChange={onChange}
             onBlur={onBlur}
             onFocus={onFocus}
+            onPDFOpen={onPDFOpen}
             required={required}
             disabled={disabled}
             readonly={readonly}
@@ -131,6 +133,7 @@ class ObjectField extends Component {
               idPrefix={idPrefix}
               formData={formData[name]}
               onChange={this.onPropertyChange(name)}
+              onPDFOpen={onPDFOpen}
               onBlur={onBlur}
               onFocus={onFocus}
               registry={registry}
@@ -150,6 +153,7 @@ class ObjectField extends Component {
       schema,
       formData,
       formContext,
+      onPDFOpen,
       registry,
     };
     return <ObjectFieldTemplate {...templateProps} />;

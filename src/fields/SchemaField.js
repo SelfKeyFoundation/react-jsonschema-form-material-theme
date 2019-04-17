@@ -54,6 +54,7 @@ function SchemaFieldRender(props) {
     name,
     required,
     registry,
+    onPDFOpen
   } = props;
   const {
     definitions,
@@ -146,6 +147,7 @@ function SchemaFieldRender(props) {
     schema,
     uiSchema,
     registry,
+    onPDFOpen
   };
 
   return (

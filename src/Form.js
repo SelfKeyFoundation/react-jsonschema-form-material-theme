@@ -178,6 +178,7 @@ export default class Form extends Component {
       enctype,
       acceptcharset,
       noHtml5Validate,
+      onPDFOpen
     } = this.props;
 
     const { schema, uiSchema, formData, errorSchema, idSchema } = this.state;
@@ -211,6 +212,7 @@ export default class Form extends Component {
           onChange={this.onChange}
           onBlur={this.onBlur}
           onFocus={this.onFocus}
+          onPDFOpen={onPDFOpen}
           registry={registry}
           safeRenderCompletion={safeRenderCompletion}
         />
@@ -233,6 +235,7 @@ if (process.env.NODE_ENV !== "production") {
     ).isRequired,
     fields: PropTypes.objectOf(PropTypes.func).isRequired,
     onChange: PropTypes.func,
+    onPDFOpen: PropTypes.func,
     onError: PropTypes.func,
     showErrorList: PropTypes.bool,
     onSubmit: PropTypes.func,
