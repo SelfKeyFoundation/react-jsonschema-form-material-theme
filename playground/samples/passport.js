@@ -38,7 +38,7 @@ export default {
 				format: 'date',
 			},
 			selfie: {
-				title: 'Selfie',
+				title: 'Selfie *',
 				description:
 					"Take a selfie, making sure the image is clear, and your face isn't covered by any items, such as glasses.",
 				type: 'object',
@@ -94,9 +94,6 @@ export default {
 	},
 	uiSchema: {
 		'ui:order': ['image', 'issued', 'expires', 'selfie', 'extra'],
-		image: {
-			'ui:label': false,
-		},
 		selfie: {
 			image: {
 				'ui:label': false,
