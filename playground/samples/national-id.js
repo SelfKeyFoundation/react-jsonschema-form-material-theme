@@ -107,7 +107,7 @@ export default {
 				},
 			},
 		},
-		required: ['front', 'issued'],
+		required: ['front', 'issued', 'selfie'],
 	},
 	uiSchema: {
 		'ui:order': ['front', 'back', 'issued', 'expires', 'selfie', 'extra'],

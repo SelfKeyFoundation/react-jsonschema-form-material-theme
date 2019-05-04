@@ -7,10 +7,10 @@ export default {
 		type: 'object',
 		properties: {
 			image: {
+				title: 'Passport Image',
 				$schema: 'http://json-schema.org/draft-07/schema',
 				$id: 'http://platform.selfkey.org/schema/file/image.json',
 				type: 'object',
-				title: 'Image',
 				format: 'file',
 				properties: {
 					mimeType: {
@@ -90,7 +90,7 @@ export default {
 				},
 			},
 		},
-		required: ['image', 'issued', 'expires'],
+		required: ['image', 'issued', 'expires', 'selfie'],
 	},
 	uiSchema: {
 		'ui:order': ['image', 'issued', 'expires', 'selfie', 'extra'],
