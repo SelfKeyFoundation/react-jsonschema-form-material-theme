@@ -55,7 +55,7 @@ export default {
 				format: 'date',
 			},
 			selfie: {
-				title: 'Selfie',
+				title: 'Selfie *',
 				description:
 					"Take a selfie, making sure the image is clear, and your face isn't covered by any items, such as glasses.",
 				type: 'object',
@@ -107,7 +107,7 @@ export default {
 				},
 			},
 		},
-		required: ['front', 'issued'],
+		required: ['front', 'issued', 'selfie'],
 	},
 	uiSchema: {
 		'ui:order': ['front', 'back', 'issued', 'expires', 'selfie', 'extra'],
