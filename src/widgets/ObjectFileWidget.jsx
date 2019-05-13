@@ -122,7 +122,7 @@ export class ObjectFileWidget extends Component {
 					onBlur={onBlur && (event => onBlur(this.state))}
 					onFocus={onFocus && (event => onFocus(this.state))}
 					accept={accept}
-					isError={errors ? true : false}
+					isError={errors.length > 0  ? true : false}
 				/>
 			</FieldTemplate>
 		);

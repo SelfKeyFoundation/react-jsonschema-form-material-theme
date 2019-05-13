@@ -4043,6 +4043,7 @@ function (_Component) {
           name = _this$props.name,
           help = _this$props.help,
           required = _this$props.required,
+          isError = _this$props.isError,
           disabled = _this$props.disabled,
           readonly = _this$props.readonly,
           idPrefix = _this$props.idPrefix,
@@ -4100,7 +4101,8 @@ function (_Component) {
         onFocus: onFocus && function (event) {
           return onFocus(_this4.state);
         },
-        accept: accept
+        accept: accept,
+        isError: errors.length > 0 ? true : false
       }));
     }
   }]);
