@@ -38,13 +38,13 @@ function DateWidget(props) {
 		<KeyPicker
 			readOnly={readonly}
 			disabled={disabled}
-			error={isError(errors)}
 			autoFocus={autofocus}
 			value={value == null ? '' : value}
 			{...inputProps}
 			onChange={_onChange}
 			onFocus={onFocus && (event => onFocus(inputProps.id, event.target.value))}
 			disableUnderline
+			isError={isError(errors)}
 		/>
 	);
 }

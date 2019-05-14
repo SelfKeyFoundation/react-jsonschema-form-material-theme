@@ -3249,7 +3249,6 @@ function DateWidget(props) {
   return external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement(external_commonjs_selfkey_ui_commonjs2_selfkey_ui_amd_selfkey_ui_root_selfkey_ui_["KeyPicker"], extends_default()({
     readOnly: readonly,
     disabled: disabled,
-    error: isError(errors),
     autoFocus: autofocus,
     value: value == null ? '' : value
   }, inputProps, {
@@ -3257,7 +3256,8 @@ function DateWidget(props) {
     onFocus: onFocus && function (event) {
       return onFocus(inputProps.id, event.target.value);
     },
-    disableUnderline: true
+    disableUnderline: true,
+    isError: isError(errors)
   }));
 }
 
@@ -4043,6 +4043,7 @@ function (_Component) {
           name = _this$props.name,
           help = _this$props.help,
           required = _this$props.required,
+          isError = _this$props.isError,
           disabled = _this$props.disabled,
           readonly = _this$props.readonly,
           idPrefix = _this$props.idPrefix,
@@ -4100,7 +4101,8 @@ function (_Component) {
         onFocus: onFocus && function (event) {
           return onFocus(_this4.state);
         },
-        accept: accept
+        accept: accept,
+        isError: errors.length > 0 ? true : false
       }));
     }
   }]);
