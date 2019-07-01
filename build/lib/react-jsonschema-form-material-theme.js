@@ -3729,6 +3729,14 @@ function getValue(event, multiple) {
   }
 }
 
+function SelectWidget_isError(Obj) {
+  for (var key in Obj) {
+    if (Obj.hasOwnProperty(key)) return true;
+  }
+
+  return false;
+}
+
 function SelectWidget_SelectWidget(props) {
   var schema = props.schema,
       id = props.id,
@@ -3742,7 +3750,8 @@ function SelectWidget_SelectWidget(props) {
       _onChange = props.onChange,
       onBlur = props.onBlur,
       onFocus = props.onFocus,
-      placeholder = props.placeholder;
+      placeholder = props.placeholder,
+      errors = props.errors;
   var enumOptions = options.enumOptions,
       enumDisabled = options.enumDisabled;
   var emptyValue = multiple ? [] : "";
@@ -3750,6 +3759,7 @@ function SelectWidget_SelectWidget(props) {
     id: id,
     native: true,
     multiple: multiple,
+    error: SelectWidget_isError(errors),
     className: "form-control",
     value: typeof value === "undefined" ? emptyValue : value,
     required: required,

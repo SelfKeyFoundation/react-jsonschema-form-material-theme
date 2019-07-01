@@ -35,6 +35,13 @@ function getValue(event, multiple) {
   }
 }
 
+function isError(Obj) {
+  for (var key in Obj) {
+    if (Obj.hasOwnProperty(key)) return true;
+  }
+  return false;
+}
+
 function SelectWidget(props) {
   const {
     schema,
@@ -50,6 +57,7 @@ function SelectWidget(props) {
     onBlur,
     onFocus,
     placeholder,
+    errors
   } = props;
   const { enumOptions, enumDisabled } = options;
   const emptyValue = multiple ? [] : "";
@@ -59,6 +67,7 @@ function SelectWidget(props) {
         id={id}
         native
         multiple={multiple}
+			  error={isError(errors)}
         className="form-control"
         value={typeof value === "undefined" ? emptyValue : value}
         required={required}
