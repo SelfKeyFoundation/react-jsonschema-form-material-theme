@@ -6,3 +6,27 @@ patch:
   SNYK-JS-LODASH-450202:
     - selfkey-ui > lodash:
         patched: '2019-07-03T21:43:31.946Z'
+    - selfkey-ui > snyk > snyk-go-plugin > graphlib > lodash:
+        patched: '2019-10-09T11:36:48.298Z'
+    - snyk > snyk-go-plugin > graphlib > lodash:
+        patched: '2019-10-09T11:36:48.298Z'
+    - snyk > snyk-nuget-plugin > dotnet-deps-parser > lodash:
+        patched: '2019-10-09T11:36:48.298Z'
+    - snyk > snyk-nodejs-lockfile-parser > graphlib > lodash:
+        patched: '2019-10-09T11:36:48.298Z'
+    - snyk > @snyk/snyk-cocoapods-plugin > @snyk/dep-graph > graphlib > lodash:
+        patched: '2019-10-09T11:36:48.298Z'
+    - selfkey-ui > snyk > @snyk/dep-graph > graphlib > lodash:
+        patched: '2019-10-09T11:36:48.298Z'
+    - snyk > @snyk/dep-graph > graphlib > lodash:
+        patched: '2019-10-09T11:36:48.298Z'
+    - selfkey-ui > snyk > snyk-nodejs-lockfile-parser > graphlib > lodash:
+        patched: '2019-10-09T11:36:48.298Z'
+    - selfkey-ui > snyk > snyk-nuget-plugin > dotnet-deps-parser > lodash:
+        patched: '2019-10-09T11:36:48.298Z'
+    - selfkey-ui > snyk > @snyk/snyk-cocoapods-plugin > @snyk/dep-graph > graphlib > lodash:
+        patched: '2019-10-09T11:36:48.298Z'
+    - snyk > @snyk/snyk-cocoapods-plugin > @snyk/cocoapods-lockfile-parser > @snyk/dep-graph > graphlib > lodash:
+        patched: '2019-10-09T11:36:48.298Z'
+    - selfkey-ui > snyk > @snyk/snyk-cocoapods-plugin > @snyk/cocoapods-lockfile-parser > @snyk/dep-graph > graphlib > lodash:
+        patched: '2019-10-09T11:36:48.298Z'
