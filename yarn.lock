@@ -1536,6 +1536,11 @@ cache-base@^1.0.1:
     union-value "^1.0.0"
     unset-value "^1.0.0"
 
+call-me-maybe@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/call-me-maybe/-/call-me-maybe-1.0.1.tgz#26d208ea89e37b5cbde60250a15f031c16a4d66b"
+  integrity sha1-JtII6onje1y95gJQoV8DHBak1ms=
+
 camelcase@^2.0.1:
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/camelcase/-/camelcase-2.1.1.tgz#7c1d16d679a1bbe59ca02cacecfb011e201f5a1f"
@@ -3453,6 +3458,15 @@ json-parse-better-errors@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/json-parse-better-errors/-/json-parse-better-errors-1.0.2.tgz#bb867cfb3450e69107c131d1c514bab3dc8bcaa9"
 
+json-schema-ref-parser@^7.1.1:
+  version "7.1.1"
+  resolved "https://registry.yarnpkg.com/json-schema-ref-parser/-/json-schema-ref-parser-7.1.1.tgz#16896f5af14560233e24bd0c6ed581f6a94fb315"
+  integrity sha512-5DGfOTuTAMFzjNw56kwEQ9YqjCvRPHRbEmPkPSNPuK4DR4TmLQrZ1k0UdO8EJ9DKjOPqtyBjtlSnvzAC6kwUsg==
+  dependencies:
+    call-me-maybe "^1.0.1"
+    js-yaml "^3.13.1"
+    ono "^5.0.1"
+
 json-schema-traverse@^0.3.0:
   version "0.3.1"
   resolved "https://registry.yarnpkg.com/json-schema-traverse/-/json-schema-traverse-0.3.1.tgz#349a6d44c53a51de89b40805c5d5e59b417d3340"
@@ -4278,6 +4292,11 @@ onetime@^2.0.0:
   integrity sha1-BnQoIw/WdEOyeUsiu6UotoZ5YtQ=
   dependencies:
     mimic-fn "^1.0.0"
+
+ono@^5.0.1:
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/ono/-/ono-5.1.0.tgz#8cafa7e56afa2211ad63dd2eb798427e64f1a070"
+  integrity sha512-GgqRIUWErLX4l9Up0khRtbrlH8Fyj59A0nKv8V6pWEto38aUgnOGOOF7UmgFFLzFnDSc8REzaTXOc0hqEe7yIw==
 
 opn@^5.1.0:
   version "5.4.0"

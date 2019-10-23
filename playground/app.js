@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
+import RefParser from 'json-schema-ref-parser';
 import { UnControlled as CodeMirror } from 'react-codemirror2';
 import 'codemirror/mode/javascript/javascript';
 
@@ -39,6 +40,41 @@ const cmOptions = {
 	lineWrapping: true,
 	indentWithTabs: false,
 	tabSize: 2,
+};
+const sleep = timeout => new Promise(resolve => setTimeout(() => resolve(), timeout));
+
+const loadRemoteSchema = async (url, options, attempt = 1) => {
+	options = options || {};
+	if (options.env === 'development') {
+		url = url.replace('/schema/', '/dev-schema/');
+	}
+	url = url.replace('http://', 'https://');
+	try {
+		let res = await fetch(url);
+		if (res.status >= 400) {
+			throw new Error('Failed to fetch schema from remote');
+		}
+		return await res.json();
+	} catch (error) {
+		console.error('Load schema %s attempt %d error, %s', url, attempt, error);
+		if (attempt <= 3) {
+			await sleep(attempt * 200);
+			return loadRemoteSchema(url, options, attempt + 1);
+		}
+		throw error;
+	}
+};
+
+const dereference = (schema, options) => {
+	const resolver = {
+		order: 1,
+		canRead: /platform\.selfkey\.org/i,
+		async read(file) {
+			console.log('Selfkey', file);
+			return await loadRemoteSchema(file.url, options);
+		},
+	};
+	return RefParser.dereference(schema, { resolve: { selfkey: resolver } });
 };
 
 class GeoPosition extends Component {
@@ -279,7 +315,16 @@ class App extends Component {
 		);
 	};
 
-	onSchemaEdited = schema => this.setState({ schema, shareURL: null });
+	onSchemaEdited = async schema => {
+		try {
+			console.log('XXX', 'Editing schema', schema);
+			schema = await dereference(schema);
+			console.log('XXX', 'dereferenced schema', schema);
+		} catch (error) {
+			console.error(error);
+		}
+		this.setState({ schema, shareURL: null });
+	};
 
 	onUISchemaEdited = uiSchema => this.setState({ uiSchema, shareURL: null });
 
