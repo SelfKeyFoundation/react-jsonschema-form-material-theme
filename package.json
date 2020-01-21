@@ -32,7 +32,7 @@
     "mime": "^2.4.0",
     "react-jsonschema-form": "https://github.com/SelfKeyFoundation/react-jsonschema-form.git#57c07f0842f649baaf484e014a5069f55aca8b4f",
     "selfkey-ui": "https://github.com/SelfKeyFoundation/selfkey-ui.git#ce5a225a3be2e44003952cc6249377661ade9f83",
-    "snyk": "^1.189.0",
+    "snyk": "^1.278.2",
     "svg-inline-loader": "^0.8.0"
   },
   "devDependencies": {
