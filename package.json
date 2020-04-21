@@ -32,7 +32,7 @@
     "lodash.topath": "^4.5.2",
     "mime": "^2.4.0",
     "react-jsonschema-form": "https://github.com/SelfKeyFoundation/react-jsonschema-form.git#57c07f0842f649baaf484e014a5069f55aca8b4f",
-    "selfkey-ui": "https://github.com/SelfKeyFoundation/selfkey-ui.git#23615bd15ee5f94b4d40312e84ad34e1b28e474b",
+    "selfkey-ui": "https://github.com/SelfKeyFoundation/selfkey-ui.git#46eb760ba2bf7076449020a704d7f0afb6ccec55",
     "snyk": "^1.189.0",
     "svg-inline-loader": "^0.8.0"
   },
