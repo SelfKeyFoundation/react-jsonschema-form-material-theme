@@ -13,7 +13,7 @@ var _propTypes = _interopRequireDefault(require("prop-types"));
 
 var _core = require("@material-ui/core");
 
-var _utils = require("react-jsonschema-form/lib/utils");
+var _utils = require("../utils");
 
 var nums = new Set(["number", "integer"]);
 /**

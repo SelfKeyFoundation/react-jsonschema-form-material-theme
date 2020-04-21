@@ -15,7 +15,7 @@ var _objectWithoutProperties2 = _interopRequireDefault(require("@babel/runtime/h
 
 var _react = _interopRequireDefault(require("react"));
 
-var _utils = require("react-jsonschema-form/lib/utils");
+var _utils = require("../utils");
 
 var _selfkeyUi = require("selfkey-ui");
 

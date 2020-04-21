@@ -13,11 +13,9 @@ var _react = _interopRequireDefault(require("react"));
 
 var _propTypes = _interopRequireDefault(require("prop-types"));
 
-var _utils = require("react-jsonschema-form/lib/utils");
+var _utils = require("../utils");
 
 var _core = require("@material-ui/core");
-
-var _lab = require("@material-ui/lab");
 
 function RangeWidget(props) {
   var schema = props.schema,
@@ -31,7 +29,7 @@ function RangeWidget(props) {
 
   return _react.default.createElement("div", {
     className: "field-range-wrapper"
-  }, _react.default.createElement(_lab.Slider, (0, _extends2.default)({}, props, {
+  }, _react.default.createElement(_core.Slider, (0, _extends2.default)({}, props, {
     step: props.step ? props.step : 1
   }, (0, _utils.rangeSpec)(schema), {
     onChange: _onChange

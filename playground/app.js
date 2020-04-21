@@ -4,7 +4,7 @@ import RefParser from 'json-schema-ref-parser';
 import { UnControlled as CodeMirror } from 'react-codemirror2';
 import 'codemirror/mode/javascript/javascript';
 
-import { shouldRender } from 'react-jsonschema-form/lib/utils';
+import { shouldRender } from '../src/utils';
 import { samples } from './samples/index';
 
 import Form from '../src';

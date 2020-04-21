@@ -27,7 +27,7 @@ var _react = _interopRequireWildcard(require("react"));
 
 var _propTypes = _interopRequireDefault(require("prop-types"));
 
-var _utils = require("react-jsonschema-form/lib/utils");
+var _utils = require("../utils");
 
 var _core = require("@material-ui/core");
 

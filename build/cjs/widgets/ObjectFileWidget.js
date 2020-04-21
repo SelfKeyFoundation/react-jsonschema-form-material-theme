@@ -27,7 +27,7 @@ var _selfkeyUi = require("selfkey-ui");
 
 var _core = require("@material-ui/core");
 
-var _utils = require("react-jsonschema-form/lib/utils");
+var _utils = require("../utils");
 
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 

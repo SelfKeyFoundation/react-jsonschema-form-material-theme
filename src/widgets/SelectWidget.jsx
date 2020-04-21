@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Select } from '@material-ui/core';
 
-import { asNumber } from "react-jsonschema-form/lib/utils";
+import { asNumber } from "../utils";
 import { FormControl } from "@material-ui/core";
 
 const nums = new Set(["number", "integer"]);

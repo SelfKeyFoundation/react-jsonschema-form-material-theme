@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import { FileUploadWidget } from 'selfkey-ui';
 import { InputLabel, Button, Typography } from '@material-ui/core';
-import { retrieveSchema, dataURItoBlob } from 'react-jsonschema-form/lib/utils';
+import { retrieveSchema, dataURItoBlob } from '../utils';
 
 export class ObjectFileWidget extends Component {
 	constructor(props) {

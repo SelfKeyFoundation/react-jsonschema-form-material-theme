@@ -13,7 +13,7 @@ var _react = _interopRequireDefault(require("react"));
 
 var _propTypes = _interopRequireDefault(require("prop-types"));
 
-var _utils = require("react-jsonschema-form/lib/utils");
+var _utils = require("../utils");
 
 function UpDownWidget(props) {
   var BaseInput = props.registry.widgets.BaseInput;
