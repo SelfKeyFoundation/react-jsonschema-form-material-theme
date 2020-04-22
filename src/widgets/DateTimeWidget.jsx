@@ -1,5 +1,5 @@
 import React from 'react';
-import { pad } from 'react-jsonschema-form/lib/utils';
+import { pad } from '../utils';
 import { KeyPicker } from 'selfkey-ui';
 
 export function utcToLocal(jsonDate) {

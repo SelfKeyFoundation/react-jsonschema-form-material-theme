@@ -1,8 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { rangeSpec } from 'react-jsonschema-form/lib/utils';
-import { Typography } from '@material-ui/core';
-import { Slider } from '@material-ui/lab';
+import { rangeSpec } from '../utils';
+import { Typography, Slider } from '@material-ui/core';
 
 function RangeWidget(props) {
 	const {

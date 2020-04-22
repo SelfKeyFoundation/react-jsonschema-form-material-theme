@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import { rangeSpec } from "react-jsonschema-form/lib/utils";
+import { rangeSpec } from "../utils";
 
 function UpDownWidget(props) {
   const {

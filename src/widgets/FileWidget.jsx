@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import { dataURItoBlob, shouldRender, setState } from 'react-jsonschema-form/lib/utils';
+import { dataURItoBlob, shouldRender, setState } from '../utils';
 import { Button, Input, Typography, List, Grid } from '@material-ui/core';
 import { AttachFile as AttachFileIcon } from '@material-ui/icons';
 
