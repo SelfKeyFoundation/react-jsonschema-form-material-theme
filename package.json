@@ -58,7 +58,7 @@
     "react": "16.13.1",
     "react-codemirror2": "5.1.0",
     "react-dom": "16.13.1",
-    "selfkey-ui": "https://github.com/SelfKeyFoundation/selfkey-ui.git#0fd94f914a124d39ffa5936d3ff9db460c3ca651",
+    "selfkey-ui": "https://github.com/SelfKeyFoundation/selfkey-ui.git#6cab3a1fb5520da269300dbb48639650820e6bd0",
     "snyk": "1.307.0",
     "style-loader": "0.23.1",
     "uglifyjs-webpack-plugin": "2.1.1",
