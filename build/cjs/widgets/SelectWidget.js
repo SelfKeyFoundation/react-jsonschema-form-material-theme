@@ -15,6 +15,8 @@ var _core = require("@material-ui/core");
 
 var _utils = require("../utils");
 
+var _selfkeyUi = require("selfkey-ui");
+
 var nums = new Set(["number", "integer"]);
 /**
  * This is a silly limitation in the DOM where option change event values are
@@ -76,7 +78,9 @@ function SelectWidget(props) {
   var enumOptions = options.enumOptions,
       enumDisabled = options.enumDisabled;
   var emptyValue = multiple ? [] : "";
-  return _react.default.createElement(_core.FormControl, null, _react.default.createElement(_core.Select, {
+  return _react.default.createElement(_core.FormControl, {
+    variant: "filled"
+  }, _react.default.createElement(_core.Select, {
     id: id,
     native: true,
     multiple: multiple,
@@ -86,6 +90,10 @@ function SelectWidget(props) {
     required: required,
     disabled: disabled || readonly,
     autoFocus: autofocus,
+    input: _react.default.createElement(_core.Input, {
+      disableUnderline: true
+    }),
+    IconComponent: _selfkeyUi.SelectDropdownIcon,
     onBlur: onBlur && function (event) {
       var newValue = getValue(event, multiple);
       onBlur(id, processValue(schema, newValue));

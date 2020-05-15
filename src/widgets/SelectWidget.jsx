@@ -1,9 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Select } from '@material-ui/core';
+import { Select, Input } from '@material-ui/core';
 
 import { asNumber } from "../utils";
 import { FormControl } from "@material-ui/core";
+import { SelectDropdownIcon } from "selfkey-ui";
 
 const nums = new Set(["number", "integer"]);
 
@@ -62,7 +63,7 @@ function SelectWidget(props) {
   const { enumOptions, enumDisabled } = options;
   const emptyValue = multiple ? [] : "";
   return (
-    <FormControl>
+    <FormControl variant="filled">
       <Select
         id={id}
         native
@@ -73,6 +74,8 @@ function SelectWidget(props) {
         required={required}
         disabled={disabled || readonly}
         autoFocus={autofocus}
+        input={<Input disableUnderline />}
+        IconComponent={SelectDropdownIcon}
         onBlur={
           onBlur &&
           (event => {
