@@ -7,7 +7,7 @@
 		exports["reactJsonSchemaMaterialTheme"] = factory(require("react"), require("prop-types"), require("@material-ui/core"), require("selfkey-ui"), require("@material-ui/icons"), require("@material-ui/lab"), require("ajv"));
 	else
 		root["reactJsonSchemaMaterialTheme"] = factory(root["React"], root["PropTypes"], root["@material-ui/core"], root["selfkey-ui"], root["@material-ui/icons"], root["@material-ui/lab"], root["ajv"]);
-})(window, function(__WEBPACK_EXTERNAL_MODULE__0__, __WEBPACK_EXTERNAL_MODULE__1__, __WEBPACK_EXTERNAL_MODULE__4__, __WEBPACK_EXTERNAL_MODULE__15__, __WEBPACK_EXTERNAL_MODULE__16__, __WEBPACK_EXTERNAL_MODULE__19__, __WEBPACK_EXTERNAL_MODULE__36__) {
+})(window, function(__WEBPACK_EXTERNAL_MODULE__0__, __WEBPACK_EXTERNAL_MODULE__1__, __WEBPACK_EXTERNAL_MODULE__4__, __WEBPACK_EXTERNAL_MODULE__13__, __WEBPACK_EXTERNAL_MODULE__16__, __WEBPACK_EXTERNAL_MODULE__19__, __WEBPACK_EXTERNAL_MODULE__36__) {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -139,9 +139,9 @@ module.exports = __WEBPACK_EXTERNAL_MODULE__1__;
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "w", function() { return setState; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return dataURItoBlob; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "u", function() { return rangeSpec; });
-/* harmony import */ var _babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(13);
+/* harmony import */ var _babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(14);
 /* harmony import */ var _babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _babel_runtime_helpers_typeof__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(14);
+/* harmony import */ var _babel_runtime_helpers_typeof__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(15);
 /* harmony import */ var _babel_runtime_helpers_typeof__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_typeof__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(5);
 /* harmony import */ var _babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_2__);
@@ -1097,7 +1097,7 @@ module.exports = _inherits;
 /* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var _typeof = __webpack_require__(14);
+var _typeof = __webpack_require__(15);
 
 var assertThisInitialized = __webpack_require__(6);
 
@@ -1113,6 +1113,12 @@ module.exports = _possibleConstructorReturn;
 
 /***/ }),
 /* 13 */
+/***/ (function(module, exports) {
+
+module.exports = __WEBPACK_EXTERNAL_MODULE__13__;
+
+/***/ }),
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var arrayWithoutHoles = __webpack_require__(44);
@@ -1130,7 +1136,7 @@ function _toConsumableArray(arr) {
 module.exports = _toConsumableArray;
 
 /***/ }),
-/* 14 */
+/* 15 */
 /***/ (function(module, exports) {
 
 function _typeof(obj) {
@@ -1150,12 +1156,6 @@ function _typeof(obj) {
 }
 
 module.exports = _typeof;
-
-/***/ }),
-/* 15 */
-/***/ (function(module, exports) {
-
-module.exports = __WEBPACK_EXTERNAL_MODULE__15__;
 
 /***/ }),
 /* 16 */
@@ -1179,7 +1179,7 @@ var helpers_extends = __webpack_require__(5);
 var extends_default = /*#__PURE__*/__webpack_require__.n(helpers_extends);
 
 // EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/toConsumableArray.js
-var toConsumableArray = __webpack_require__(13);
+var toConsumableArray = __webpack_require__(14);
 var toConsumableArray_default = /*#__PURE__*/__webpack_require__.n(toConsumableArray);
 
 // EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/classCallCheck.js
@@ -3201,7 +3201,7 @@ ColorWidget.propTypes = {
 };
 /* harmony default export */ var widgets_ColorWidget = (ColorWidget);
 // EXTERNAL MODULE: external {"commonjs":"selfkey-ui","commonjs2":"selfkey-ui","amd":"selfkey-ui","root":"selfkey-ui"}
-var external_commonjs_selfkey_ui_commonjs2_selfkey_ui_amd_selfkey_ui_root_selfkey_ui_ = __webpack_require__(15);
+var external_commonjs_selfkey_ui_commonjs2_selfkey_ui_amd_selfkey_ui_root_selfkey_ui_ = __webpack_require__(13);
 
 // CONCATENATED MODULE: ./src/widgets/DateWidget.jsx
 
@@ -3692,6 +3692,7 @@ RangeWidget.propTypes = {
 
 
 
+
 var nums = new Set(["number", "integer"]);
 /**
  * This is a silly limitation in the DOM where option change event values are
@@ -3753,7 +3754,9 @@ function SelectWidget_SelectWidget(props) {
   var enumOptions = options.enumOptions,
       enumDisabled = options.enumDisabled;
   var emptyValue = multiple ? [] : "";
-  return external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement(core_["FormControl"], null, external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement(core_["Select"], {
+  return external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement(core_["FormControl"], {
+    variant: "filled"
+  }, external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement(core_["Select"], {
     id: id,
     native: true,
     multiple: multiple,
@@ -3763,6 +3766,10 @@ function SelectWidget_SelectWidget(props) {
     required: required,
     disabled: disabled || readonly,
     autoFocus: autofocus,
+    input: external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement(core_["Input"], {
+      disableUnderline: true
+    }),
+    IconComponent: external_commonjs_selfkey_ui_commonjs2_selfkey_ui_amd_selfkey_ui_root_selfkey_ui_["SelectDropdownIcon"],
     onBlur: onBlur && function (event) {
       var newValue = getValue(event, multiple);
       onBlur(id, processValue(schema, newValue));
@@ -6811,7 +6818,7 @@ function AddButton(_ref3) {
   }, external_commonjs_react_commonjs2_react_amd_React_root_React_default.a.createElement(icons_["Add"], null));
 }
 // EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/toConsumableArray.js
-var toConsumableArray = __webpack_require__(13);
+var toConsumableArray = __webpack_require__(14);
 var toConsumableArray_default = /*#__PURE__*/__webpack_require__.n(toConsumableArray);
 
 // EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/readOnlyError.js
@@ -6819,7 +6826,7 @@ var readOnlyError = __webpack_require__(25);
 var readOnlyError_default = /*#__PURE__*/__webpack_require__.n(readOnlyError);
 
 // EXTERNAL MODULE: external {"commonjs":"selfkey-ui","commonjs2":"selfkey-ui","amd":"selfkey-ui","root":"selfkey-ui"}
-var external_commonjs_selfkey_ui_commonjs2_selfkey_ui_amd_selfkey_ui_root_selfkey_ui_ = __webpack_require__(15);
+var external_commonjs_selfkey_ui_commonjs2_selfkey_ui_amd_selfkey_ui_root_selfkey_ui_ = __webpack_require__(13);
 
 // EXTERNAL MODULE: ./node_modules/mime/index.js
 var mime = __webpack_require__(39);
